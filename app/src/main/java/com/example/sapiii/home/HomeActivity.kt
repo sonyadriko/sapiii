@@ -1,11 +1,12 @@
-package com.example.sapiii
+package com.example.sapiii.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.sapiii.R
 
-class DetailKambingActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail_kambing)
+        setContentView(R.layout.activity_home)
     }
 }
