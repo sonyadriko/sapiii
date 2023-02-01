@@ -2,10 +2,34 @@ package com.example.sapiii
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.sapiii.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
+
+    private lateinit var binding : ActivityHomeBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        binding = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        replaceFragment(HomeFragment())
+
+        binding.bottomNavigationView.setOnItemSelectedListener {
+            when(it.itemId) {
+                R.id.home -> replaceFragment(HomeFragment())
+
+                else -> {
+
+                }
+            }
+            true
+        }
+    }
+
+    private fun replaceFragment(homeFragment: HomeFragment) {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frame_layout, homeFragment)
+        fragmentTransaction.commit()
     }
 }
