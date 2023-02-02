@@ -34,9 +34,7 @@
                 android:value="" />
         </activity>
         <activity
-
             android:name=".home.HomeActivity"
-
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -49,7 +47,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name=".auth.LoginActivity"
+        <activity
+            android:name=".auth.LoginActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
