@@ -2,8 +2,9 @@ package com.example.sapiii.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.sapiii.databinding.ActivityHomeBinding
+import com.example.sapiii.HomeFragment
 import com.example.sapiii.R
+import com.example.sapiii.databinding.ActivityHomeBinding
 
 
 class HomeActivity : AppCompatActivity() {
