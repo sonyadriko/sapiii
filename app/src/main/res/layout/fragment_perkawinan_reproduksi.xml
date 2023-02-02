@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TernakkuFragment">
+    tools:context=".PerkawinanReproduksiFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-black"
-                    android:text="TERNAKKU"
+                    android:text="PERKAWINAN &amp; REPRODUKSI"
                     android:textColor="@color/white"
                     android:textSize="22sp" />
 
@@ -52,7 +52,7 @@
             android:padding="100dp">
 
             <LinearLayout
-                android:id="@+id/ternakku_sapi"
+                android:id="@+id/monitoring_pejantan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -62,19 +62,20 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/ic_search_black" />
+                    android:src="@drawable/ic_baseline_male_24" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sapi"
+                    android:gravity="center"
+                    android:text="Monitoring Pejantan"
                     android:textColor="@color/black"
                     android:textSize="22sp" />
             </LinearLayout>
 
 
             <LinearLayout
-                android:id="@+id/ternakku_kambing"
+                android:id="@+id/monitoring_kehamilan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -85,12 +86,13 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/ic_search_black" />
+                    android:src="@drawable/ic_baseline_female_24" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Kambing"
+                    android:gravity="center"
+                    android:text="Monitoring Kehamilan"
                     android:textColor="@color/black"
                     android:textSize="22sp" />
 
@@ -98,4 +100,5 @@
         </LinearLayout>
 
     </LinearLayout>
+
 </FrameLayout>

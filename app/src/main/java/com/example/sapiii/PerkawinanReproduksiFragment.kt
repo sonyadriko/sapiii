@@ -1,6 +1,6 @@
 package com.example.sapiii
 
-import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,10 +15,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [TernakkuFragment.newInstance] factory method to
+ * Use the [PerkawinanReproduksiFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class TernakkuFragment : Fragment() {
+class PerkawinanReproduksiFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -31,23 +31,23 @@ class TernakkuFragment : Fragment() {
         }
     }
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        val v = inflater.inflate(R.layout.fragment_ternakku, container, false)
-        val ternakkuSapi = v.findViewById<LinearLayout>(R.id.ternakku_sapi)
-        val ternakkuKambing = v.findViewById<LinearLayout>(R.id.ternakku_kambing)
+        val v = inflater.inflate(R.layout.fragment_perkawinan_reproduksi, container, false)
+        val kehamilan = v.findViewById<LinearLayout>(R.id.monitoring_kehamilan)
+        val pejantan = v.findViewById<LinearLayout>(R.id.monitoring_pejantan)
 
-        ternakkuSapi.setOnClickListener {
-            val listSapi = ListSapiFragment()
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.frame_layout, listSapi)
-                ?.addToBackStack(null)
-                ?.commit()
+        kehamilan.setOnClickListener {
+            startActivity(Intent (activity, MonitoringKehamilanActivity::class.java))
         }
+
+        pejantan.setOnClickListener {
+            startActivity(Intent (activity, MonitoringPejantanActivity::class.java))
+        }
+
         // Inflate the layout for this fragment
         return v
     }
@@ -59,12 +59,12 @@ class TernakkuFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment TernakkuFragment.
+         * @return A new instance of fragment PerkawinanReproduksiFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            TernakkuFragment().apply {
+            PerkawinanReproduksiFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
