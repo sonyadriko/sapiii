@@ -1,4 +1,4 @@
-package com.example.sapiii.view
+package com.example.sapiii.feature.ternakku
 
 import android.os.Bundle
 import android.view.LayoutInflater

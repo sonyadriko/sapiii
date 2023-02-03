@@ -1,4 +1,4 @@
-package com.example.sapiii.view
+package com.example.sapiii.feature.timbangan
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

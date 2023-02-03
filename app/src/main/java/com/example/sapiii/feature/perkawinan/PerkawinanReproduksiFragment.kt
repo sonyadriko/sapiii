@@ -1,4 +1,4 @@
-package com.example.sapiii.view
+package com.example.sapiii.feature.perkawinan
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import com.example.sapiii.R
+import com.example.sapiii.feature.ternakku.MonitoringKehamilanActivity
+import com.example.sapiii.feature.ternakku.MonitoringPejantanActivity
 
 class PerkawinanReproduksiFragment : Fragment() {
 

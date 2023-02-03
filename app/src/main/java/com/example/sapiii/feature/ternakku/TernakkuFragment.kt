@@ -1,4 +1,4 @@
-package com.example.sapiii.view
+package com.example.sapiii.feature.ternakku
 
 import android.annotation.SuppressLint
 import android.os.Bundle

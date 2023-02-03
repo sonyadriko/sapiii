@@ -1,11 +1,11 @@
-package com.example.sapiii.view.home
+package com.example.sapiii.feature
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.sapiii.view.HomeFragment
 
 import com.example.sapiii.databinding.ActivityHomeBinding
 import com.example.sapiii.R
+import com.example.sapiii.feature.home.HomeFragment
 
 
 class HomeActivity : AppCompatActivity() {

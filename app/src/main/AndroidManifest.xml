@@ -13,56 +13,56 @@
         android:theme="@style/Theme.Sapiii"
         tools:targetApi="31">
         <activity
-            android:name=".view.HitungBobotKambingActivity"
+            android:name=".feature.timbangan.HitungBobotKambingActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".view.HitungBobotSapiActivity"
+            android:name=".feature.timbangan.HitungBobotSapiActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".view.MonitoringKehamilanActivity"
+            android:name=".feature.ternakku.MonitoringKehamilanActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".view.MonitoringPejantanActivity"
+            android:name=".feature.ternakku.MonitoringPejantanActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".view.GrafikSapiActivity"
+            android:name=".feature.ternakku.GrafikSapiActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".view.detail.DetailKambingActivity"
+            android:name=".feature.detail.DetailKambingActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".view.detail.DetailSapiActivity"
+            android:name=".feature.detail.DetailSapiActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".view.home.HomeActivity"
+            android:name=".feature.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -74,29 +74,22 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".view.auth.RegisterActivity"
+            android:name=".feature.auth.RegisterActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".view.auth.LoginActivity"
+            android:name=".feature.auth.LoginActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".view.SplashScreen"
+            android:name=".feature.SplashScreen"
             android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".view.MainActivity"
-            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
