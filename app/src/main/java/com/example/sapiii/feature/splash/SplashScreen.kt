@@ -1,4 +1,4 @@
-package com.example.sapiii.feature
+package com.example.sapiii.feature.splash
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
