@@ -1,4 +1,4 @@
-package com.example.sapiii.auth
+package com.example.sapiii.view.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

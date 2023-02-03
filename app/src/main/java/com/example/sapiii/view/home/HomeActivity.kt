@@ -1,8 +1,8 @@
-package com.example.sapiii.home
+package com.example.sapiii.view.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.sapiii.HomeFragment
+import com.example.sapiii.view.HomeFragment
 
 import com.example.sapiii.databinding.ActivityHomeBinding
 import com.example.sapiii.R
