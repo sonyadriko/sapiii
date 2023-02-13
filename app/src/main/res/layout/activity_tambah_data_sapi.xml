@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TambahDataSapiActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-black"
+            android:text="Input Data Hewan"
+            android:textColor="#ef3a5d"
+            android:textSize="22sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/img_sapi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_ternak" />
+
+            <EditText
+                android:id="@+id/et_nama_sapi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nama Sapi" />
+
+
+            <EditText
+                android:id="@+id/et_jenis_sapi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Madura Brown" />
+
+
+            <EditText
+                android:id="@+id/et_kdtg_sapi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="September" />
+
+            <EditText
+                android:id="@+id/et_usiadtg_sapi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="3 Bulan" />
+
+            <EditText
+                android:id="@+id/et_brtbdn_awal_saapi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="150 Kg" />
+
+            <EditText
+                android:id="@+id/et_usiaskg_sapi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="1,5 Tahun" />
+
+            <EditText
+                android:id="@+id/et_brtbdn_skg_sapi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="450 Kg" />
+
+            <EditText
+                android:id="@+id/et_asal_sapi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Madura" />
+
+            <EditText
+                android:id="@+id/et_sttsskg_sapi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Siap Jual" />
+
+            <EditText
+                android:id="@+id/et_nomor_telepon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nomor Telepon"
+                android:inputType="phone" />
+
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit" />
+
+    </LinearLayout>
+</LinearLayout>

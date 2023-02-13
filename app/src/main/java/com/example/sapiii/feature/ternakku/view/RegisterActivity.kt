@@ -1,4 +1,4 @@
-package com.example.sapiii.feature.auth.view
+package com.example.sapiii.feature.ternakku.view
 
 import android.os.Bundle
 import androidx.activity.viewModels
