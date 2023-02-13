@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashScreen">
+    tools:context=".feature.splash.SplashScreenActivity">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
             android:fontFamily="monospace"
             android:text="BANTU"
             android:textColor="#0F0F0F"
-            android:textSize="22dp"
+            android:textSize="22sp"
             android:layout_gravity="center"
             android:gravity="center"
             android:textStyle="bold"
@@ -36,7 +36,7 @@
             android:fontFamily="monospace"
             android:text="TERNAK"
             android:textColor="#0F0F0F"
-            android:textSize="22dp"
+            android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
 

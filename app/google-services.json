@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "832295147106",
+    "project_id": "sapiii",
+    "storage_bucket": "sapiii.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:832295147106:android:4fafe2991f64bb9bafa33b",
+        "android_client_info": {
+          "package_name": "com.example.sapiii"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "832295147106-t8gsp2urd6n5r31uig721dufomusj0st.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1sVn_Kqnr_ZokkznZRfd-Kd71vPN3LNk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "832295147106-t8gsp2urd6n5r31uig721dufomusj0st.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,7 +1,8 @@
-package com.example.sapiii
+package com.example.sapiii.feature.timbangan
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.example.sapiii.R
 
 class HitungBobotKambingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
