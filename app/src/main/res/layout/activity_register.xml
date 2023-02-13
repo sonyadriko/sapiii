@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".feature.auth.RegisterActivity">
+    tools:context=".feature.auth.view.RegisterActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:background="@drawable/rounded_button"
-            android:hint="Username"
+            android:hint="@string/username"
             android:inputType="text"
             android:padding="15dp"
             android:textColor="@color/white"
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:background="@drawable/rounded_button"
-            android:hint="Email"
+            android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:padding="15dp"
             android:textColor="@color/white"
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:background="@drawable/rounded_button"
-            android:hint="Nomor Telepon"
+            android:hint="@string/phone_number"
             android:inputType="phone"
             android:padding="15dp"
             android:textColor="@color/white"
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:background="@drawable/rounded_button"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:padding="15dp"
             android:textColor="@color/white"
@@ -73,7 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:background="@drawable/rounded_button"
-            android:hint="Konfirmasi Password"
+            android:hint="@string/password_reconfirmation"
             android:inputType="textPassword"
             android:padding="15dp"
             android:textColor="@color/white"
@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="20dp"
             android:background="@drawable/rounded_button"
-            android:text="Register" />
+            android:text="@string/register" />
     </LinearLayout>
 
 </RelativeLayout>

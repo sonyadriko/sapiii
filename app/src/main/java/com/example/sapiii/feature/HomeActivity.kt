@@ -5,10 +5,14 @@ import android.os.Bundle
 
 import com.example.sapiii.databinding.ActivityHomeBinding
 import com.example.sapiii.R
+import com.example.sapiii.base.BaseActivity
 import com.example.sapiii.feature.home.HomeFragment
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : BaseActivity() {
 
     private lateinit var binding : ActivityHomeBinding
 
