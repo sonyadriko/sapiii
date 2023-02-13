@@ -6,6 +6,7 @@ import com.example.sapiii.HomeFragment
 import com.example.sapiii.databinding.ActivityHomeBinding
 import com.example.sapiii.R
 
+
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityHomeBinding
