@@ -38,69 +38,86 @@
                 android:id="@+id/et_nama_sapi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nama Sapi" />
+                android:hint="Nama Sapi"
+                android:minHeight="48dp" />
 
 
             <EditText
                 android:id="@+id/et_jenis_sapi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Madura Brown" />
+                android:hint="Madura Brown"
+                android:minHeight="48dp" />
+            <EditText
+                android:id="@+id/et_jk_sapi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Jantan"
+                android:minHeight="48dp" />
 
 
             <EditText
                 android:id="@+id/et_kdtg_sapi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="September" />
+                android:hint="September"
+                android:minHeight="48dp" />
 
             <EditText
                 android:id="@+id/et_usiadtg_sapi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="3 Bulan" />
+                android:hint="3 Bulan"
+                android:minHeight="48dp" />
 
             <EditText
                 android:id="@+id/et_brtbdn_awal_saapi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="150 Kg" />
+                android:hint="150 Kg"
+                android:minHeight="48dp" />
 
             <EditText
                 android:id="@+id/et_usiaskg_sapi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="1,5 Tahun" />
+                android:hint="1,5 Tahun"
+                android:minHeight="48dp" />
 
             <EditText
                 android:id="@+id/et_brtbdn_skg_sapi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="450 Kg" />
+                android:hint="450 Kg"
+                android:minHeight="48dp" />
 
             <EditText
                 android:id="@+id/et_asal_sapi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Madura" />
+                android:hint="Madura"
+                android:minHeight="48dp" />
 
             <EditText
                 android:id="@+id/et_sttsskg_sapi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Siap Jual" />
+                android:hint="Siap Jual"
+                android:minHeight="48dp" />
 
-            <EditText
-                android:id="@+id/et_nomor_telepon"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Nomor Telepon"
-                android:inputType="phone" />
+<!--            <EditText-->
+<!--                android:id="@+id/et_nomor_telepon"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="Nomor Telepon"-->
+<!--                android:inputType="phone"-->
+<!--                android:minHeight="48dp" />-->
 
 
         </LinearLayout>
 
         <Button
+            android:id="@+id/btn_sbmit_sapi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Submit" />
