@@ -20,7 +20,6 @@ class SapiAdapter : RecyclerView.Adapter<SapiAdapter.MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        TODO("Not yet implemented")
         val currentItem = sapiList[position]
 
         holder.namaSapi.text = currentItem.namaSapi
@@ -31,13 +30,19 @@ class SapiAdapter : RecyclerView.Adapter<SapiAdapter.MyViewHolder>() {
 
     override fun getItemCount(): Int {
         return sapiList.size
-        TODO("Not yet implemented")
+    }
+
+    fun updateUserList(userList : List<Sapi>){
+
+        this.sapiList.clear()
+        this.sapiList.addAll(userList)
+        notifyDataSetChanged()
+
     }
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val namaSapi : TextView = itemView.findViewById(R.id.text_cow_name)
         val genderSapi : TextView = itemView.findViewById(R.id.text_cow_gender)
-
     }
 
 
