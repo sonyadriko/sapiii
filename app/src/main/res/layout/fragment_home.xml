@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:orientation="horizontal"
-            android:padding="10dp">
+            android:padding="16dp">
 
 
             <LinearLayout
@@ -73,9 +73,9 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_ternak" />
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/icon_ternakku" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -97,9 +97,9 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_ternak" />
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/icon_kesehataan" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -120,9 +120,9 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_ternak" />
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/icon_pakan" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -152,9 +152,9 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_ternak" />
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/icon_mutasi" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -175,9 +175,9 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_ternak" />
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/icon_timbangan" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -199,9 +199,9 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_ternak" />
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/icon_gender" />
 
                 <TextView
                     android:layout_width="wrap_content"

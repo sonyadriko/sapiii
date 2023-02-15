@@ -41,7 +41,7 @@
                     android:layout_width="75dp"
                     android:layout_height="75dp"
                     android:contentDescription="@string/gambar_sapi"
-                    android:src="@drawable/ic_username" />
+                    android:src="@drawable/icon_cow" />
 
 
             </LinearLayout>
@@ -69,10 +69,6 @@
             android:id="@+id/sapi_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             tools:listitem="@layout/list_view_sapi"/>
 
 <!--        <androidx.recyclerview.widget.RecyclerView-->

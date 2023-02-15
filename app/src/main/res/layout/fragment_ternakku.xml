@@ -35,7 +35,7 @@
                 <ImageView
                     android:layout_width="75dp"
                     android:layout_height="75dp"
-                    android:src="@drawable/ic_username" />
+                    android:src="@drawable/icon_ternakku" />
 
 
             </LinearLayout>
@@ -59,17 +59,32 @@
                 android:orientation="vertical"
                 android:padding="10dp">
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/ic_search_black" />
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/circle_blue_background" />
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/icon_cow" />
+
+
+                </FrameLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sapi"
+                    android:text="SAPI"
                     android:textColor="@color/black"
-                    android:textSize="22sp" />
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
 
@@ -82,17 +97,32 @@
                 android:padding="10dp">
 
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/ic_search_black" />
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/circle_blue_background" />
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/icon_goat" />
+
+
+                </FrameLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Kambing"
                     android:textColor="@color/black"
-                    android:textSize="22sp" />
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
         </LinearLayout>
