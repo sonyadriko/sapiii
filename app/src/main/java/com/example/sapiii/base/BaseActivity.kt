@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sapiii.feature.HomeActivity
-import com.example.sapiii.feature.auth.view.LoginActivity
+import com.example.sapiii.feature.ternakku.view.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
