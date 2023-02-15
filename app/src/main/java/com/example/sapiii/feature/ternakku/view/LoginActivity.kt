@@ -21,11 +21,13 @@ class LoginActivity : BaseAuthActivity() {
 
     private fun initListener() = with(binding) {
         btnLogin.setOnClickListener {
-            showProgressDialog()
-            login(etEmail.text.toString(), etPassword.text.toString(), doOnFailed = {
-                dismissProgressDialog()
-                showToast("Akun tidak ditemukan")
-            })
+            if (!etEmail.text.isNullOrEmpty() && !etPassword.text.isNullOrEmpty()) {
+                showProgressDialog()
+                login(etEmail.text.toString(), etPassword.text.toString(), doOnFailed = {
+                    dismissProgressDialog()
+                    showToast("Akun tidak ditemukan")
+                })
+            }
         }
 
         btnRegister.setOnClickListener {
