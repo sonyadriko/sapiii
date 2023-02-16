@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".feature.ternakku.ListSapiFragment">
 
     <LinearLayout
@@ -40,7 +41,7 @@
                     android:layout_width="75dp"
                     android:layout_height="75dp"
                     android:contentDescription="@string/gambar_sapi"
-                    android:src="@drawable/ic_username" />
+                    android:src="@drawable/icon_cow" />
 
 
             </LinearLayout>
@@ -58,11 +59,17 @@
 
         </LinearLayout>
 
-        <ListView
-            android:id="@+id/list_view_cows"
-            tools:listitem="@layout/list_view_sapi"
+<!--        <ListView-->
+<!--            android:id="@+id/list_view_cows"-->
+<!--            tools:listitem="@layout/list_view_sapi"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content" />-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/sapi_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent"
+            tools:listitem="@layout/list_view_sapi"/>
 
 <!--        <androidx.recyclerview.widget.RecyclerView-->
 <!--            android:layout_width="match_parent"-->
