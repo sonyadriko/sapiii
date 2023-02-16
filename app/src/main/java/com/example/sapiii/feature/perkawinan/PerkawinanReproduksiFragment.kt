@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import com.example.sapiii.R
-import com.example.sapiii.feature.ternakku.MonitoringKehamilanActivity
-import com.example.sapiii.feature.ternakku.MonitoringPejantanActivity
+import com.example.sapiii.feature.ternakku.sapi.view.MonitoringKehamilanActivity
+import com.example.sapiii.feature.ternakku.sapi.view.MonitoringPejantanActivity
 
 class PerkawinanReproduksiFragment : Fragment() {
 

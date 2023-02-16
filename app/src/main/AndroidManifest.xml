@@ -14,7 +14,7 @@
         tools:ignore="LockedOrientationActivity"
         tools:targetApi="31">
         <activity
-            android:name=".TambahDataSapiActivity"
+            android:name=".feature.ternakku.sapi.view.TambahDataSapiActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -29,7 +29,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".feature.ternakku.MonitoringKehamilanActivity"
+            android:name=".feature.ternakku.sapi.view.MonitoringKehamilanActivity"
             android:exported="false"
             android:screenOrientation="portrait">
             <meta-data
@@ -37,7 +37,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".feature.ternakku.MonitoringPejantanActivity"
+            android:name=".feature.ternakku.sapi.view.MonitoringPejantanActivity"
             android:exported="false"
             android:screenOrientation="portrait">
             <meta-data
@@ -45,7 +45,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".feature.ternakku.GrafikSapiActivity"
+            android:name=".feature.ternakku.sapi.view.GrafikSapiActivity"
             android:exported="false"
             android:screenOrientation="portrait">
             <meta-data
@@ -77,7 +77,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".feature.ternakku.view.RegisterActivity"
+            android:name=".feature.auth.viewmodel.view.RegisterActivity"
             android:exported="false"
             android:screenOrientation="portrait">
             <meta-data
@@ -85,7 +85,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".feature.ternakku.view.LoginActivity"
+            android:name=".feature.auth.viewmodel.view.LoginActivity"
             android:exported="false"
             android:screenOrientation="portrait">
             <meta-data

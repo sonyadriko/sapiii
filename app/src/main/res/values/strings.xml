@@ -15,4 +15,18 @@
     <string name="password_reconfirmation">Konfirmasi Password</string>
     <string name="phone_number">Nomor Telepon</string>
     <string name="username">Username</string>
+    <string name="submit">Submit</string>
+    <string name="input_data_hewan">Input Data Hewan</string>
+    <string name="status">Status</string>
+    <string name="asal">Asal</string>
+    <string name="berat_badan">Berat Badan</string>
+    <string name="usia_sapi">Usia Sapi</string>
+    <string name="data_sapi_sekarang">Data Sapi Sekarang</string>
+    <string name="berat_badan_awal">Berat Badan Awal</string>
+    <string name="usia_awal">Usia Awal</string>
+    <string name="data_kedatangan_awal">Data Kedatangan Awal</string>
+    <string name="bulan_kedatangan">Bulan Kedatangan</string>
+    <string name="jenis_kelamin">Jenis Kelamin</string>
+    <string name="jenis">Jenis</string>
+    <string name="nama_sapi">Nama Sapi</string>
 </resources>

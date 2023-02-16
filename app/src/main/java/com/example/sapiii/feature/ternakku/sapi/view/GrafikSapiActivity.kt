@@ -1,4 +1,4 @@
-package com.example.sapiii.feature.ternakku
+package com.example.sapiii.feature.ternakku.sapi.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
