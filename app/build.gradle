@@ -60,4 +60,7 @@ dependencies {
     // fragment & lifecycle ktx
     implementation "androidx.fragment:fragment-ktx:1.5.5"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
+
+    // gson
+    implementation 'com.google.code.gson:gson:2.10.1'
 }

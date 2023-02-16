@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TambahDataSapiActivity">
+    android:overScrollMode="never"
+    tools:context=".feature.ternakku.sapi.view.TambahDataSapiActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,10 +15,10 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:fontFamily="sans-serif-black"
-            android:text="Input Data Hewan"
+            android:text="@string/input_data_hewan"
             android:textColor="#ef3a5d"
             android:textSize="22sp" />
 
@@ -32,87 +32,165 @@
                 android:id="@+id/img_sapi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_ternak" />
+                android:src="@drawable/ic_ternak"
+                tools:ignore="contentDescription" />
 
-            <EditText
-                android:id="@+id/et_nama_sapi"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nama Sapi"
-                android:minHeight="48dp" />
+                android:hint="@string/nama_sapi">
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_nama_sapi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-            <EditText
-                android:id="@+id/et_jenis_sapi"
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Madura Brown"
-                android:minHeight="48dp" />
-            <EditText
-                android:id="@+id/et_jk_sapi"
+                android:hint="@string/jenis">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_jenis_sapi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_jenis_kelamin"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Jantan"
-                android:minHeight="48dp" />
+                android:hint="@string/jenis_kelamin">
 
+                <AutoCompleteTextView
+                    android:id="@+id/et_jenis_kelamin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none" />
 
-            <EditText
-                android:id="@+id/et_kdtg_sapi"
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                style="@style/TextAppearance.AppCompat.Subhead"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="September"
-                android:minHeight="48dp" />
+                android:layout_marginTop="16dp"
+                android:text="@string/data_kedatangan_awal"
+                android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/et_usiadtg_sapi"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="3 Bulan"
-                android:minHeight="48dp" />
+                android:hint="@string/bulan_kedatangan">
 
-            <EditText
-                android:id="@+id/et_brtbdn_awal_saapi"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_kdtg_sapi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="150 Kg"
-                android:minHeight="48dp" />
+                android:hint="@string/usia_awal">
 
-            <EditText
-                android:id="@+id/et_usiaskg_sapi"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_usiadtg_sapi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="1,5 Tahun"
-                android:minHeight="48dp" />
+                android:hint="@string/berat_badan_awal">
 
-            <EditText
-                android:id="@+id/et_brtbdn_skg_sapi"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_brtbdn_awal_saapi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberDecimal" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                style="@style/TextAppearance.AppCompat.Subhead"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="450 Kg"
-                android:minHeight="48dp" />
+                android:layout_marginTop="16dp"
+                android:text="@string/data_sapi_sekarang"
+                android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/et_asal_sapi"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Madura"
-                android:minHeight="48dp" />
+                android:hint="@string/usia_sapi">
 
-            <EditText
-                android:id="@+id/et_sttsskg_sapi"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_usiaskg_sapi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Siap Jual"
-                android:minHeight="48dp" />
+                android:hint="@string/berat_badan">
 
-<!--            <EditText-->
-<!--                android:id="@+id/et_nomor_telepon"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:hint="Nomor Telepon"-->
-<!--                android:inputType="phone"-->
-<!--                android:minHeight="48dp" />-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_brtbdn_skg_sapi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberDecimal" />
 
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/asal">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_asal_sapi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_status"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/status">
+
+                <AutoCompleteTextView
+                    android:id="@+id/et_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
 
@@ -120,7 +198,7 @@
             android:id="@+id/btn_sbmit_sapi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Submit" />
+            android:text="@string/submit" />
 
     </LinearLayout>
-</LinearLayout>
+</ScrollView>
