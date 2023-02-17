@@ -1,18 +1,17 @@
-package com.example.sapiii.feature.ternakku.sapi.view
+package com.example.sapiii.feature.ternakku.sapi.view.adapter
 
-import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sapiii.R
 import com.example.sapiii.domain.Sapi
-import com.example.sapiii.feature.detail.DetailSapiActivity
+import com.example.sapiii.util.OnItemClick
 
-class SapiAdapter(private val context: Context) : RecyclerView.Adapter<SapiAdapter.MyViewHolder>() {
+class SapiAdapter(
+    private val onItemClick: OnItemClick
+) : RecyclerView.Adapter<SapiAdapter.MyViewHolder>() {
     private val sapiList = ArrayList<Sapi>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView =
@@ -27,12 +26,7 @@ class SapiAdapter(private val context: Context) : RecyclerView.Adapter<SapiAdapt
         holder.genderSapi.text = currentItem.kelamin
 
         holder.itemView.setOnClickListener {
-            val intent = Intent(context, DetailSapiActivity::class.java).apply {
-                putExtra("namasapi", currentItem.tag)
-                putExtra("jeniskelamin", currentItem.kelamin)
-            }
-            context.startActivity(intent)
-
+            onItemClick.onClick(currentItem, position)
         }
     }
 
