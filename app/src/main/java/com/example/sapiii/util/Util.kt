@@ -1,6 +1,8 @@
 package com.example.sapiii.util
 
 import com.example.sapiii.constanst.Constant.Role
+import com.example.sapiii.domain.Sapi
+import com.google.firebase.database.DataSnapshot
 
 fun String.toRole(): Role {
     return when (this.lowercase()) {
@@ -19,4 +21,8 @@ fun String.toRole(): Role {
 
 fun String.toFloatNew(): Float {
     return this.replace(",", ".").toFloat()
+}
+
+fun DataSnapshot.toSapiDomain() : Sapi {
+    return getValue(Sapi::class.java)!!
 }
