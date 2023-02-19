@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +15,7 @@ import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.databinding.FragmentListSapiBinding
 import com.example.sapiii.domain.Sapi
 import com.example.sapiii.feature.detail.DetailSapiActivity
+import com.example.sapiii.feature.detail.DetailSapiActivity.Companion.RESULT_DELETE
 import com.example.sapiii.feature.ternakku.sapi.view.adapter.SapiAdapter
 import com.example.sapiii.feature.ternakku.sapi.viewmodel.SapiViewModel
 import com.example.sapiii.util.OnItemClick
@@ -24,6 +27,13 @@ class ListSapiFragment : BaseFragment(), OnItemClick {
     private lateinit var adapter: SapiAdapter
 
     private val viewModel: SapiViewModel by viewModels()
+
+    private val startForResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+            if (result.resultCode == RESULT_DELETE) {
+                loadSapi()
+            }
+        }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -71,10 +81,10 @@ class ListSapiFragment : BaseFragment(), OnItemClick {
 
     override fun onClick(data: Any, position: Int) {
         val currentItem = data as Sapi
-        val intent = Intent(context, DetailSapiActivity::class.java).apply {
+        val detailIntent = Intent(context, DetailSapiActivity::class.java).apply {
             putExtra("namasapi", currentItem.tag)
             putExtra("jeniskelamin", currentItem.kelamin)
         }
-        startActivity(intent)
+        startForResult.launch(detailIntent)
     }
 }
