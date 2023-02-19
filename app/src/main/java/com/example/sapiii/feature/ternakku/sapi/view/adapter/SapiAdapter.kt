@@ -26,6 +26,7 @@ class SapiAdapter(
         holder.genderSapi.text = currentItem.kelamin
 
         holder.itemView.setOnClickListener {
+
             onItemClick.onClick(currentItem, position)
         }
     }

@@ -87,6 +87,7 @@
                         android:src="@drawable/ic_search_black" />
 
                     <TextView
+                        android:id="@+id/nama_sapi_detail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
@@ -135,7 +136,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-
+android:id="@+id/jenis_sapi_detail"
                                 android:layout_weight="1"
                                 android:text="Madura Brown"
                                 android:textColor="@color/black"
@@ -164,7 +165,7 @@
                                 android:layout_weight="1"
                                 android:text="Jantan"
                                 android:textColor="@color/black"
-
+android:id="@+id/jk_sapi_detail"
                                 android:textSize="18sp" />
 
                         </LinearLayout>
@@ -188,7 +189,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="September"
-
+android:id="@+id/kdtg_sapi_detail"
                                 android:textColor="@color/black"
                                 android:textSize="18sp" />
 
@@ -214,7 +215,7 @@
                                 android:layout_weight="1"
                                 android:text="3 Bulan"
                                 android:textColor="@color/black"
-
+android:id="@+id/usiadtg_sapi_detail"
                                 android:textSize="18sp" />
 
                         </LinearLayout>
@@ -239,7 +240,7 @@
                                 android:layout_weight="1"
                                 android:text="150 Kg"
                                 android:textColor="@color/black"
-
+android:id="@+id/bbawal_sapi_detail"
                                 android:textSize="18sp" />
 
                         </LinearLayout>
@@ -264,7 +265,7 @@
                                 android:layout_weight="1"
                                 android:text="1,5 Tahun"
                                 android:textColor="@color/black"
-
+android:id="@+id/usiaskg_sapi_detail"
                                 android:textSize="18sp" />
                         </LinearLayout>
 
@@ -288,7 +289,7 @@
                                 android:layout_weight="1"
                                 android:text="450 Kg"
                                 android:textColor="@color/black"
-
+android:id="@+id/bbskg_sapi_detail"
                                 android:textSize="18sp" />
                         </LinearLayout>
 
@@ -311,7 +312,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Madura"
-
+android:id="@+id/asal_sapi_detail"
                                 android:textColor="@color/black"
                                 android:textSize="18sp" />
                         </LinearLayout>
@@ -336,7 +337,7 @@
                                 android:layout_weight="1"
                                 android:text="Siap Jual"
                                 android:textColor="@color/black"
-
+android:id="@+id/stts_sapi_detail"
                                 android:textSize="18sp" />
                         </LinearLayout>
 
@@ -454,20 +455,20 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/button_save"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:drawableTop="@drawable/ic_ternak"
-                        android:text="Simpan" />
-
-                    <Button
                         android:id="@+id/button_edit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:drawableTop="@drawable/ic_ternak"
+                        android:drawableTop="@drawable/ic_baseline_edit_24"
                         android:text="Edit" />
+
+                    <Button
+                        android:id="@+id/button_delete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:drawableTop="@drawable/ic_baseline_delete_24"
+                        android:text="Hapus" />
 
                 </LinearLayout>
 
