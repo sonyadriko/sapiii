@@ -23,7 +23,7 @@ class HomeFragment : Fragment() {
         val v = inflater.inflate(R.layout.fragment_home, container, false)
         val ternakku = v.findViewById<LinearLayout>(R.id.menu_ternakku)
         val kesehatan = v.findViewById<LinearLayout>(R.id.menu_kesehatan)
-
+        val timbangan = v.findViewById<LinearLayout>(R.id.menu_timbangan)
         val kawinrepro = v.findViewById<LinearLayout>(R.id.menu_perkawinan)
 
 
