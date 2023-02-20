@@ -2,12 +2,9 @@ package com.example.sapiii.feature.ternakku.sapi.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
-import androidx.lifecycle.ViewModel
-import com.example.sapiii.repository.SapiRepository
+import com.example.sapiii.base.BaseViewModel
 
-class SapiViewModel : ViewModel() {
-    private val repository : SapiRepository = SapiRepository().getInstance()
-
+class SapiViewModel : BaseViewModel() {
     private val onLoadSapi = MutableLiveData<Unit>()
     val sapi = Transformations.switchMap(onLoadSapi) {
         repository.loadSapi()

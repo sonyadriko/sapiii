@@ -22,7 +22,7 @@ class TernakkuFragment : Fragment() {
         val ternakkuKambing = v.findViewById<LinearLayout>(R.id.ternakku_kambing)
 
         ternakkuSapi.setOnClickListener {
-            val listSapi = ListSapiFragment()
+            val listSapi = ListSapiFragment.fromTernakku()
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(R.id.frame_layout, listSapi)
                 ?.addToBackStack(null)
