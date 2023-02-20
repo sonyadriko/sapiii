@@ -103,18 +103,25 @@
                             android:layout_height="wrap_content"
 
                             android:layout_weight="1"
-                            android:text="Jenis/Tipe"
+                            android:text="Kondisi Saat ini"
                             android:textColor="@color/black"
                             android:textSize="18sp" />
 
-                        <TextView
+<!--                        <TextView-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="wrap_content"-->
+
+<!--                            android:layout_weight="1"-->
+<!--                            android:hint="Sehat"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="18sp" />-->
+                        <Spinner
+                            android:id="@+id/spinner"
+                            android:layout_weight="1"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:entries="@array/option_kesehatan" />
 
-                            android:layout_weight="1"
-                            android:text="Madura Brown"
-                            android:textColor="@color/black"
-                            android:textSize="18sp" />
 
                     </LinearLayout>
 
