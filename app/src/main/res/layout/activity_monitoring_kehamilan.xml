@@ -185,17 +185,23 @@
             android:id="@+id/button_save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
             android:layout_toLeftOf="@id/button_edit"
-            android:drawableTop="@drawable/ic_ternak"
+            android:drawableTop="@drawable/ic_baseline_save_24"
             android:text="Simpan" />
 
         <Button
             android:id="@+id/button_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:drawableTop="@drawable/ic_ternak"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:drawableTop="@drawable/ic_baseline_edit_24"
             android:text="Edit" />
 
     </RelativeLayout>

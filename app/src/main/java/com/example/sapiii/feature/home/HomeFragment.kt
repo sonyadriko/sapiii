@@ -14,7 +14,6 @@ import com.example.sapiii.feature.perkawinan.PerkawinanReproduksiFragment
 import com.example.sapiii.feature.ternakku.TernakkuFragment
 import com.example.sapiii.feature.ternakku.sapi.view.ListSapiFragment
 import com.example.sapiii.feature.auth.viewmodel.view.RegisterActivity
-import com.example.sapiii.feature.kesehatan.KesehatanFragment
 import com.example.sapiii.feature.timbangan.HitungBobotSapiActivity
 
 class HomeFragment : Fragment() {
@@ -30,6 +29,7 @@ class HomeFragment : Fragment() {
         val kesehatan = v.findViewById<LinearLayout>(R.id.menu_kesehatan)
         val timbangan = v.findViewById<LinearLayout>(R.id.menu_timbangan)
         val kawinrepro = v.findViewById<LinearLayout>(R.id.menu_perkawinan)
+        val pakan = v.findViewById<LinearLayout>(R.id.menu_pakan)
 
         timbangan.setOnClickListener {
             val timbanganFragment = FragmentTimbangan()
@@ -44,6 +44,14 @@ class HomeFragment : Fragment() {
             val ternakkuFragment = TernakkuFragment()
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(R.id.frame_layout, ternakkuFragment)
+                ?.addToBackStack(null)
+                ?.commit()
+        }
+
+        pakan.setOnClickListener {
+            val listSapi = ListSapiFragment.fromPakan()
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(R.id.frame_layout, listSapi)
                 ?.addToBackStack(null)
                 ?.commit()
         }
