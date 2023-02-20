@@ -18,7 +18,6 @@ class HitungBobotSapiActivity : AppCompatActivity() {
     }
 
     private fun hitung() {
-        TODO("Not yet implemented")
         binding.buttonCalculateSapi.setOnClickListener{
             val pb = binding.etPbSapi.text.toString().toDouble()
             val ld = binding.etLdSapi.text.toString().toDouble()

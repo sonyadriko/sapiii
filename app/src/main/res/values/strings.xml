@@ -30,10 +30,10 @@
     <string name="jenis">Jenis</string>
     <string name="nama_sapi">Nama Sapi</string>
 
-        <string-array name="option_kesehatan">
-            <item>Sehat</item>
-            <item>Sakit</item>
-        </string-array>
+    <string-array name="option_kesehatan">
+        <item>Sehat</item>
+        <item>Sakit</item>
+    </string-array>
 
 
 </resources>

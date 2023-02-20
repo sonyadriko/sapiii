@@ -137,7 +137,7 @@
                         <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-
+android:id="@+id/hasil_bbkambing"
                             android:layout_weight="1"
                             android:textColor="@color/black"
                             android:textSize="18sp" />
@@ -153,7 +153,7 @@
 
                     <Button
                         android:layout_marginTop="50dp"
-                        android:id="@+id/button_calculate"
+                        android:id="@+id/button_calculate_kambing"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="10dp"

@@ -1,16 +1,20 @@
 package com.example.sapiii.feature.home
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
+import com.example.sapiii.FragmentTimbangan
 import com.example.sapiii.R
+import com.example.sapiii.feature.auth.viewmodel.view.RegisterActivity
 import com.example.sapiii.feature.kesehatan.KesehatanFragment
 import com.example.sapiii.feature.perkawinan.PerkawinanReproduksiFragment
 import com.example.sapiii.feature.ternakku.TernakkuFragment
+import com.example.sapiii.feature.timbangan.HitungBobotSapiActivity
 
 class HomeFragment : Fragment() {
 
@@ -26,6 +30,13 @@ class HomeFragment : Fragment() {
         val timbangan = v.findViewById<LinearLayout>(R.id.menu_timbangan)
         val kawinrepro = v.findViewById<LinearLayout>(R.id.menu_perkawinan)
 
+        timbangan.setOnClickListener {
+            val timbanganFragment = FragmentTimbangan()
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(R.id.frame_layout, timbanganFragment)
+                ?.addToBackStack(null)
+                ?.commit()
+        }
 
 
         ternakku.setOnClickListener {
