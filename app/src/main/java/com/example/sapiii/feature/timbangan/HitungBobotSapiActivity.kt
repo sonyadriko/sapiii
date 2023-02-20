@@ -2,7 +2,6 @@ package com.example.sapiii.feature.timbangan
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.sapiii.R
 import com.example.sapiii.databinding.ActivityHitungBobotSapiBinding
 
 class HitungBobotSapiActivity : AppCompatActivity() {
@@ -18,17 +17,16 @@ class HitungBobotSapiActivity : AppCompatActivity() {
     }
 
     private fun hitung() {
-        TODO("Not yet implemented")
         binding.buttonCalculateSapi.setOnClickListener{
             val pb = binding.etPbSapi.text.toString().toDouble()
             val ld = binding.etLdSapi.text.toString().toDouble()
 
-            val result = proseshitung(pb,ld)
+            val result = prosesHitung(pb,ld)
             binding.hasilBbsapi.text = result.toString()
         }
     }
 
-    private fun proseshitung(pb: Double, ld: Double): Double {
+    private fun prosesHitung(pb: Double, ld: Double): Double {
         val ld2 = ld * ld
         val atas = ld2 * pb
         return atas/10840

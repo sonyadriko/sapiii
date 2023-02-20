@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.sapiii.R
+import com.example.sapiii.databinding.FragmentKesehatanBinding
 
 /**
  * A simple [Fragment] subclass.
@@ -13,12 +13,14 @@ import com.example.sapiii.R
  * create an instance of this fragment.
  */
 class KesehatanFragment : Fragment() {
+    private lateinit var binding: FragmentKesehatanBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_kesehatan, container, false)
+        binding = FragmentKesehatanBinding.inflate(layoutInflater, container, false)
+        return binding.root
     }
 }

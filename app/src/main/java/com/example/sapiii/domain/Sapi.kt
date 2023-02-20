@@ -16,9 +16,18 @@ data class Sapi(
     val kedatangan: Kedatangan = Kedatangan(),
     @SerializedName("data")
     val data: DataSapi = DataSapi(),
+    @SerializedName("kesehatan")
+    val kesehatan: Kesehatan = Kesehatan(),
     @SerializedName("pemilik")
     val pemilik: Pemilik = Pemilik(),
 ) : Serializable
+
+data class Kesehatan(
+    @SerializedName("sehat")
+    val sehat: Boolean = false,
+    @SerializedName("vaksin_dosis")
+    val vaksinDosis: Int = -1 // -1 berarti belum vaksin sama sekali
+)
 
 data class Kedatangan(
     @SerializedName("kedatangan_hewan")

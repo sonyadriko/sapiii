@@ -1,5 +1,6 @@
 package com.example.sapiii.util
 
+import android.view.View
 import com.example.sapiii.constanst.Constant.Role
 import com.example.sapiii.domain.Sapi
 import com.google.firebase.database.DataSnapshot
@@ -25,4 +26,12 @@ fun String.toFloatNew(): Float {
 
 fun DataSnapshot.toSapiDomain() : Sapi {
     return getValue(Sapi::class.java)!!
+}
+
+fun View.gone() {
+    visibility = View.GONE
+}
+
+fun View.visible() {
+    visibility = View.VISIBLE
 }

@@ -11,20 +11,26 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
+import com.example.sapiii.R
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.databinding.FragmentListSapiBinding
 import com.example.sapiii.domain.Sapi
 import com.example.sapiii.feature.detail.DetailSapiActivity
 import com.example.sapiii.feature.detail.DetailSapiActivity.Companion.RESULT_DELETE
+import com.example.sapiii.feature.kesehatan.KesehatanFragment
 import com.example.sapiii.feature.ternakku.sapi.view.adapter.SapiAdapter
 import com.example.sapiii.feature.ternakku.sapi.viewmodel.SapiViewModel
 import com.example.sapiii.util.OnItemClick
+import com.example.sapiii.util.gone
+import com.example.sapiii.util.visible
 
 class ListSapiFragment : BaseFragment(), OnItemClick {
 
     private lateinit var binding: FragmentListSapiBinding
     private lateinit var userRecyclerView: RecyclerView
     private lateinit var adapter: SapiAdapter
+
+    private lateinit var from: String
 
     private val viewModel: SapiViewModel by viewModels()
 
@@ -40,16 +46,24 @@ class ListSapiFragment : BaseFragment(), OnItemClick {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentListSapiBinding.inflate(layoutInflater, container, false)
+        from = arguments?.getString(ARG_FROM).toString()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initView()
         initListener()
         setupRecycler()
         observe()
         loadSapi()
+    }
+
+    private fun initView() {
+        if (from == ARG_FROM_KESEHATAN) {
+            binding.btnTambahDataSapi.gone()
+        } else binding.btnTambahDataSapi.visible()
     }
 
     private fun loadSapi() {
@@ -81,10 +95,46 @@ class ListSapiFragment : BaseFragment(), OnItemClick {
 
     override fun onClick(data: Any, position: Int) {
         val currentItem = data as Sapi
-        val detailIntent = Intent(context, DetailSapiActivity::class.java).apply {
-            putExtra("namasapi", currentItem.tag)
-            putExtra("jeniskelamin", currentItem.kelamin)
+        when (from) {
+            ARG_FROM_TERNAK -> {
+                val detailIntent = Intent(context, DetailSapiActivity::class.java).apply {
+                    putExtra("namasapi", currentItem.tag)
+                    putExtra("jeniskelamin", currentItem.kelamin)
+                }
+                startForResult.launch(detailIntent)
+            }
+            ARG_FROM_KESEHATAN -> {
+                val kesehatanFragment = KesehatanFragment()
+                activity?.supportFragmentManager?.beginTransaction()
+                    ?.replace(R.id.frame_layout, kesehatanFragment)
+                    ?.addToBackStack(null)
+                    ?.commit()
+            }
+            else -> showToast()
         }
-        startForResult.launch(detailIntent)
+    }
+
+    companion object {
+        private const val ARG_FROM = "from_arg"
+        private const val ARG_FROM_TERNAK = "from_ternakku_arg"
+        private const val ARG_FROM_KESEHATAN = "from_kesehatan_arg"
+
+        fun fromTernakku(): ListSapiFragment {
+            val bundle = Bundle().also {
+                it.putString(ARG_FROM, ARG_FROM_TERNAK)
+            }
+            return ListSapiFragment().apply {
+                arguments = bundle
+            }
+        }
+
+        fun fromKesehatan(): ListSapiFragment {
+            val bundle = Bundle().also {
+                it.putString(ARG_FROM, ARG_FROM_KESEHATAN)
+            }
+            return ListSapiFragment().apply {
+                arguments = bundle
+            }
+        }
     }
 }
