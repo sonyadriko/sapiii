@@ -6,4 +6,6 @@ object Constant {
         INVESTOR,
         ADMIN
     }
+
+    const val REFERENCE_SAPI = "Sapi"
 }

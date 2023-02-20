@@ -2,12 +2,14 @@ package com.example.sapiii.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.sapiii.constanst.Constant.REFERENCE_SAPI
 import com.example.sapiii.domain.Sapi
 import com.google.firebase.database.*
+import com.google.gson.Gson
 
 class SapiRepository {
     private val databaseReference: DatabaseReference =
-        FirebaseDatabase.getInstance().getReference("Sapi")
+        FirebaseDatabase.getInstance().getReference(REFERENCE_SAPI)
 
     @Volatile
     private var INSTANCE: SapiRepository? = null
@@ -44,6 +46,14 @@ class SapiRepository {
 
     fun addSapi(sapi: Sapi, onComplete: (isSuccess: Boolean) -> Unit) {
         databaseReference.child(sapi.tag).setValue(sapi)
+            .addOnCompleteListener {
+                onComplete(it.isSuccessful)
+            }
+    }
+
+    fun updateSapi(sapi: Sapi, onComplete: (isSuccess: Boolean) -> Unit) {
+        databaseReference.child(sapi.tag)
+            .updateChildren(sapi.toMap())
             .addOnCompleteListener {
                 onComplete(it.isSuccessful)
             }

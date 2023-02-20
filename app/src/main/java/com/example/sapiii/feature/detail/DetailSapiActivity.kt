@@ -2,6 +2,7 @@ package com.example.sapiii.feature.detail
 
 import android.os.Bundle
 import com.example.sapiii.base.BaseActivity
+import com.example.sapiii.constanst.Constant.REFERENCE_SAPI
 import com.example.sapiii.databinding.ActivityDetailSapiBinding
 import com.example.sapiii.util.toSapiDomain
 import com.google.firebase.database.*
@@ -19,7 +20,7 @@ class DetailSapiActivity : BaseActivity() {
         binding = ActivityDetailSapiBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        sapiRef = firebaseDB.getReference("Sapi")
+        sapiRef = firebaseDB.getReference(REFERENCE_SAPI)
         namaSapi = intent.getStringExtra("namasapi") ?: ""
         initListener()
         getDetailSapi()
