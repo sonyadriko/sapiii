@@ -10,15 +10,18 @@ import com.example.sapiii.feature.auth.viewmodel.view.LoginActivity
 import com.example.sapiii.feature.auth.viewmodel.view.RegisterActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 
 abstract class BaseAuthActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
+    private lateinit var database: FirebaseDatabase
     private lateinit var progressDialog: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = Firebase.auth
+        database = FirebaseDatabase.getInstance()
         progressDialog = ProgressDialog(this)
     }
 
@@ -46,12 +49,18 @@ abstract class BaseAuthActivity : AppCompatActivity() {
 
     fun dismissProgressDialog() = progressDialog.dismiss()
 
-    fun register(email: String, password: String, callback: (isSuccess: Boolean) -> Unit) {
-        auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener {
-                callback(it.isSuccessful)
-            }
-    }
+//    fun register(email: String, password: String, callback: (isSuccess: Boolean) -> Unit) {
+//        auth.createUserWithEmailAndPassword(email, password)
+//            .addOnCompleteListener {
+//                val user = auth.currentUser
+//                val uid = user?.uid
+//                if(uid != null){
+////                    saveUserToDatabase(uid)
+//                }
+////                callback(it.isSuccessful)
+//            }
+//    }
+//
 
     fun goToRegister() {
         startActivity(Intent(this, RegisterActivity::class.java))
