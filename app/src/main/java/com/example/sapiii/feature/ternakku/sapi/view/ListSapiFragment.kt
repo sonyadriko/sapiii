@@ -63,7 +63,12 @@ class ListSapiFragment : BaseFragment(), OnItemClick {
     private fun initView() {
         if (from == ARG_FROM_KESEHATAN) {
             binding.btnTambahDataSapi.gone()
-        } else binding.btnTambahDataSapi.visible()
+        } else if (from == ARG_FROM_PAKAN) {
+            binding.btnTambahDataSapi.gone()
+        } else if (from == ARG_FROM_TIMBANGAN) {
+            binding.btnTambahDataSapi.gone()
+        } else
+            binding.btnTambahDataSapi.visible()
     }
 
     private fun loadSapi() {
@@ -118,6 +123,8 @@ class ListSapiFragment : BaseFragment(), OnItemClick {
         private const val ARG_FROM = "from_arg"
         private const val ARG_FROM_TERNAK = "from_ternakku_arg"
         private const val ARG_FROM_KESEHATAN = "from_kesehatan_arg"
+        private const val ARG_FROM_PAKAN = "from_pakan_arg"
+        private const val ARG_FROM_TIMBANGAN = "from_timbangan_arg"
 
         fun fromTernakku(): ListSapiFragment {
             val bundle = Bundle().also {
@@ -131,6 +138,24 @@ class ListSapiFragment : BaseFragment(), OnItemClick {
         fun fromKesehatan(): ListSapiFragment {
             val bundle = Bundle().also {
                 it.putString(ARG_FROM, ARG_FROM_KESEHATAN)
+            }
+            return ListSapiFragment().apply {
+                arguments = bundle
+            }
+        }
+
+        fun fromTimbangan(): ListSapiFragment {
+            val bundle = Bundle().also {
+                it.putString(ARG_FROM, ARG_FROM_TIMBANGAN)
+            }
+            return ListSapiFragment().apply {
+                arguments = bundle
+            }
+        }
+
+        fun fromPakan(): ListSapiFragment {
+            val bundle = Bundle().also {
+                it.putString(ARG_FROM, ARG_FROM_PAKAN)
             }
             return ListSapiFragment().apply {
                 arguments = bundle

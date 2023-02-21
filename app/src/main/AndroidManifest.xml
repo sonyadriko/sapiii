@@ -29,6 +29,14 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".feature.timbangan.HitungBobotKambingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".feature.ternakku.sapi.view.MonitoringKehamilanActivity"
             android:exported="false"
             android:screenOrientation="portrait">

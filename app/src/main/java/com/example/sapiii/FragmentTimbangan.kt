@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.example.sapiii.databinding.FragmentListSapiBinding
+import com.example.sapiii.feature.ternakku.sapi.view.ListSapiFragment
 import com.example.sapiii.feature.timbangan.HitungBobotKambingActivity
 import com.example.sapiii.feature.timbangan.HitungBobotSapiActivity
 
@@ -34,6 +35,13 @@ class FragmentTimbangan : Fragment() {
             val intent = Intent(context,HitungBobotSapiActivity::class.java)
             startActivity(intent)
         }
+//        timbangansapi.setOnClickListener {
+//            val listSapi = ListSapiFragment.fromTimbangan()
+//            activity?.supportFragmentManager?.beginTransaction()
+//                ?.replace(R.id.frame_layout, listSapi)
+//                ?.addToBackStack(null)
+//                ?.commit()
+//        }
 
         timbangankambing.setOnClickListener {
             val intent = Intent(context, HitungBobotKambingActivity::class.java)

@@ -37,7 +37,7 @@
                     android:layout_width="75dp"
                     android:layout_height="75dp"
                     android:contentDescription="@string/gambar_sapi"
-                    android:src="@drawable/ic_baseline_calculate_24" />
+                    android:src="@drawable/icon_timbangan" />
 
 
             </LinearLayout>

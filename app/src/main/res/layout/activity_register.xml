@@ -19,12 +19,12 @@
 
 
         <EditText
-            android:id="@+id/et_username"
+            android:id="@+id/et_nama"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:background="@drawable/rounded_button"
-            android:hint="@string/username"
+            android:hint="@string/nama"
             android:inputType="text"
             android:padding="15dp"
             android:textColor="@color/white"
@@ -80,7 +80,7 @@
             android:textColorHint="@color/white" />
 
         <Spinner
-            android:id="@+id/spinner"
+            android:id="@+id/spinner_role_register"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:entries="@array/roles"
