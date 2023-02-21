@@ -57,7 +57,7 @@ class DetailSapiActivity : BaseActivity() {
                             asalSapiDetail.text = sapi.asal
 
                             tvNamaPemilik.text = sapi.pemilik.nama
-                            tvNomorTelpon.text = sapi.pemilik.noTel
+                            tvNomorTelpon.text = sapi.pemilik.noTelepon
                             tvAlamatPemilik.text = sapi.pemilik.alamat
                         } else throw Exception("Sapi is not found")
                     } catch (e: Exception) {

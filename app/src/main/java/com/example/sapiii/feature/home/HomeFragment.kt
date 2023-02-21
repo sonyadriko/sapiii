@@ -1,22 +1,20 @@
 package com.example.sapiii.feature.home
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
-import com.example.sapiii.FragmentTimbangan
+import com.example.sapiii.feature.timbangan.FragmentTimbangan
 import com.example.sapiii.R
+import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.feature.perkawinan.PerkawinanReproduksiFragment
 import com.example.sapiii.feature.ternakku.TernakkuFragment
 import com.example.sapiii.feature.ternakku.sapi.view.ListSapiFragment
-import com.example.sapiii.feature.auth.viewmodel.view.RegisterActivity
-import com.example.sapiii.feature.timbangan.HitungBobotSapiActivity
 
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment() {
 
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
@@ -30,6 +28,7 @@ class HomeFragment : Fragment() {
         val timbangan = v.findViewById<LinearLayout>(R.id.menu_timbangan)
         val kawinrepro = v.findViewById<LinearLayout>(R.id.menu_perkawinan)
         val pakan = v.findViewById<LinearLayout>(R.id.menu_pakan)
+        val logout = v.findViewById<LinearLayout>(R.id.menu_logout)
 
         timbangan.setOnClickListener {
             val timbanganFragment = FragmentTimbangan()
@@ -70,6 +69,10 @@ class HomeFragment : Fragment() {
                 ?.replace(R.id.frame_layout, perkawinanReproduksi)
                 ?.addToBackStack(null)
                 ?.commit()
+        }
+
+        logout.setOnClickListener {
+            logout()
         }
         // Inflate the layout for this fragment
         return v

@@ -1,4 +1,4 @@
-package com.example.sapiii
+package com.example.sapiii.feature.timbangan
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -8,10 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import com.example.sapiii.databinding.FragmentListSapiBinding
-import com.example.sapiii.feature.ternakku.sapi.view.ListSapiFragment
-import com.example.sapiii.feature.timbangan.HitungBobotKambingActivity
-import com.example.sapiii.feature.timbangan.HitungBobotSapiActivity
+import com.example.sapiii.R
 
 class FragmentTimbangan : Fragment() {
 

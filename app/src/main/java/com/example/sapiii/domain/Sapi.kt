@@ -66,7 +66,7 @@ data class Pemilik(
     @SerializedName("nama")
     val nama: String = "",
     @SerializedName("noTelepon")
-    val noTel: String = "",
+    val noTelepon: String = "",
     @SerializedName("alamat")
     val alamat: String = "",
 ) : Serializable, Parcelable

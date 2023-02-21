@@ -1,4 +1,4 @@
-package com.example.sapiii
+package com.example.sapiii.feature.tips
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.sapiii.R
 
 class TipsInfoFragment : Fragment(), OnClickListener {
 

@@ -220,8 +220,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="60dp"
-            android:layout_marginRight="60dp"
             android:orientation="horizontal"
             android:padding="10dp">
 
@@ -253,7 +251,6 @@
                 android:layout_width="0dp"
                 android:layout_height="75dp"
                 android:layout_margin="10dp"
-
                 android:layout_weight="1"
                 android:background="@drawable/rounded_square_button"
                 android:gravity="center"
@@ -268,6 +265,30 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Beli/Investasi"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/menu_logout"
+                android:layout_width="0dp"
+                android:layout_height="75dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_square_button"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_logout_24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Logout"
                     android:textColor="@color/white"
                     android:textSize="14sp" />
 

@@ -5,17 +5,19 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.sapiii.constanst.Constant.REFERENCE_USER
+import com.example.sapiii.domain.User
 import com.example.sapiii.feature.HomeActivity
-import com.example.sapiii.feature.auth.viewmodel.view.LoginActivity
-import com.example.sapiii.feature.auth.viewmodel.view.RegisterActivity
+import com.example.sapiii.feature.auth.view.LoginActivity
+import com.example.sapiii.feature.auth.view.RegisterActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 
 abstract class BaseAuthActivity : AppCompatActivity() {
-    private lateinit var auth: FirebaseAuth
-    private lateinit var database: FirebaseDatabase
+    lateinit var auth: FirebaseAuth
+    lateinit var database: FirebaseDatabase
     private lateinit var progressDialog: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,18 +51,25 @@ abstract class BaseAuthActivity : AppCompatActivity() {
 
     fun dismissProgressDialog() = progressDialog.dismiss()
 
-//    fun register(email: String, password: String, callback: (isSuccess: Boolean) -> Unit) {
-//        auth.createUserWithEmailAndPassword(email, password)
-//            .addOnCompleteListener {
-//                val user = auth.currentUser
-//                val uid = user?.uid
-//                if(uid != null){
-////                    saveUserToDatabase(uid)
-//                }
-////                callback(it.isSuccessful)
-//            }
-//    }
-//
+    fun register(userDomain: User, callback: (isSuccess: Boolean) -> Unit) {
+        auth.createUserWithEmailAndPassword(userDomain.email, userDomain.password)
+            .addOnCompleteListener {
+                val user = auth.currentUser
+                val uid = user?.uid
+                if (uid != null) {
+                    saveUserToDatabase(uid, userDomain) { isSuccess ->
+                        callback(isSuccess)
+                    }
+                } else callback(false)
+            }
+    }
+
+    private fun saveUserToDatabase(uid: String, userDomain: User, onComplete: (isSuccess: Boolean) -> Unit) {
+        database.reference.child(REFERENCE_USER).child(uid).setValue(userDomain.toMap())
+            .addOnCompleteListener { task ->
+                onComplete(task.isSuccessful)
+            }
+    }
 
     fun goToRegister() {
         startActivity(Intent(this, RegisterActivity::class.java))

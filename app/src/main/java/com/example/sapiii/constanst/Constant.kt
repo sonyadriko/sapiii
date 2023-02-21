@@ -8,4 +8,5 @@ object Constant {
     }
 
     const val REFERENCE_SAPI = "Sapi"
+    const val REFERENCE_USER = "Users"
 }
