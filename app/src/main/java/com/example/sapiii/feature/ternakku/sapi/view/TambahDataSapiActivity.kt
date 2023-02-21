@@ -67,7 +67,7 @@ class TambahDataSapiActivity : BaseActivity() {
                 ),
                 pemilik = Pemilik(
                     nama = "Sony",
-                    noTel = "082264854113",
+                    noTelepon = "082264854113",
                     alamat = "Randu Barat 9/10"
                 )
             )

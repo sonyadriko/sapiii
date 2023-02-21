@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sapiii.feature.HomeActivity
-import com.example.sapiii.feature.auth.viewmodel.view.LoginActivity
+import com.example.sapiii.feature.auth.view.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.FirebaseDatabase
@@ -56,7 +56,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun logout() {
-        if (auth.currentUser != null) auth.signOut()
+        if (checkCurrentUserSession()) auth.signOut()
 
         startActivity(
             Intent(this, LoginActivity::class.java)

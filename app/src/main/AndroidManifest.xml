@@ -85,7 +85,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".feature.auth.viewmodel.view.RegisterActivity"
+            android:name=".feature.auth.view.RegisterActivity"
             android:exported="false"
             android:screenOrientation="portrait">
             <meta-data
@@ -93,7 +93,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".feature.auth.viewmodel.view.LoginActivity"
+            android:name=".feature.auth.view.LoginActivity"
             android:exported="false"
             android:screenOrientation="portrait">
             <meta-data
