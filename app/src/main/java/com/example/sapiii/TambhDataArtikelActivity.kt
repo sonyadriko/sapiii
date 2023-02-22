@@ -3,20 +3,18 @@ package com.example.sapiii
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.sapiii.base.BaseActivity
-import com.example.sapiii.databinding.ActivityTambahDataTipsInfoBinding
+import com.example.sapiii.databinding.ActivityTambhDataArtikelBinding
 import com.example.sapiii.domain.Artikel
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
-class AddTipsInfoActivity : BaseActivity() {
+class TambhDataArtikelActivity : BaseActivity() {
 
-    private lateinit var binding: ActivityTambahDataTipsInfoBinding
-
+    private lateinit var binding: ActivityTambhDataArtikelBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityTambahDataTipsInfoBinding.inflate(layoutInflater)
+        binding = ActivityTambhDataArtikelBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val database = Firebase.database
         val myRef = database.getReference("Artikel")
@@ -35,10 +33,7 @@ class AddTipsInfoActivity : BaseActivity() {
                 }
 
         }
-        initListener()
-    }
 
-    private fun initListener() = with(binding) {
 
     }
 }
