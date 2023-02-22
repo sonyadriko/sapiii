@@ -13,6 +13,7 @@ import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.feature.perkawinan.PerkawinanReproduksiFragment
 import com.example.sapiii.feature.ternakku.TernakkuFragment
 import com.example.sapiii.feature.ternakku.sapi.view.ListSapiFragment
+import com.example.sapiii.feature.tips.TipsInfoFragment
 
 class HomeFragment : BaseFragment() {
 
@@ -29,6 +30,15 @@ class HomeFragment : BaseFragment() {
         val kawinrepro = v.findViewById<LinearLayout>(R.id.menu_perkawinan)
         val pakan = v.findViewById<LinearLayout>(R.id.menu_pakan)
         val logout = v.findViewById<LinearLayout>(R.id.menu_logout)
+        val tipsinfo = v.findViewById<LinearLayout>(R.id.menu_tipsinfo)
+
+        tipsinfo.setOnClickListener {
+            val tipsInfoFragment = TipsInfoFragment()
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(R.id.frame_layout, tipsInfoFragment)
+                ?.addToBackStack(null)
+                ?.commit()
+        }
 
         timbangan.setOnClickListener {
             val timbanganFragment = FragmentTimbangan()

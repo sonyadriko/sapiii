@@ -225,6 +225,7 @@
 
 
             <LinearLayout
+                android:id="@+id/menu_tipsinfo"
                 android:layout_width="0dp"
                 android:layout_height="75dp"
                 android:layout_margin="10dp"
