@@ -6,14 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import androidx.fragment.app.Fragment
 import com.example.sapiii.feature.timbangan.FragmentTimbangan
 import com.example.sapiii.R
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.feature.perkawinan.PerkawinanReproduksiFragment
 import com.example.sapiii.feature.ternakku.TernakkuFragment
 import com.example.sapiii.feature.ternakku.sapi.view.ListSapiFragment
-import com.example.sapiii.feature.tips.TipsInfoFragment
+import com.example.sapiii.feature.tips.view.TipsInfoFragment
 
 class HomeFragment : BaseFragment() {
 

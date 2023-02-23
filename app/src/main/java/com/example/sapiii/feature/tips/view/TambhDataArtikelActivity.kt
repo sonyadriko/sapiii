@@ -1,6 +1,5 @@
-package com.example.sapiii
+package com.example.sapiii.feature.tips.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.sapiii.base.BaseActivity
 import com.example.sapiii.databinding.ActivityTambhDataArtikelBinding
@@ -33,7 +32,5 @@ class TambhDataArtikelActivity : BaseActivity() {
                 }
 
         }
-
-
     }
 }

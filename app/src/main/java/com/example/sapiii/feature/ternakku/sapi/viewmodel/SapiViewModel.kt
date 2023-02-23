@@ -7,7 +7,7 @@ import com.example.sapiii.base.BaseViewModel
 class SapiViewModel : BaseViewModel() {
     private val onLoadSapi = MutableLiveData<Unit>()
     val sapi = Transformations.switchMap(onLoadSapi) {
-        repository.loadSapi()
+        sapiRepository.loadSapi()
     }
 
     fun loadSapi() {
