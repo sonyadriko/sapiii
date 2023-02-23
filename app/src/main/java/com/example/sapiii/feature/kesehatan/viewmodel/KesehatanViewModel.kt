@@ -27,7 +27,7 @@ class KesehatanViewModel: BaseViewModel() {
             sehat = sehat,
             vaksinDosis = dosis
         ))
-        repository.updateSapi(newSapi) { isSuccess ->
+        sapiRepository.updateSapi(newSapi) { isSuccess ->
             _viewState.value = KesehatanViewState.INITIAL
             onComplete(isSuccess)
         }
