@@ -51,8 +51,6 @@ dependencies {
 
     // firebase auth
     implementation 'com.google.firebase:firebase-auth-ktx:21.0.3'
-
-
     // firebase realtime db
     implementation platform('com.google.firebase:firebase-bom:31.2.0')
     implementation 'com.google.firebase:firebase-database-ktx'

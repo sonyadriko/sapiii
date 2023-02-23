@@ -20,11 +20,11 @@ class RegisterActivity : BaseAuthActivity() {
 
     private fun initListener() = with(binding) {
         btnRegister.setOnClickListener {
-            val email = binding.etEmail.text.toString()
+            val email = etEmail.text.toString()
             val password = etPassword.text.toString()
-            val nama = binding.etNama.text.toString()
-            val noTelepon = binding.etNotelp.text.toString()
-            val role = binding.spinnerRoleRegister.selectedItem.toString()
+            val nama = etNama.text.toString()
+            val noTelepon = etNotelp.text.toString()
+            val role = spinnerRoleRegister.selectedItem.toString()
             val confirmPassword = etConfpassword.text.toString()
             val userDomain = User(
                 email = email,
