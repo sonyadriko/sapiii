@@ -9,6 +9,8 @@ import java.io.Serializable
 
 @Parcelize
 class Artikel(
+    @SerializedName("image")
+    val image: String = "",
     @SerializedName("judul")
     val judul: String = "",
     @SerializedName("desc")

@@ -28,12 +28,26 @@
             android:orientation="vertical"
             android:padding="20dp">
 
+<!--            <ImageView-->
+<!--                android:id="@+id/img_sapi"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/ic_ternak"-->
+<!--                tools:ignore="contentDescription" />-->
+            <Button
+                android:id="@+id/button_tambah_gambar_artikel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tambah Gambar" />
+
             <ImageView
-                android:id="@+id/img_sapi"
+                android:id="@+id/gambarImageView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_ternak"
-                tools:ignore="contentDescription" />
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_launcher_foreground"
+                android:layout_marginTop="16dp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
