@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,7 +11,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="20dp">
-
 
         <TextView
             android:layout_width="match_parent"
@@ -28,12 +27,6 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-<!--            <ImageView-->
-<!--                android:id="@+id/img_sapi"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:src="@drawable/ic_ternak"-->
-<!--                tools:ignore="contentDescription" />-->
             <Button
                 android:id="@+id/button_tambah_gambar_artikel"
                 android:layout_width="wrap_content"
@@ -44,10 +37,10 @@
                 android:id="@+id/gambarImageView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
+                android:layout_marginTop="16dp"
                 android:adjustViewBounds="true"
-                android:src="@drawable/ic_launcher_foreground"
-                android:layout_marginTop="16dp" />
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_foreground" />
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -75,15 +68,6 @@
                     android:layout_height="wrap_content" />
 
             </com.google.android.material.textfield.TextInputLayout>
-
-
-
-
-
-
-
-
-
         </LinearLayout>
 
         <Button
@@ -95,4 +79,4 @@
     </LinearLayout>
 
 
-</RelativeLayout>
+</ScrollView>
