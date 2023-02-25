@@ -3,7 +3,8 @@ package com.example.sapiii.feature.tips.view
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.widget.Toast
+import android.widget.ImageView
+import com.example.sapiii.R
 import com.example.sapiii.base.BaseActivity
 import com.example.sapiii.databinding.ActivityTambhDataArtikelBinding
 import com.example.sapiii.domain.Artikel
@@ -37,60 +38,46 @@ class TambhDataArtikelActivity : BaseActivity() {
         }
 
         binding.btnSbmitArtikel.setOnClickListener {
-
+            showProgressDialog()
             val judul = binding.etJudulArtikel.text.toString()
             val desc = binding.etDescArtikel.text.toString()
 //            val artikel = Artikel(judul, desc)
 
-            if (selectedImageUri != null && judul.isNotEmpty() && desc.isNotEmpty()) {
-                // Mendapatkan referensi baru untuk gambar yang akan diunggah
-                val imageReference = storageReference.child(selectedImageUri!!.lastPathSegment!!)
+            try {
+                if (selectedImageUri != null && judul.isNotEmpty() && desc.isNotEmpty()) {
+                    // Mendapatkan referensi baru untuk gambar yang akan diunggah
+                    val imageReference =
+                        storageReference.child(selectedImageUri!!.lastPathSegment!!)
 
-                // Mengunggah gambar ke Firebase Storage
-                imageReference.putFile(selectedImageUri!!)
-                    .addOnSuccessListener {
-                        // Mendapatkan URL unduhan gambar
-                        imageReference.downloadUrl.addOnSuccessListener { uri ->
-                            // Membuat objek artikel
-                            val artikel = Artikel(uri.toString(), judul, desc)
+                    // Mengunggah gambar ke Firebase Storage
+                    imageReference.putFile(selectedImageUri!!)
+                        .addOnSuccessListener {
+                            // Mendapatkan URL unduhan gambar
+                            imageReference.downloadUrl.addOnSuccessListener { uri ->
+                                // Membuat objek artikel
+                                val artikel = Artikel(uri.toString(), judul, desc)
 
-                            // Menyimpan objek artikel ke Firebase Realtime Database
-                            myRef.push().setValue(artikel)
-                                .addOnSuccessListener {
-                                    Toast.makeText(
-                                        this,
-                                        "Artikel berhasil disimpan",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                    finish()
-                                }
-                                .addOnFailureListener {
-                                    Toast.makeText(
-                                        this,
-                                        "Artikel gagal disimpan",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                }
+                                // Menyimpan objek artikel ke Firebase Realtime Database
+                                myRef.push().setValue(artikel)
+                                    .addOnSuccessListener {
+                                        showToast("Artikel berhasil disimpan")
+                                        finish()
+                                    }
+                                    .addOnFailureListener {
+                                        showToast("Artikel gagal disimpan")
+                                    }
+                            }
                         }
-                    }
-                    .addOnFailureListener {
-                        Toast.makeText(this, "Gambar gagal diunggah", Toast.LENGTH_SHORT).show()
-                    }
-            } else {
-                Toast.makeText(this, "Harap lengkapi semua data", Toast.LENGTH_SHORT).show()
+                        .addOnFailureListener {
+                            showToast("Gambar gagal diunggah")
+                        }
+                } else {
+                    showToast("Harap lengkapi semua data")
+                }
+            } catch (e: Exception) {
+                showToast(getString(R.string.something_wrong))
             }
-
-//            myRef.push().setValue(artikel)
-//                .addOnSuccessListener {
-//                    showToast("Artikel Berhasil")
-//                }
-//                .addOnFailureListener {
-//                    showToast("Gagal Menambahkan")
-//                }
-
         }
-
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

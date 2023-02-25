@@ -10,12 +10,14 @@ import com.example.sapiii.domain.User
 import com.example.sapiii.feature.HomeActivity
 import com.example.sapiii.feature.auth.view.LoginActivity
 import com.example.sapiii.feature.auth.view.RegisterActivity
+import com.example.sapiii.repository.UserRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 
 abstract class BaseAuthActivity : AppCompatActivity() {
+    private val userRepository = UserRepository(context = applicationContext)
     lateinit var auth: FirebaseAuth
     lateinit var database: FirebaseDatabase
     private lateinit var progressDialog: ProgressDialog

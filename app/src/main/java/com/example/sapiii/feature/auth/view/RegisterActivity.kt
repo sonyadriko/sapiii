@@ -24,7 +24,7 @@ class RegisterActivity : BaseAuthActivity() {
             val password = etPassword.text.toString()
             val nama = etNama.text.toString()
             val noTelepon = etNotelp.text.toString()
-            val role = spinnerRoleRegister.selectedItem.toString()
+            val role = spinnerRoleRegister.selectedItem.toString().lowercase()
             val confirmPassword = etConfpassword.text.toString()
             val userDomain = User(
                 email = email,
