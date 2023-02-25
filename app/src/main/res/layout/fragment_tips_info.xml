@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".feature.tips.view.TipsInfoFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <LinearLayout
@@ -58,25 +58,16 @@
 
         </LinearLayout>
 
-        <!--        <ListView-->
-        <!--            android:id="@+id/list_view_cows"-->
-        <!--            tools:listitem="@layout/list_view_sapi"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content" />-->
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/artikel_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:clipToPadding="false"
             android:overScrollMode="never"
+            android:paddingBottom="16dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="5"
             tools:listitem="@layout/list_item_tips_info" />
-
-        <!--        <androidx.recyclerview.widget.RecyclerView-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:id="@+id/recyclerView"-->
-        <!--            tools:listitem="@layout/list_view_sapi"-->
-        <!--            android:layout_height="match_parent"/>-->
 
     </LinearLayout>
 

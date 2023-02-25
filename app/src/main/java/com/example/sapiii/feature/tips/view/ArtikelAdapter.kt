@@ -2,16 +2,14 @@ package com.example.sapiii.feature.tips.view
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.sapiii.R
 import com.example.sapiii.databinding.ListItemTipsInfoBinding
 import com.example.sapiii.domain.Artikel
 import com.example.sapiii.util.OnItemClick
-import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_tambh_data_artikel.view.*
 
 class ArtikelAdapter(
@@ -50,9 +48,9 @@ class ArtikelAdapter(
 
         fun bind(artikel: Artikel, position: Int) {
             judulAr.text = artikel.judul
-            val storageReference = FirebaseStorage.getInstance().getReference().child("images/artikel").child(artikel.image)
-            Glide.with(imageAr.context)
-                .load(storageReference)
+            val into = Glide.with(imageAr)
+                .load(artikel.image.toUri())
+                .placeholder(R.drawable.ic_outline_image_24)
                 .into(imageAr)
             binding.root.setOnClickListener {
                 onItemClick.onClick(artikel, position)
