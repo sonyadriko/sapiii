@@ -20,7 +20,7 @@ data class Sapi(
     @SerializedName("kedatangan")
     val kedatangan: Kedatangan = Kedatangan(),
     @SerializedName("data")
-    val data: DataSapi = DataSapi(),
+    val data: DataHewan = DataHewan(),
     @SerializedName("kesehatan")
     val kesehatan: Kesehatan = Kesehatan(),
     @SerializedName("pemilik")
@@ -52,7 +52,7 @@ data class Kedatangan(
 ) : Serializable, Parcelable
 
 @Parcelize
-data class DataSapi(
+data class DataHewan(
     @SerializedName("usia")
     val usia: String = "",
     @SerializedName("beratBadan")

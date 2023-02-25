@@ -6,12 +6,11 @@ import androidx.activity.viewModels
 import com.example.sapiii.R
 import com.example.sapiii.base.BaseActivity
 import com.example.sapiii.databinding.ActivityTambahDataSapiBinding
-import com.example.sapiii.domain.DataSapi
+import com.example.sapiii.domain.DataHewan
 import com.example.sapiii.domain.Kedatangan
 import com.example.sapiii.domain.Pemilik
 import com.example.sapiii.domain.Sapi
 import com.example.sapiii.feature.ternakku.sapi.viewmodel.TambahDataSapiViewModel
-import com.example.sapiii.util.toFloatNew
 
 class TambahDataSapiActivity : BaseActivity() {
 
@@ -60,7 +59,7 @@ class TambahDataSapiActivity : BaseActivity() {
                     usia = etUsiadtgSapi.text.toString(),
                     beratBadanAwal = etBrtbdnAwalSaapi.text.toString()
                 ),
-                data = DataSapi(
+                data = DataHewan(
                     usia = etUsiaskgSapi.text.toString(),
                     berat = etBrtbdnSkgSapi.text.toString(),
                     status = viewModel.status

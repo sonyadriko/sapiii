@@ -1,8 +1,14 @@
 package com.example.sapiii.domain
 
+import android.os.Parcel
+import android.os.Parcelable
+import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
+import com.google.gson.reflect.TypeToken
+import kotlinx.android.parcel.Parcelize
 import java.io.Serializable
 
+@Parcelize
 data class Kambing(
     @SerializedName("tag")
     val tag: String = "",
@@ -13,36 +19,15 @@ data class Kambing(
     @SerializedName("asal")
     val asal: String = "",
     @SerializedName("kedatangan")
-    val kedatangan: KedatanganK = KedatanganK(),
+    val kedatangan: Kedatangan = Kedatangan(),
     @SerializedName("data")
-    val data: DataKambing = DataKambing(),
+    val data: DataHewan = DataHewan(),
     @SerializedName("pemilik")
-    val pemilik: PemilikK = PemilikK(),
-) : Serializable
-
-data class KedatanganK(
-    @SerializedName("kedatangan_hewan")
-    val bulan: String = "",
-    @SerializedName("usia_kedatangan")
-    val usia: String = "",
-    @SerializedName("berat_badan_awal")
-    val beratBadanAwal: String = "",
-) : Serializable
-
-data class DataKambing(
-    @SerializedName("usia")
-    val usia: String = "",
-    @SerializedName("berat_badan")
-    val berat: String = "",
-    @SerializedName("status")
-    val status: String = "",
-) : Serializable
-
-data class PemilikK(
-    @SerializedName("nama")
-    val nama: String = "",
-    @SerializedName("no_telepon")
-    val noTel: String = "",
-    @SerializedName("alamat")
-    val alamat: String = "",
-) : Serializable
+    val pemilik: Pemilik = Pemilik(),
+) : Serializable, Parcelable {
+    fun toMap(): Map<String, Any?> {
+        val gson = Gson()
+        val json = gson.toJson(this)
+        return gson.fromJson(json, object : TypeToken<Map<String, Any>>() {}.type)
+    }
+}
