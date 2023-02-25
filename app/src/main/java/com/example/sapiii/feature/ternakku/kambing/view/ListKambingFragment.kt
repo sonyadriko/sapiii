@@ -11,20 +11,14 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
-import com.example.sapiii.R
-import com.example.sapiii.TambahDataKambingActivity
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.databinding.FragmentListKambingBinding
 import com.example.sapiii.domain.Kambing
 import com.example.sapiii.feature.detail.DetailKambingActivity
 import com.example.sapiii.feature.detail.DetailSapiActivity.Companion.RESULT_DELETE
-import com.example.sapiii.feature.kesehatan.view.KesehatanFragment
 import com.example.sapiii.feature.ternakku.kambing.view.adapter.KambingAdapter
 import com.example.sapiii.feature.ternakku.kambing.viewmodel.KambingViewModel
-import com.example.sapiii.feature.ternakku.sapi.view.ListSapiFragment
 import com.example.sapiii.util.OnItemClick
-import com.example.sapiii.util.gone
-import com.example.sapiii.util.visible
 
 class ListKambingFragment : BaseFragment(), OnItemClick {
 

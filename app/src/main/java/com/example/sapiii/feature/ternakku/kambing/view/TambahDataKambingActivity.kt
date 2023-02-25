@@ -1,15 +1,13 @@
-package com.example.sapiii
+package com.example.sapiii.feature.ternakku.kambing.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.activity.viewModels
+import com.example.sapiii.R
 import com.example.sapiii.base.BaseActivity
 import com.example.sapiii.databinding.ActivityTambahDataKambingBinding
-import com.example.sapiii.databinding.ActivityTambahDataSapiBinding
 import com.example.sapiii.domain.*
 import com.example.sapiii.feature.ternakku.kambing.viewmodel.TambahDataKambingViewModel
-import com.example.sapiii.feature.ternakku.sapi.viewmodel.TambahDataSapiViewModel
 
 class TambahDataKambingActivity : BaseActivity() {
 
