@@ -67,6 +67,8 @@ class ListSapiFragment : BaseFragment(), OnItemClick {
             binding.btnTambahDataSapi.gone()
         } else if (from == ARG_FROM_TIMBANGAN) {
             binding.btnTambahDataSapi.gone()
+        } else if (from == ARG_FROM_INVES) {
+            binding.btnTambahDataSapi.gone()
         } else
             binding.btnTambahDataSapi.visible()
     }
@@ -115,6 +117,9 @@ class ListSapiFragment : BaseFragment(), OnItemClick {
                     ?.addToBackStack(null)
                     ?.commit()
             }
+            ARG_FROM_INVES -> {
+
+            }
             else -> showToast()
         }
     }
@@ -125,10 +130,20 @@ class ListSapiFragment : BaseFragment(), OnItemClick {
         private const val ARG_FROM_KESEHATAN = "from_kesehatan_arg"
         private const val ARG_FROM_PAKAN = "from_pakan_arg"
         private const val ARG_FROM_TIMBANGAN = "from_timbangan_arg"
+        private const val ARG_FROM_INVES = "from_inves_arg"
 
         fun fromTernakku(): ListSapiFragment {
             val bundle = Bundle().also {
                 it.putString(ARG_FROM, ARG_FROM_TERNAK)
+            }
+            return ListSapiFragment().apply {
+                arguments = bundle
+            }
+        }
+
+        fun fromInves(): ListSapiFragment {
+            val bundle = Bundle().also {
+                it.putString(ARG_FROM, ARG_FROM_INVES)
             }
             return ListSapiFragment().apply {
                 arguments = bundle
