@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/title_image"
+        <ImageView
+            android:id="@+id/iv_artikel"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:adjustViewBounds="true"
@@ -23,7 +23,7 @@
             app:shapeAppearanceOverlay="@style/RoundCorner" />
 
         <TextView
-            android:id="@+id/tvHeading"
+            android:id="@+id/tv_artikel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -34,7 +34,7 @@
             android:textSize="16dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/title_image"
+            app:layout_constraintStart_toEndOf="@+id/iv_artikel"
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
@@ -42,7 +42,7 @@
             android:layout_height="1dp"
             android:background="@color/underline"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/title_image" />
+            app:layout_constraintTop_toBottomOf="@id/tv_artikel" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -27,7 +27,7 @@ class TambhDataArtikelActivity : BaseActivity() {
         setContentView(binding.root)
         val database = Firebase.database
         val myRef = database.getReference("Artikel")
-        storageReference = Firebase.storage.reference.child("gambar/artikel")
+        storageReference = Firebase.storage.reference.child("images/artikel")
 
         binding.buttonTambahGambarArtikel.setOnClickListener {
             // Membuka galeri untuk memilih gambar
