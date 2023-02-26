@@ -10,6 +10,8 @@ import com.example.sapiii.InvestasiFragment
 import com.example.sapiii.KesehatanFragment
 import com.example.sapiii.feature.invest.InvestasiFragment
 import com.example.sapiii.feature.invest.InvestasiFragment
+import com.example.sapiii.feature.invest.InvestasiFragment
+import com.example.sapiii.feature.invest.InvestasiFragment
 import com.example.sapiii.feature.timbangan.FragmentTimbangan
 import com.example.sapiii.R
 import com.example.sapiii.base.BaseFragment
