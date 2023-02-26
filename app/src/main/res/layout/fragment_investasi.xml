@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InvestasiFragment">
+    tools:context=".feature.invest.InvestasiFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
