@@ -9,9 +9,13 @@ import android.widget.LinearLayout
 <<<<<<< HEAD
 import com.example.sapiii.InvestasiFragment
 import com.example.sapiii.KesehatanFragment
+<<<<<<< HEAD
 =======
 import com.example.sapiii.feature.invest.InvestasiFragment
 >>>>>>> 8c9afe28458019dd3cc41666dad315eb45fadcb5
+=======
+import com.example.sapiii.feature.invest.InvestasiFragment
+>>>>>>> ebbb9784d5cb9457dd2bfd20a83b10a24a915f83
 import com.example.sapiii.feature.timbangan.FragmentTimbangan
 import com.example.sapiii.R
 import com.example.sapiii.base.BaseFragment
