@@ -6,12 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-<<<<<<< HEAD
 import com.example.sapiii.InvestasiFragment
 import com.example.sapiii.KesehatanFragment
-=======
 import com.example.sapiii.feature.invest.InvestasiFragment
->>>>>>> 8c9afe28458019dd3cc41666dad315eb45fadcb5
+import com.example.sapiii.feature.invest.InvestasiFragment
 import com.example.sapiii.feature.timbangan.FragmentTimbangan
 import com.example.sapiii.R
 import com.example.sapiii.base.BaseFragment
