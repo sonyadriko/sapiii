@@ -28,14 +28,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-black"
-                    android:text="TERNAKKU"
+                    android:text="BELI/INVESTASI"
                     android:textColor="@color/white"
                     android:textSize="22sp" />
 
                 <ImageView
                     android:layout_width="75dp"
                     android:layout_height="75dp"
-                    android:src="@drawable/icon_ternakku" />
+                    android:src="@drawable/ic_baseline_sell_24" />
 
 
             </LinearLayout>

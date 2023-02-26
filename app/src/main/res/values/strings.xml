@@ -22,6 +22,7 @@
     <string name="berat_badan">Berat Badan</string>
     <string name="usia_sapi">Usia Sapi</string>
     <string name="data_sapi_sekarang">Data Sapi Sekarang</string>
+    <string name="data_kambing_sekarang">Data Kambing Sekarang</string>
     <string name="berat_badan_awal">Berat Badan Awal</string>
     <string name="usia_awal">Usia Awal</string>
     <string name="data_kedatangan_awal">Data Kedatangan Awal</string>
@@ -30,6 +31,7 @@
     <string name="jenis">Jenis</string>
     <string name="something_wrong">Terjadi kesalahan</string>
     <string name="nama_sapi">Nama Sapi</string>
+    <string name="nama_kambing">Nama Kambing</string>
 
     <string-array name="option_kesehatan">
         <item>Sehat</item>

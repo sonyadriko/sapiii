@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:overScrollMode="never"
-    tools:context=".feature.ternakku.sapi.view.TambahDataSapiActivity">
+    tools:context=".feature.ternakku.kambing.view.TambahDataKambingActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -39,10 +39,10 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/nama_sapi">
+                android:hint="@string/nama_kambing">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_nama_sapi"
+                    android:id="@+id/et_nama_kambing"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -55,21 +55,21 @@
                 android:hint="@string/jenis">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_jenis_sapi"
+                    android:id="@+id/et_jenis_kambing"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/input_jenis_kelamin"
+                android:id="@+id/input_jenis_kelamin_kambing"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/jenis_kelamin">
 
                 <AutoCompleteTextView
-                    android:id="@+id/et_jenis_kelamin"
+                    android:id="@+id/et_jenis_kelamin_kambing"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="none" />
@@ -91,7 +91,7 @@
                 android:hint="@string/bulan_kedatangan">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_kdtg_sapi"
+                    android:id="@+id/et_kdtg_kambing"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -104,7 +104,7 @@
                 android:hint="@string/usia_awal">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_usiadtg_sapi"
+                    android:id="@+id/et_usiadtg_kambing"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:imeOptions="actionNext" />
@@ -118,7 +118,7 @@
                 android:hint="@string/berat_badan_awal">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_brtbdn_awal_saapi"
+                    android:id="@+id/et_brtbdn_awal_kambing"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:imeOptions="actionNext"
@@ -141,10 +141,10 @@
                 android:hint="@string/usia_sapi">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_usiaskg_sapi"
+                    android:id="@+id/et_usiaskg_kambing"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:imeOptions="actionNext"/>
+                    android:imeOptions="actionNext" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -155,7 +155,7 @@
                 android:hint="@string/berat_badan">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_brtbdn_skg_sapi"
+                    android:id="@+id/et_brtbdn_skg_kambing"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:imeOptions="actionNext"
@@ -170,7 +170,7 @@
                 android:hint="@string/asal">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_asal_sapi"
+                    android:id="@+id/et_asal_kambing"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:imeOptions="actionNext" />
@@ -195,7 +195,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/btn_sbmit_sapi"
+            android:id="@+id/btn_sbmit_kambing"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/submit" />
