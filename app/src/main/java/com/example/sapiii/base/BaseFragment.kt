@@ -7,18 +7,21 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.sapiii.R
 import com.example.sapiii.feature.auth.view.LoginActivity
+import com.example.sapiii.repository.UserRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 abstract class BaseFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
+    lateinit var userRepository: UserRepository
     private lateinit var progressDialog: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = Firebase.auth
         progressDialog = ProgressDialog(context)
+        userRepository = UserRepository.getInstance(requireActivity())
     }
 
     override fun onStart() {
@@ -41,11 +44,16 @@ abstract class BaseFragment : Fragment() {
     fun dismissProgressDialog() = progressDialog.dismiss()
 
     private fun checkCurrentUserSession(): Boolean {
+        val uid = userRepository.uid
         return auth.currentUser != null
+                && requireNotNull(uid) == requireNotNull(auth.currentUser).uid
     }
 
     fun logout() {
-        if (auth.currentUser != null) auth.signOut()
+        if (auth.currentUser != null) {
+            userRepository.erase()
+            auth.signOut()
+        }
 
         startActivity(
             Intent(requireActivity(), LoginActivity::class.java)

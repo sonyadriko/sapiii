@@ -20,7 +20,7 @@ class DetailSapiActivity : BaseActivity() {
         binding = ActivityDetailSapiBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        sapiRef = firebaseDB.getReference(REFERENCE_SAPI)
+        sapiRef = database.getReference(REFERENCE_SAPI)
         namaSapi = intent.getStringExtra("namasapi") ?: ""
         initListener()
         getDetailSapi()

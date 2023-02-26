@@ -5,12 +5,12 @@ import com.google.gson.reflect.TypeToken
 import java.io.Serializable
 
 data class User(
-    val nama: String,
-    val email: String,
-    val nomorTelepon: String,
+    val nama: String = "",
+    val email: String = "",
+    val noTelepon: String = "",
     @Transient
-    val password: String,
-    val role: String
+    val password: String = "",
+    val role: String = ""
 ) : Serializable {
     fun toMap(): Map<String, Any?> {
         val gson = Gson()

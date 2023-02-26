@@ -18,7 +18,7 @@ class SplashScreenActivity : BaseActivity() {
         lifecycleScope.launchWhenCreated {
             if (checkCurrentUserSession()) {
                 goToHomepage()
-            } else logout()
+            }
         }
     }
 }

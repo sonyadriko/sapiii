@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sapiii.feature.HomeActivity
 import com.example.sapiii.feature.auth.view.LoginActivity
+import com.example.sapiii.repository.UserRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.FirebaseDatabase
@@ -14,14 +15,16 @@ import com.google.firebase.ktx.Firebase
 
 abstract class BaseActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
-    lateinit var firebaseDB: FirebaseDatabase
+    lateinit var database: FirebaseDatabase
     private lateinit var progressDialog: ProgressDialog
+    lateinit var userRepository: UserRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = Firebase.auth
-        firebaseDB = FirebaseDatabase.getInstance()
+        database = FirebaseDatabase.getInstance()
         progressDialog = ProgressDialog(this)
+        userRepository = UserRepository.getInstance(this)
     }
 
     override fun onStart() {
@@ -32,7 +35,9 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun checkCurrentUserSession(): Boolean {
+        val uid = userRepository.uid
         return auth.currentUser != null
+                && uid == auth.currentUser?.uid
     }
 
     fun showToast(message: String, length: Int = Toast.LENGTH_SHORT) {
@@ -56,11 +61,13 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun logout() {
-        if (checkCurrentUserSession()) auth.signOut()
+        if (checkCurrentUserSession()) {
+            auth.signOut()
+            userRepository.erase()
+        }
 
         startActivity(
-            Intent(this, LoginActivity::class.java)
-                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            Intent(this, LoginActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         )
     }
 }
