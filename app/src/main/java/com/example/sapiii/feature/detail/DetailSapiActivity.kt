@@ -1,6 +1,8 @@
 package com.example.sapiii.feature.detail
 
 import android.os.Bundle
+import com.bumptech.glide.Glide
+import com.example.sapiii.R
 import com.example.sapiii.base.BaseActivity
 import com.example.sapiii.constanst.Constant.REFERENCE_SAPI
 import com.example.sapiii.databinding.ActivityDetailSapiBinding
@@ -44,7 +46,11 @@ class DetailSapiActivity : BaseActivity() {
                     try {
                         if (snapshot.exists()) {
                             val sapi = snapshot.toSapiDomain()
-
+                            val imageSapi = sapi.image
+                            Glide.with(this@DetailSapiActivity)
+                                .load(imageSapi)
+                                .placeholder(R.drawable.ic_outline_image_24)
+                                .into(ivSapi)
                             namaSapiDetail.text = sapi.tag
                             jkSapiDetail.text = sapi.kelamin
                             jenisSapiDetail.text = sapi.jenis

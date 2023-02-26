@@ -1,6 +1,9 @@
 package com.example.sapiii.feature.detail
 
 import android.os.Bundle
+import androidx.core.net.toUri
+import com.bumptech.glide.Glide
+import com.example.sapiii.R
 import com.example.sapiii.base.BaseActivity
 import com.example.sapiii.constanst.Constant
 import com.example.sapiii.databinding.ActivityDetailKambingBinding
@@ -9,6 +12,8 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 
 class DetailKambingActivity : BaseActivity() {
     private lateinit var binding: ActivityDetailKambingBinding
@@ -23,12 +28,12 @@ class DetailKambingActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailKambingBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        kmbgRef = firebaseDB.getReference(Constant.REFERENCE_KAMBING)
+        kmbgRef = database.getReference(Constant.REFERENCE_KAMBING)
         namaKambing = intent.getStringExtra("namakambing") ?: ""
         initListener()
         getDetailKambing()
     }
+
     private fun initListener() = with(binding) {
         buttonDelete.setOnClickListener {
             kmbgRef.child(namaKambing).removeValue { error, _ ->
@@ -47,7 +52,11 @@ class DetailKambingActivity : BaseActivity() {
                     try {
                         if (snapshot.exists()) {
                             val kambing = snapshot.toKambingDomain()
-
+                            val imageKambing = kambing.image
+                            Glide.with(this@DetailKambingActivity)
+                                .load(imageKambing)
+                                .placeholder(R.drawable.ic_outline_image_24)
+                                .into(ivKmbg)
                             namaKmbgDetail.text = kambing.tag
                             jkKmbgDetail.text = kambing.kelamin
                             jenisKmbgDetail.text = kambing.jenis
