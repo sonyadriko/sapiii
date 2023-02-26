@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.example.sapiii.InvestasiFragment
+import com.example.sapiii.KesehatanFragment
 import com.example.sapiii.feature.timbangan.FragmentTimbangan
 import com.example.sapiii.R
 import com.example.sapiii.base.BaseFragment
@@ -58,9 +59,12 @@ class HomeFragment : BaseFragment() {
         }
 
         kesehatan.setOnClickListener {
-            val listSapi = ListSapiFragment.fromKesehatan()
+            val kesehatanFragment = KesehatanFragment()
             activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.frame_layout, listSapi)?.addToBackStack(null)?.commit()
+                ?.replace(R.id.frame_layout, kesehatanFragment)?.addToBackStack(null)?.commit()
+//            val listSapi = ListSapiFragment.fromKesehatan()
+//            activity?.supportFragmentManager?.beginTransaction()
+//                ?.replace(R.id.frame_layout, listSapi)?.addToBackStack(null)?.commit()
         }
 
         kawinrepro.setOnClickListener {

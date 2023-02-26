@@ -1,4 +1,4 @@
-package com.example.sapiii.feature.kesehatan.view
+package com.example.sapiii.feature.kesehatan.sapi.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,9 +10,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.databinding.FragmentKesehatanBinding
+import com.example.sapiii.domain.Kambing
 import com.example.sapiii.domain.Sapi
-import com.example.sapiii.feature.kesehatan.viewmodel.KesehatanViewModel
-import com.example.sapiii.feature.kesehatan.viewmodel.KesehatanViewState
+import com.example.sapiii.feature.kesehatan.sapi.viewmodel.KesehatanViewModel
+import com.example.sapiii.feature.kesehatan.sapi.viewmodel.KesehatanViewState
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -112,6 +113,7 @@ class KesehatanFragment : BaseFragment() {
 
     companion object {
         private const val ARG_SAPI = "sapi_arg"
+
         fun newInstance(data: Sapi): KesehatanFragment {
             val bundle = Bundle()
             bundle.putParcelable(ARG_SAPI, data)

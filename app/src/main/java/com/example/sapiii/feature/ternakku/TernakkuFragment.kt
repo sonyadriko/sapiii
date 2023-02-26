@@ -31,7 +31,7 @@ class TernakkuFragment : Fragment() {
         }
 
         ternakkuKambing.setOnClickListener {
-            val listKambing = ListKambingFragment()
+            val listKambing = ListKambingFragment.fromTernakku()
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(R.id.frame_layout, listKambing)
                 ?.addToBackStack(null)

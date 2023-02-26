@@ -11,14 +11,19 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
+import com.example.sapiii.R
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.databinding.FragmentListKambingBinding
 import com.example.sapiii.domain.Kambing
 import com.example.sapiii.feature.detail.DetailKambingActivity
 import com.example.sapiii.feature.detail.DetailSapiActivity.Companion.RESULT_DELETE
+import com.example.sapiii.feature.kesehatan.kambing.view.KesehatanKambingFragment
+import com.example.sapiii.feature.kesehatan.sapi.view.KesehatanFragment
 import com.example.sapiii.feature.ternakku.kambing.view.adapter.KambingAdapter
 import com.example.sapiii.feature.ternakku.kambing.viewmodel.KambingViewModel
 import com.example.sapiii.util.OnItemClick
+import com.example.sapiii.util.gone
+import com.example.sapiii.util.visible
 
 class ListKambingFragment : BaseFragment(), OnItemClick {
 
@@ -30,23 +35,35 @@ class ListKambingFragment : BaseFragment(), OnItemClick {
 
     private val viewModel: KambingViewModel by viewModels()
 
+    private val startForResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+            if (result.resultCode == RESULT_DELETE) {
+                loadKambing()
+            }
+        }
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentListKambingBinding.inflate(layoutInflater, container, false)
         from = arguments?.getString(ListKambingFragment.ARG_FROM).toString()
-
         // Inflate the layout for this fragment
         return binding.root
     }
 
-    private val startForResult =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
-            if (result.resultCode == RESULT_DELETE) {
-                loadSapi()
-            }
-        }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        initView()
+        initListener()
+        setupRecycler()
+        observe()
+        loadKambing()
+    }
 
     private fun loadKambing() {
         viewModel.loadKambing()
@@ -54,16 +71,16 @@ class ListKambingFragment : BaseFragment(), OnItemClick {
     }
 
     private fun initView() {
-//        if (from == ListKambingFragment.ARG_FROM_KESEHATAN) {
-//            binding.btnTambahDataKambing.gone()
-//        } else if (from == ListKambingFragment.ARG_FROM_PAKAN) {
-//            binding.btnTambahDataKambing.gone()
-//        } else if (from == ListKambingFragment.ARG_FROM_TIMBANGAN) {
-//            binding.btnTambahDataKambing.gone()
-//        } else if (from == ListKambingFragment.ARG_FROM_INVES) {
-//            binding.btnTambahDataKambing.gone()
-//        } else
-//            binding.btnTambahDataKambing.visible()
+        if (from == ListKambingFragment.ARG_FROM_KESEHATAN) {
+            binding.btnTambahDataKambing.gone()
+        } else if (from == ListKambingFragment.ARG_FROM_PAKAN) {
+            binding.btnTambahDataKambing.gone()
+        } else if (from == ListKambingFragment.ARG_FROM_TIMBANGAN) {
+            binding.btnTambahDataKambing.gone()
+        } else if (from == ListKambingFragment.ARG_FROM_INVES) {
+            binding.btnTambahDataKambing.gone()
+        } else
+            binding.btnTambahDataKambing.visible()
     }
 
 
@@ -82,23 +99,6 @@ class ListKambingFragment : BaseFragment(), OnItemClick {
             dismissProgressDialog()
         }
     }
-
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        initView()
-        initListener()
-//        setupRecycler()
-//        observe()
-//        loadSapi()
-    }
-
-    private fun loadSapi() {
-        viewModel.loadKambing()
-        showProgressDialog()
-    }
-
 
     private fun initListener() {
         binding.btnTambahDataKambing.setOnClickListener {
@@ -165,18 +165,18 @@ class ListKambingFragment : BaseFragment(), OnItemClick {
         when (from) {
             ListKambingFragment.ARG_FROM_TERNAK -> {
                 val detailIntent = Intent(context, DetailKambingActivity::class.java).apply {
-                    putExtra("namasapi", currentItem.tag)
+                    putExtra("namakambing", currentItem.tag)
                     putExtra("jeniskelamin", currentItem.kelamin)
                 }
                 startForResult.launch(detailIntent)
             }
-//            ListKambingFragment.ARG_FROM_KESEHATAN -> {
-//                val kesehatanFragment = KesehatanFragment.newInstance(currentItem)
-//                activity?.supportFragmentManager?.beginTransaction()
-//                    ?.replace(R.id.frame_layout, kesehatanFragment)
-//                    ?.addToBackStack(null)
-//                    ?.commit()
-//            }
+            ListKambingFragment.ARG_FROM_KESEHATAN -> {
+                val kesehatanKambingFragment = KesehatanKambingFragment.newInstance(currentItem)
+                activity?.supportFragmentManager?.beginTransaction()
+                    ?.replace(R.id.frame_layout, kesehatanKambingFragment)
+                    ?.addToBackStack(null)
+                    ?.commit()
+            }
             else -> showToast()
         }
     }
