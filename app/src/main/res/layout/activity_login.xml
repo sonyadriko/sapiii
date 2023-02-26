@@ -6,7 +6,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".feature.auth.viewmodel.view.LoginActivity">
+        tools:context=".feature.auth.view.LoginActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -55,7 +55,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <CheckBox
                     android:id="@+id/checkbox_save_account"

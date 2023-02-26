@@ -30,7 +30,7 @@ class RegisterActivity : BaseAuthActivity() {
                 email = email,
                 password = password,
                 nama = nama,
-                nomorTelepon = noTelepon,
+                noTelepon = noTelepon,
                 role = role
             )
 

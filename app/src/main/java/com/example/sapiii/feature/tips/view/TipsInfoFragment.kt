@@ -7,9 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.sapiii.base.BaseFragment
+import com.example.sapiii.constanst.Constant
 import com.example.sapiii.databinding.FragmentTipsInfoBinding
 import com.example.sapiii.feature.tips.viewmodel.ArtikelViewModel
 import com.example.sapiii.util.OnItemClick
+import com.example.sapiii.util.gone
+import com.example.sapiii.util.visible
 
 class TipsInfoFragment : BaseFragment(), OnItemClick {
     private lateinit var binding: FragmentTipsInfoBinding
@@ -28,11 +31,19 @@ class TipsInfoFragment : BaseFragment(), OnItemClick {
         // Inflate the layout for this fragment
         binding = FragmentTipsInfoBinding.inflate(layoutInflater, container, false)
 
+        initView()
         initListener()
         setupRecyclerView()
         observe()
         onLoadArtikel()
         return binding.root
+    }
+
+    private fun initView() {
+        binding.apply {
+            if (userRepository.role == Constant.Role.ADMIN) btnTambahDataArtikel.visible()
+            else btnTambahDataArtikel.gone()
+        }
     }
 
     private fun onLoadArtikel() {
