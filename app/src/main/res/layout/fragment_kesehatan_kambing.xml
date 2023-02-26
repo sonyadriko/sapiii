@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".feature.kesehatan.sapi.view.KesehatanFragment">
+    tools:context=".feature.kesehatan.kambing.view.KesehatanKambingFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-black"
-                    android:text="@string/sapi"
+                    android:text="@string/kambing"
                     android:textColor="@color/white"
                     android:textSize="22sp" />
 
@@ -71,7 +71,7 @@
                     android:src="@drawable/ic_search_black" />
 
                 <TextView
-                    android:id="@+id/tag_sapi"
+                    android:id="@+id/tag_kambing"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
@@ -243,4 +243,6 @@
         </LinearLayout>
 
     </LinearLayout>
+
+
 </FrameLayout>

@@ -1,12 +1,12 @@
-package com.example.sapiii.feature.ternakku.sapi.view
+package com.example.sapiii.feature.reproduksi.pejantan
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sapiii.R
 
-class MonitoringKehamilanActivity : AppCompatActivity() {
+class MonitoringPejantanActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_monitoring_kehamilan)
+        setContentView(R.layout.activity_monitoring_pejantan)
     }
 }

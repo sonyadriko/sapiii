@@ -1,4 +1,4 @@
-package com.example.sapiii.feature.kesehatan.viewmodel
+package com.example.sapiii.feature.kesehatan.sapi.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

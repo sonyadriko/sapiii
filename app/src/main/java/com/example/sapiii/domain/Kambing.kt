@@ -10,6 +10,9 @@ import java.io.Serializable
 
 @Parcelize
 data class Kambing(
+
+    @SerializedName("image")
+    val image: String = "",
     @SerializedName("tag")
     val tag: String = "",
     @SerializedName("jenis")
@@ -22,6 +25,8 @@ data class Kambing(
     val kedatangan: Kedatangan = Kedatangan(),
     @SerializedName("data")
     val data: DataHewan = DataHewan(),
+    @SerializedName("kesehatan")
+    val kesehatan: Kesehatan = Kesehatan(),
     @SerializedName("pemilik")
     val pemilik: Pemilik = Pemilik(),
 ) : Serializable, Parcelable {

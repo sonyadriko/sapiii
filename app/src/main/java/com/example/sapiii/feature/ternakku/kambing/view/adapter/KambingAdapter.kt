@@ -3,8 +3,11 @@ package com.example.sapiii.feature.ternakku.kambing.view.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.sapiii.R
 import com.example.sapiii.domain.Kambing
 import com.example.sapiii.domain.Sapi
@@ -26,6 +29,10 @@ class KambingAdapter(
 
         holder.namaSapi.text = currentItem.tag
         holder.genderSapi.text = currentItem.kelamin
+        val into = Glide.with(holder.itemView.context)
+            .load(currentItem.image.toUri())
+            .placeholder(R.drawable.ic_outline_image_24)
+            .into(holder.imageKambing)
 
         holder.itemView.setOnClickListener {
 
@@ -47,7 +54,7 @@ class KambingAdapter(
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val namaSapi: TextView = itemView.findViewById(R.id.text_cow_name)
         val genderSapi: TextView = itemView.findViewById(R.id.text_cow_gender)
-
+        val imageKambing: ImageView = itemView.findViewById(R.id.image_hewan)
 
     }
 }
