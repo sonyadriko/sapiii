@@ -1,5 +1,7 @@
 package com.example.sapiii.feature.ternakku.sapi.view
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.activity.viewModels
@@ -10,17 +12,33 @@ import com.example.sapiii.domain.DataHewan
 import com.example.sapiii.domain.Kedatangan
 import com.example.sapiii.domain.Pemilik
 import com.example.sapiii.domain.Sapi
+import com.example.sapiii.feature.ternakku.kambing.view.TambahDataKambingActivity
 import com.example.sapiii.feature.ternakku.sapi.viewmodel.TambahDataSapiViewModel
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.StorageReference
+import com.google.firebase.storage.ktx.storage
+import kotlinx.android.synthetic.main.activity_tambh_data_artikel.*
 
 class TambahDataSapiActivity : BaseActivity() {
 
     private lateinit var binding: ActivityTambahDataSapiBinding
     private val viewModel: TambahDataSapiViewModel by viewModels()
+    private lateinit var storageReference: StorageReference
+    private var selectedImageUri: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTambahDataSapiBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        storageReference = Firebase.storage.reference.child("images/sapi")
+
+        binding.buttonTambahGambarSapi.setOnClickListener {
+            // Membuka galeri untuk memilih gambar
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/*"
+            startActivityForResult(intent, TambahDataSapiActivity.REQUEST_SELECT_IMAGE)
+        }
 
         setKelaminDropdown()
         setStatusDropdown()
@@ -49,33 +67,63 @@ class TambahDataSapiActivity : BaseActivity() {
         }
 
         btnSbmitSapi.setOnClickListener {
-            val dataSapiNew = Sapi(
-                tag = etNamaSapi.text.toString(),
-                jenis = etJenisSapi.text.toString(),
-                kelamin = viewModel.kelamin,
-                asal = etAsalSapi.text.toString(),
-                kedatangan = Kedatangan(
-                    bulan = etKdtgSapi.text.toString(),
-                    usia = etUsiadtgSapi.text.toString(),
-                    beratBadanAwal = etBrtbdnAwalSaapi.text.toString()
-                ),
-                data = DataHewan(
-                    usia = etUsiaskgSapi.text.toString(),
-                    berat = etBrtbdnSkgSapi.text.toString(),
-                    status = viewModel.status
-                ),
-                pemilik = Pemilik(
-                    nama = "Sony",
-                    noTelepon = "082264854113",
-                    alamat = "Randu Barat 9/10"
-                )
-            )
+            val imageReference =
+                storageReference.child(selectedImageUri!!.lastPathSegment!!)
 
-            viewModel.addData(dataSapiNew) { isSuccess ->
-                if (isSuccess) {
-                    showToast("Successfully Saved")
-                } else showToast("Failed")
-            }
+            // Mengunggah gambar ke Firebase Storage
+            imageReference.putFile(selectedImageUri!!)
+                .addOnSuccessListener {
+                    // Mendapatkan URL unduhan gambar
+                    imageReference.downloadUrl.addOnSuccessListener { uri ->
+                        // Membuat objek artikel
+                        val dataSapiNew = Sapi(
+                            image = uri.toString(),
+                            tag = etNamaSapi.text.toString(),
+                            jenis = etJenisSapi.text.toString(),
+                            kelamin = viewModel.kelamin,
+                            asal = etAsalSapi.text.toString(),
+                            kedatangan = Kedatangan(
+                                bulan = etKdtgSapi.text.toString(),
+                                usia = etUsiadtgSapi.text.toString(),
+                                beratBadanAwal = etBrtbdnAwalSaapi.text.toString()
+                            ),
+                            data = DataHewan(
+                                usia = etUsiaskgSapi.text.toString(),
+                                berat = etBrtbdnSkgSapi.text.toString(),
+                                status = viewModel.status
+                            ),
+                            pemilik = Pemilik(
+                                nama = "Sony",
+                                noTelepon = "082264854113",
+                                alamat = "Randu Barat 9/10"
+                            )
+                        )
+
+                        viewModel.addData(dataSapiNew) { isSuccess ->
+                            if (isSuccess) {
+                                showToast("Successfully Saved")
+                            } else showToast("Failed")
+                        }
+                    }
+                }
+                .addOnFailureListener {
+                    showToast("Gambar gagal diunggah")
+                }
         }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == TambahDataSapiActivity.REQUEST_SELECT_IMAGE && resultCode == RESULT_OK && data != null) {
+            // Mendapatkan URI gambar yang dipilih dari galeri
+            selectedImageUri = data.data
+            gambarImageView.setImageURI(selectedImageUri)
+        }
+    }
+
+
+    companion object {
+        private const val REQUEST_SELECT_IMAGE = 100
     }
 }

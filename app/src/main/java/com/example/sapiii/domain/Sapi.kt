@@ -9,6 +9,8 @@ import java.io.Serializable
 
 @Parcelize
 data class Sapi(
+    @SerializedName("image")
+    val image: String = "",
     @SerializedName("tag")
     val tag: String = "",
     @SerializedName("jenis")
