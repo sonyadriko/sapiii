@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sapiii.R
 import com.example.sapiii.base.BaseFragment
+import com.example.sapiii.constanst.Constant
 import com.example.sapiii.databinding.FragmentListKambingBinding
 import com.example.sapiii.domain.Kambing
 import com.example.sapiii.feature.detail.DetailKambingActivity
@@ -54,7 +55,6 @@ class ListKambingFragment : BaseFragment(), OnItemClick {
     }
 
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -71,6 +71,14 @@ class ListKambingFragment : BaseFragment(), OnItemClick {
     }
 
     private fun initView() {
+//        binding.apply {
+//            if (userRepository.role == Constant.Role.PETERNAK) {
+//                btnTambahDataKambing.visible()
+//            } else if (userRepository.role == Constant.Role.PETERNAK && from == ListKambingFragment.ARG_FROM_KESEHATAN) {
+//                btnTambahDataKambing.gone()
+//
+//            } else btnTambahDataKambing.gone()
+//        }
         if (from == ListKambingFragment.ARG_FROM_KESEHATAN) {
             binding.btnTambahDataKambing.gone()
         } else if (from == ListKambingFragment.ARG_FROM_PAKAN) {
