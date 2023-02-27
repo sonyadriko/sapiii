@@ -5,10 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
+import com.example.sapiii.DetailArtikelActivity
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.constanst.Constant
 import com.example.sapiii.databinding.FragmentTipsInfoBinding
+import com.example.sapiii.domain.Artikel
 import com.example.sapiii.feature.tips.viewmodel.ArtikelViewModel
 import com.example.sapiii.util.OnItemClick
 import com.example.sapiii.util.gone
@@ -19,10 +23,19 @@ class TipsInfoFragment : BaseFragment(), OnItemClick {
     private lateinit var artikelAdapter: ArtikelAdapter
     private val viewModel: ArtikelViewModel by viewModels()
 
+    private val startForResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+            if (result.resultCode == DetailArtikelActivity.RESULT_DELETE) {
+                onLoadArtikel()
+            }
+        }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         artikelAdapter = ArtikelAdapter(this@TipsInfoFragment)
     }
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -71,6 +84,10 @@ class TipsInfoFragment : BaseFragment(), OnItemClick {
     }
 
     override fun onClick(data: Any, position: Int) {
-        showToast("Artikel")
+        val currentItem = data as Artikel
+        val detailIntent = Intent(context, DetailArtikelActivity::class.java).apply {
+            putExtra("judularti", currentItem.judul)
+        }
+        startForResult.launch(detailIntent)
     }
 }

@@ -24,7 +24,14 @@ class ArtikelAdapter(
 
     override fun onBindViewHolder(holder: ArtikelViewHolder, position: Int) {
         val currentArtikel = artikelList[position]
-        holder.bind(currentArtikel, position)
+        holder.judulAr.text = currentArtikel.judul
+        val into = Glide.with(holder.itemView.context)
+            .load(currentArtikel.image.toUri())
+            .placeholder(R.drawable.ic_outline_image_24)
+            .into(holder.imageAr)
+        holder.itemView.setOnClickListener {
+            onItemClick.onClick(currentArtikel, position)
+        }
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -46,15 +53,11 @@ class ArtikelAdapter(
         val imageAr = binding.ivArtikel
 //        val descAr = binding.
 
-        fun bind(artikel: Artikel, position: Int) {
-            judulAr.text = artikel.judul
-            val into = Glide.with(imageAr)
-                .load(artikel.image.toUri())
-                .placeholder(R.drawable.ic_outline_image_24)
-                .into(imageAr)
-            binding.root.setOnClickListener {
-                onItemClick.onClick(artikel, position)
-            }
-        }
+//        fun bind(artikel: Artikel, position: Int) {
+//
+////            binding.root.setOnClickListener {
+////                onItemClick.onClick(artikel, position)
+////            }
+//        }
     }
 }

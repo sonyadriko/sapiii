@@ -2,6 +2,7 @@ package com.example.sapiii.util
 
 import android.view.View
 import com.example.sapiii.constanst.Constant.Role
+import com.example.sapiii.domain.Artikel
 import com.example.sapiii.domain.Kambing
 import com.example.sapiii.domain.Sapi
 import com.google.firebase.database.DataSnapshot
@@ -22,6 +23,9 @@ fun DataSnapshot.toSapiDomain() : Sapi {
 
 fun DataSnapshot.toKambingDomain() : Kambing {
     return getValue(Kambing::class.java)!!
+}
+fun DataSnapshot.toArtikelDomain() : Artikel {
+    return getValue(Artikel::class.java)!!
 }
 
 fun View.gone() {
