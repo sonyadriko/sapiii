@@ -31,17 +31,19 @@
                     android:layout_weight="1"
                     android:src="@drawable/ic_qrcode" />
 
-                <EditText
-                    android:id="@+id/et_search"
+                <TextView
+                    android:id="@+id/tv_welcome"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="3"
-                    android:background="@drawable/rounded_button_search"
-                    android:drawableRight="@drawable/ic_search_black"
-                    android:hint="Search..."
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black" />
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:hint="Selamat Datang user"
+                    android:text="Selamat Datang User"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"/>
+
 
                 <ImageView
                     android:id="@+id/iv_notification"
@@ -207,8 +209,8 @@
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:gravity="center"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:text="Perkawinan &amp; Reproduksi"
                     android:textColor="@color/white"
                     android:textSize="14sp" />

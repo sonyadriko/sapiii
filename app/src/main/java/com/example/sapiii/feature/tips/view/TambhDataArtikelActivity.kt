@@ -58,7 +58,7 @@ class TambhDataArtikelActivity : BaseActivity() {
                                 val artikel = Artikel(uri.toString(), judul, desc)
 
                                 // Menyimpan objek artikel ke Firebase Realtime Database
-                                myRef.child(artikel.judul).push().setValue(artikel)
+                                myRef.child(artikel.judul).setValue(artikel)
                                     .addOnSuccessListener {
                                         showToast("Artikel berhasil disimpan")
                                         finish()
