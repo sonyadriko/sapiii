@@ -8,11 +8,12 @@ import android.view.ViewGroup
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
-import com.example.sapiii.DetailArtikelActivity
+import com.example.sapiii.feature.tips.view.DetailArtikelActivity
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.constanst.Constant
 import com.example.sapiii.databinding.FragmentTipsInfoBinding
 import com.example.sapiii.domain.Artikel
+import com.example.sapiii.feature.tips.view.adapter.ArtikelAdapter
 import com.example.sapiii.feature.tips.viewmodel.ArtikelViewModel
 import com.example.sapiii.util.OnItemClick
 import com.example.sapiii.util.gone

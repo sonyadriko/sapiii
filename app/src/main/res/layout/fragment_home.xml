@@ -39,8 +39,6 @@
                     android:layout_weight="3"
                     android:fontFamily="sans-serif"
                     android:gravity="center"
-                    android:hint="Selamat Datang user"
-                    android:text="Selamat Datang User"
                     android:textColor="@color/white"
                     android:textSize="16dp"/>
 

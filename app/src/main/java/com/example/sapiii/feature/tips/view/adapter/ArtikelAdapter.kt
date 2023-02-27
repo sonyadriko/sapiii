@@ -1,4 +1,4 @@
-package com.example.sapiii.feature.tips.view
+package com.example.sapiii.feature.tips.view.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -10,7 +10,6 @@ import com.example.sapiii.R
 import com.example.sapiii.databinding.ListItemTipsInfoBinding
 import com.example.sapiii.domain.Artikel
 import com.example.sapiii.util.OnItemClick
-import kotlinx.android.synthetic.main.activity_tambh_data_artikel.view.*
 
 class ArtikelAdapter(
     private val onItemClick: OnItemClick

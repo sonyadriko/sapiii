@@ -15,6 +15,7 @@ class UserRepository constructor(
     companion object {
         const val ROLE = "role"
         const val UID = "uid"
+        const val NAMA = "nama"
 
         @Volatile
         private var INSTANCE: UserRepository? = null
@@ -38,6 +39,13 @@ class UserRepository constructor(
             saveStringToSharedPref(UID, value)
         }
 
+    var nama: String? = null
+        get() = field ?: getStringFromSharedPref(NAMA)
+        set(value) {
+            field = value
+            saveStringToSharedPref(NAMA, value)
+        }
+
     var role: Role? = null
         get() = field ?: getStringFromSharedPref(ROLE)?.toRole()
         set(value) {
@@ -48,11 +56,13 @@ class UserRepository constructor(
     fun setUserData(uid: String, user: User) {
         this.role = user.role.toRole()
         this.uid = uid
+        this.nama = user.nama
     }
 
     fun erase() {
         uid = null
         role = null
+        nama = null
     }
 
     fun getRemoteUserData(userUid: String, onComplete: (isSuccess: Boolean, user: User?) -> Unit) {

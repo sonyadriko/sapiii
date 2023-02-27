@@ -1,8 +1,8 @@
-package com.example.sapiii
+package com.example.sapiii.feature.tips.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.bumptech.glide.Glide
+import com.example.sapiii.R
 import com.example.sapiii.base.BaseActivity
 import com.example.sapiii.constanst.Constant
 import com.example.sapiii.databinding.ActivityDetailArtikelBinding

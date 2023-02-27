@@ -10,6 +10,7 @@ import com.example.sapiii.KesehatanFragment
 import com.example.sapiii.feature.timbangan.FragmentTimbangan
 import com.example.sapiii.R
 import com.example.sapiii.base.BaseFragment
+import com.example.sapiii.databinding.FragmentHomeBinding
 import com.example.sapiii.feature.invest.InvestasiFragment
 import com.example.sapiii.feature.perkawinan.PerkawinanReproduksiFragment
 import com.example.sapiii.feature.ternakku.TernakkuFragment
@@ -18,47 +19,44 @@ import com.example.sapiii.feature.tips.view.TipsInfoFragment
 
 class HomeFragment : BaseFragment() {
 
+    private lateinit var binding: FragmentHomeBinding
+
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
 
-        val v = inflater.inflate(R.layout.fragment_home, container, false)
-        val ternakku = v.findViewById<LinearLayout>(R.id.menu_ternakku)
-        val kesehatan = v.findViewById<LinearLayout>(R.id.menu_kesehatan)
-        val timbangan = v.findViewById<LinearLayout>(R.id.menu_timbangan)
-        val kawinrepro = v.findViewById<LinearLayout>(R.id.menu_perkawinan)
-        val pakan = v.findViewById<LinearLayout>(R.id.menu_pakan)
-        val logout = v.findViewById<LinearLayout>(R.id.menu_logout)
-        val tipsinfo = v.findViewById<LinearLayout>(R.id.menu_tipsinfo)
-        val menuInvestasi = v.findViewById<LinearLayout>(R.id.menu_investasi)
+        binding = FragmentHomeBinding.inflate(layoutInflater)
 
-        tipsinfo.setOnClickListener {
+        binding.tvWelcome.text = "Selamat Datang "+userRepository.nama
+
+
+        binding.menuTipsinfo.setOnClickListener {
             val tipsInfoFragment = TipsInfoFragment()
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(R.id.frame_layout, tipsInfoFragment)?.addToBackStack(null)?.commit()
         }
 
-        timbangan.setOnClickListener {
+        binding.menuTimbangan.setOnClickListener {
             val timbanganFragment = FragmentTimbangan()
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(R.id.frame_layout, timbanganFragment)?.addToBackStack(null)?.commit()
         }
 
 
-        ternakku.setOnClickListener {
+        binding.menuTernakku.setOnClickListener {
             val ternakkuFragment = TernakkuFragment()
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(R.id.frame_layout, ternakkuFragment)?.addToBackStack(null)?.commit()
         }
 
-        pakan.setOnClickListener {
+        binding.menuPakan.setOnClickListener {
             val listSapi = ListSapiFragment.fromPakan()
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(R.id.frame_layout, listSapi)?.addToBackStack(null)?.commit()
         }
 
-        kesehatan.setOnClickListener {
+        binding.menuKesehatan.setOnClickListener {
             val kesehatanFragment = KesehatanFragment()
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(R.id.frame_layout, kesehatanFragment)?.addToBackStack(null)?.commit()
@@ -67,22 +65,22 @@ class HomeFragment : BaseFragment() {
 //                ?.replace(R.id.frame_layout, listSapi)?.addToBackStack(null)?.commit()
         }
 
-        kawinrepro.setOnClickListener {
+        binding.menuPerkawinan.setOnClickListener {
             val perkawinanReproduksi = PerkawinanReproduksiFragment()
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(R.id.frame_layout, perkawinanReproduksi)?.addToBackStack(null)?.commit()
         }
 
-        menuInvestasi.setOnClickListener {
+        binding.menuInvestasi.setOnClickListener {
             val perkawinanReproduksi = InvestasiFragment()
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(R.id.frame_layout, perkawinanReproduksi)?.addToBackStack(null)?.commit()
         }
 
-        logout.setOnClickListener {
+        binding.menuLogout.setOnClickListener {
             logout()
         }
         // Inflate the layout for this fragment
-        return v
+        return binding.root
     }
 }
