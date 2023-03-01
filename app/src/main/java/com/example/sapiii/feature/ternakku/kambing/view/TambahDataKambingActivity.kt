@@ -83,9 +83,9 @@ class TambahDataKambingActivity : BaseActivity() {
                                 status = viewModel.status
                             ),
                             pemilik = Pemilik(
-                                nama = "Sony",
-                                noTelepon = "082264854113",
-                                alamat = "Randu Barat 9/10"
+                                nama = "PT Sedana Farm",
+                                noTelepon = "82374121850",
+                                alamat = "Kab. Jombang"
                             )
                         )
                         viewModel.addData(dataKambingNew) { isSuccess ->
