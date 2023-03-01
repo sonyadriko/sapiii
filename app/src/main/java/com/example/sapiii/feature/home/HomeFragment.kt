@@ -1,12 +1,18 @@
 package com.example.sapiii.feature.home
 
 import android.annotation.SuppressLint
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.core.content.ContextCompat.getSystemService
 import com.example.sapiii.KesehatanFragment
+import com.example.sapiii.NotificationReceiver
 import com.example.sapiii.feature.timbangan.FragmentTimbangan
 import com.example.sapiii.R
 import com.example.sapiii.base.BaseFragment
@@ -16,6 +22,7 @@ import com.example.sapiii.feature.perkawinan.PerkawinanReproduksiFragment
 import com.example.sapiii.feature.ternakku.TernakkuFragment
 import com.example.sapiii.feature.ternakku.sapi.view.ListSapiFragment
 import com.example.sapiii.feature.tips.view.TipsInfoFragment
+import java.util.*
 
 class HomeFragment : BaseFragment() {
 
@@ -80,7 +87,10 @@ class HomeFragment : BaseFragment() {
         binding.menuLogout.setOnClickListener {
             logout()
         }
+
         // Inflate the layout for this fragment
         return binding.root
     }
+
+
 }
