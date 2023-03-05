@@ -27,6 +27,7 @@ abstract class BaseFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         if (!checkCurrentUserSession()) {
+            showToast("Anda harus login terlebih dahulu")
             logout()
         }
     }

@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".feature.detail.DetailSapiActivity">
+    tools:context=".feature.detail.view.DetailSapiActivity"
+    tools:ignore="contentDescription, HardcodedText">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -77,25 +78,36 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
 
                     <ImageView
                         android:id="@+id/iv_sapi"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:src="@drawable/ic_search_black" />
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_outline_image_24" />
 
-                    <TextView
-                        android:id="@+id/nama_sapi_detail"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:textColor="#000000"
-                        android:textSize="20sp"
-                        tools:text="Sapi 1017" />
-
+                    <ImageView
+                        android:id="@+id/iv_qr_code"
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="1" />
                 </LinearLayout>
+
+                <TextView
+                    android:id="@+id/nama_sapi_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    tools:text="Sapi 1017" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -105,7 +117,7 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="0dp"
                         android:layout_weight="1"
                         android:fontFamily="sans-serif-black"
                         android:textColor="#ef3a5d"
@@ -137,6 +149,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:textAlignment="textEnd"
                                 android:textColor="@color/black"
                                 android:textSize="18sp"
                                 tools:text="Madura Brown" />
@@ -162,6 +175,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:textAlignment="textEnd"
                                 android:textColor="@color/black"
                                 android:textSize="18sp"
                                 tools:text="Jantan" />
@@ -186,6 +200,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:textAlignment="textEnd"
                                 android:textColor="@color/black"
                                 android:textSize="18sp"
                                 tools:text="September" />
@@ -210,6 +225,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:textAlignment="textEnd"
                                 android:textColor="@color/black"
                                 android:textSize="18sp"
                                 tools:text="3 Bulan" />
@@ -234,6 +250,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:textAlignment="textEnd"
                                 android:textColor="@color/black"
                                 android:textSize="18sp"
                                 tools:text="150 Kg" />
@@ -258,6 +275,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:textAlignment="textEnd"
                                 android:textColor="@color/black"
                                 android:textSize="18sp"
                                 tools:text="1,5 Tahun" />
@@ -279,8 +297,9 @@
                             <TextView
                                 android:id="@+id/bbskg_sapi_detail"
                                 android:layout_width="0dp"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:textAlignment="textEnd"
                                 android:textColor="@color/black"
                                 android:textSize="18sp"
                                 tools:text="450 Kg" />
@@ -304,6 +323,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:textAlignment="textEnd"
                                 android:textColor="@color/black"
                                 android:textSize="18sp"
                                 tools:text="Madura" />
@@ -327,6 +347,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:textAlignment="textEnd"
                                 android:textColor="@color/black"
                                 android:textSize="18sp"
                                 tools:text="Siap Jual" />
@@ -375,6 +396,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:textAlignment="textEnd"
                                 android:textColor="@color/black"
                                 android:textSize="18sp"
                                 tools:text="PT Sedana Farm" />
@@ -400,6 +422,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:textAlignment="textEnd"
                                 android:textColor="@color/black"
                                 android:textSize="18sp"
                                 tools:text="082374121850" />
@@ -424,6 +447,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:textAlignment="textEnd"
                                 android:textColor="@color/black"
                                 android:textSize="18sp"
                                 tools:text="Kab. Jombang" />

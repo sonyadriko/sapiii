@@ -15,8 +15,8 @@ import com.example.sapiii.R
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.databinding.FragmentListSapiBinding
 import com.example.sapiii.domain.Sapi
-import com.example.sapiii.feature.detail.DetailSapiActivity
-import com.example.sapiii.feature.detail.DetailSapiActivity.Companion.RESULT_DELETE
+import com.example.sapiii.feature.detail.view.DetailSapiActivity
+import com.example.sapiii.feature.detail.view.DetailSapiActivity.Companion.RESULT_DELETE
 import com.example.sapiii.feature.kesehatan.sapi.view.KesehatanFragment
 import com.example.sapiii.feature.ternakku.sapi.view.adapter.SapiAdapter
 import com.example.sapiii.feature.ternakku.sapi.viewmodel.SapiViewModel

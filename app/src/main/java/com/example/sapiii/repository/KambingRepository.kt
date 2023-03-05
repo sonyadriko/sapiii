@@ -5,6 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import com.example.sapiii.constanst.Constant
 import com.example.sapiii.domain.Kambing
 import com.example.sapiii.domain.Sapi
+import com.example.sapiii.util.toKambingDomain
+import com.example.sapiii.util.toSapiDomain
 import com.google.firebase.database.*
 
 class KambingRepository {
@@ -59,5 +61,30 @@ class KambingRepository {
             }
     }
 
+    fun getSapiDetail(
+        namaKambing: String,
+        onComplete: (data: Kambing) -> Unit,
+        onError: (error: Exception) -> Unit
+    ) {
+        databaseReference.child(namaKambing)
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    try {
+                        onComplete(snapshot.toKambingDomain())
+                    } catch (e: Exception) {
+                        onError(e)
+                    }
+                }
 
+                override fun onCancelled(error: DatabaseError) {
+                    onError(error.toException())
+                }
+            })
+    }
+
+    fun removeKambing(namaKambing: String, onComplete: (isSuccess: Boolean) -> Unit) {
+        databaseReference.child(namaKambing).removeValue { error, _ ->
+            onComplete(error == null)
+        }
+    }
 }

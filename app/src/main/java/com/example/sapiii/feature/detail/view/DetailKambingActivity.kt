@@ -1,7 +1,6 @@
-package com.example.sapiii.feature.detail
+package com.example.sapiii.feature.detail.view
 
 import android.os.Bundle
-import androidx.core.net.toUri
 import com.bumptech.glide.Glide
 import com.example.sapiii.R
 import com.example.sapiii.base.BaseActivity
@@ -12,8 +11,6 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.ktx.storage
 
 class DetailKambingActivity : BaseActivity() {
     private lateinit var binding: ActivityDetailKambingBinding
@@ -38,7 +35,7 @@ class DetailKambingActivity : BaseActivity() {
         buttonDelete.setOnClickListener {
             kmbgRef.child(namaKambing).removeValue { error, _ ->
                 if (error == null) {
-                    setResult(DetailKambingActivity.RESULT_DELETE)
+                    setResult(RESULT_DELETE)
                     finish()
                 }
             }

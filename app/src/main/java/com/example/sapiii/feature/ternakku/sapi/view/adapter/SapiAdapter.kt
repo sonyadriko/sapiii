@@ -27,13 +27,12 @@ class SapiAdapter(
 
         holder.namaSapi.text = currentItem.tag
         holder.genderSapi.text = currentItem.kelamin
-        val into = Glide.with(holder.itemView.context)
-            .load(currentItem.image.toUri())
+        Glide.with(holder.imageSapi)
+            .load(currentItem.image)
             .placeholder(R.drawable.ic_outline_image_24)
             .into(holder.imageSapi)
 
         holder.itemView.setOnClickListener {
-
             onItemClick.onClick(currentItem, position)
         }
     }
@@ -53,8 +52,6 @@ class SapiAdapter(
         val namaSapi: TextView = itemView.findViewById(R.id.text_cow_name)
         val genderSapi: TextView = itemView.findViewById(R.id.text_cow_gender)
         val imageSapi: ImageView = itemView.findViewById(R.id.image_hewan)
-
-
     }
 }
 

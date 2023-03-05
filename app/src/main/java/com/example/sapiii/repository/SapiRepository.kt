@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.sapiii.constanst.Constant.REFERENCE_SAPI
 import com.example.sapiii.domain.Sapi
+import com.example.sapiii.util.toSapiDomain
 import com.google.firebase.database.*
-import com.google.gson.Gson
 
 class SapiRepository {
     private val databaseReference: DatabaseReference =
@@ -57,5 +57,32 @@ class SapiRepository {
             .addOnCompleteListener {
                 onComplete(it.isSuccessful)
             }
+    }
+
+    fun getSapiDetail(
+        namaSapi: String,
+        onComplete: (data: Sapi) -> Unit,
+        onError: (error: Exception) -> Unit
+    ) {
+        databaseReference.child(namaSapi)
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    try {
+                        onComplete(snapshot.toSapiDomain())
+                    } catch (e: Exception) {
+                        onError(e)
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    onError(error.toException())
+                }
+            })
+    }
+
+    fun removeSapi(namaSapi: String, onComplete: (isSuccess: Boolean) -> Unit) {
+        databaseReference.child(namaSapi).removeValue { error, _ ->
+            onComplete(error == null)
+        }
     }
 }

@@ -10,27 +10,25 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.sapiii.R
 import com.example.sapiii.domain.Kambing
-import com.example.sapiii.domain.Sapi
-import com.example.sapiii.feature.ternakku.sapi.view.adapter.SapiAdapter
 import com.example.sapiii.util.OnItemClick
 
 class KambingAdapter(
     private val onItemClick: OnItemClick
 ) : RecyclerView.Adapter<KambingAdapter.MyViewHolder>() {
     private val kambingList = ArrayList<Kambing>()
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): KambingAdapter.MyViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView =
             LayoutInflater.from(parent.context).inflate(R.layout.list_view_sapi, parent, false)
-        return KambingAdapter.MyViewHolder(itemView)
+        return MyViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: KambingAdapter.MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = kambingList[position]
 
         holder.namaSapi.text = currentItem.tag
         holder.genderSapi.text = currentItem.kelamin
-        val into = Glide.with(holder.itemView.context)
-            .load(currentItem.image.toUri())
+        Glide.with(holder.imageKambing)
+            .load(currentItem.image)
             .placeholder(R.drawable.ic_outline_image_24)
             .into(holder.imageKambing)
 

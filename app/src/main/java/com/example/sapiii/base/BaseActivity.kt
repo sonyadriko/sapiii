@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.sapiii.R
 import com.example.sapiii.feature.HomeActivity
 import com.example.sapiii.feature.auth.view.LoginActivity
 import com.example.sapiii.repository.UserRepository
@@ -30,6 +31,7 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         if (!checkCurrentUserSession()) {
+            showToast("Anda harus login terlebih dahulu")
             logout()
         }
     }
@@ -40,8 +42,8 @@ abstract class BaseActivity : AppCompatActivity() {
                 && uid == auth.currentUser?.uid
     }
 
-    fun showToast(message: String, length: Int = Toast.LENGTH_SHORT) {
-        Toast.makeText(this, message, length).show()
+    fun showToast(message: String? = null, length: Int = Toast.LENGTH_SHORT) {
+        Toast.makeText(this, message ?: getString(R.string.something_wrong), length).show()
     }
 
     fun showProgressDialog() {
@@ -56,6 +58,7 @@ abstract class BaseActivity : AppCompatActivity() {
         if (checkCurrentUserSession()) {
             startActivity(
                 Intent(this, HomeActivity::class.java)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             )
         }
     }

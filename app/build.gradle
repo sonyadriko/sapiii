@@ -69,4 +69,7 @@ dependencies {
 
     // gson
     implementation 'com.google.code.gson:gson:2.10.1'
+
+    // qr scanner & generator
+    implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
 }
