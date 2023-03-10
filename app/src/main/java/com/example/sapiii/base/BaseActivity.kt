@@ -4,6 +4,7 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sapiii.R
 import com.example.sapiii.feature.HomeActivity
@@ -18,6 +19,7 @@ abstract class BaseActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     lateinit var database: FirebaseDatabase
     private lateinit var progressDialog: ProgressDialog
+    private lateinit var alertDialog: AlertDialog.Builder
     lateinit var userRepository: UserRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +27,7 @@ abstract class BaseActivity : AppCompatActivity() {
         auth = Firebase.auth
         database = FirebaseDatabase.getInstance()
         progressDialog = ProgressDialog(this)
+        alertDialog = AlertDialog.Builder(this)
         userRepository = UserRepository.getInstance(this)
     }
 
@@ -50,6 +53,14 @@ abstract class BaseActivity : AppCompatActivity() {
         progressDialog.setMessage("Loading")
         progressDialog.setCancelable(false)
         progressDialog.show()
+    }
+
+    fun showDialogLogout() {
+        alertDialog
+            .setMessage("Apakah anda yakin ingin keluar?")
+            .setPositiveButton("Ya") { p0, p1 -> finishAffinity() }
+            .setNegativeButton("Tidak") { p0, p1 -> p0.dismiss() }
+            .show()
     }
 
     fun dismissProgressDialog() = progressDialog.dismiss()

@@ -96,4 +96,10 @@ class HomeActivity : BaseActivity() {
             PendingIntent.getBroadcast(this, 3, intent, PendingIntent.FLAG_UPDATE_CURRENT)
         )
     }
+
+    override fun onBackPressed() {
+        val f = supportFragmentManager.findFragmentById(R.id.frame_layout)
+        if (f is HomeFragment) showDialogLogout()
+        else super.onBackPressed()
+    }
 }
