@@ -48,7 +48,7 @@ class ListSapiInvesFragment : Fragment() {
                 sapiList.clear()
                 for (dataSnapshot in snapshot.children) {
                     val sapi = dataSnapshot.getValue(Sapi::class.java)
-                    if (sapi?.data?.status == "aktif") {
+                    if (sapi?.data?.status == "Siap Jual") {
                         sapiList.add(sapi)
                     }
                 }

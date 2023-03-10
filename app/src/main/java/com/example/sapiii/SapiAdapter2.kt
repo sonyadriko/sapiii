@@ -25,7 +25,7 @@ class SapiAdapter2(private val sapiList: List<Sapi>) :
 
     override fun onBindViewHolder(holder: SapiViewHolder, position: Int) {
         val sapi = sapiList[position]
-        if (sapi.data.status == "aktif") {
+        if (sapi.data.status == "Siap Jual") {
             holder.bind(sapi)
         } else {
             holder.itemView.visibility = View.GONE
