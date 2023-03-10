@@ -15,6 +15,7 @@ import com.example.sapiii.KesehatanFragment
 import com.example.sapiii.NotificationReceiver
 import com.example.sapiii.feature.timbangan.FragmentTimbangan
 import com.example.sapiii.R
+import com.example.sapiii.ScanActivity
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.databinding.FragmentHomeBinding
 import com.example.sapiii.feature.invest.InvestasiFragment
@@ -35,7 +36,15 @@ class HomeFragment : BaseFragment() {
 
         binding = FragmentHomeBinding.inflate(layoutInflater)
 
-        binding.tvWelcome.text = "Selamat Datang "+userRepository.nama
+        binding.tvWelcome.text = "Selamat Datang " + userRepository.nama
+
+        binding.ivCameraQr.setOnClickListener {
+//            val intent = Intent(this, ScanActivity::class.java)
+//            startActivity(intent)
+
+            startActivity(Intent(context, ScanActivity::class.java))
+
+        }
 
 
         binding.menuTipsinfo.setOnClickListener {
@@ -67,9 +76,6 @@ class HomeFragment : BaseFragment() {
             val kesehatanFragment = KesehatanFragment()
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(R.id.frame_layout, kesehatanFragment)?.addToBackStack(null)?.commit()
-//            val listSapi = ListSapiFragment.fromKesehatan()
-//            activity?.supportFragmentManager?.beginTransaction()
-//                ?.replace(R.id.frame_layout, listSapi)?.addToBackStack(null)?.commit()
         }
 
         binding.menuPerkawinan.setOnClickListener {
