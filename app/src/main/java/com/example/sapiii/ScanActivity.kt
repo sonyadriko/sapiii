@@ -86,7 +86,7 @@ class ScanActivity : AppCompatActivity(), DecoratedBarcodeView.TorchListener {
 
     override fun onResume() {
         super.onResume()
-        capture.onResume()
+//        capture.onResume()
         barcodeScannerView.resume()
         if (savedInstanceState != null) {
             capture.initializeFromIntent(intent, savedInstanceState)
@@ -98,13 +98,15 @@ class ScanActivity : AppCompatActivity(), DecoratedBarcodeView.TorchListener {
 
     override fun onPause() {
         super.onPause()
-        capture.onPause()
+//        capture.onPause()
         barcodeScannerView.pause()
     }
 
     override fun onDestroy() {
         super.onDestroy()
         capture.onDestroy()
+//        barcodeScannerView.onDest?
+
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
