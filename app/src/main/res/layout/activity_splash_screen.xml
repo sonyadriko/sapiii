@@ -19,7 +19,7 @@
             android:fontFamily="monospace"
             android:text="BANTU"
             android:textColor="#0F0F0F"
-            android:textSize="22sp"
+            android:textSize="30sp"
             android:layout_gravity="center"
             android:gravity="center"
             android:textStyle="bold"
@@ -36,7 +36,7 @@
             android:fontFamily="monospace"
             android:text="TERNAK"
             android:textColor="#0F0F0F"
-            android:textSize="22sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
 
@@ -53,7 +53,8 @@
             tools:ignore="MissingConstraints">
 
             <ImageView
-                android:layout_width="264dp"
+                android:background="@drawable/logo"
+                android:layout_width="280dp"
                 android:layout_height="280dp"/>
 
 
