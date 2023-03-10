@@ -11,11 +11,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat.getSystemService
-import com.example.sapiii.KesehatanFragment
-import com.example.sapiii.NotificationReceiver
+import com.example.sapiii.*
 import com.example.sapiii.feature.timbangan.FragmentTimbangan
-import com.example.sapiii.R
-import com.example.sapiii.ScanActivity
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.databinding.FragmentHomeBinding
 import com.example.sapiii.feature.invest.InvestasiFragment
@@ -85,9 +82,9 @@ class HomeFragment : BaseFragment() {
         }
 
         binding.menuInvestasi.setOnClickListener {
-            val perkawinanReproduksi = InvestasiFragment()
+            val investasi = ListSapiInvesFragment()
             activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.frame_layout, perkawinanReproduksi)?.addToBackStack(null)?.commit()
+                ?.replace(R.id.frame_layout, investasi)?.addToBackStack(null)?.commit()
         }
 
         binding.menuLogout.setOnClickListener {
