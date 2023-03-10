@@ -1,21 +1,16 @@
 package com.example.sapiii.feature.home
 
 import android.annotation.SuppressLint
-import android.app.AlarmManager
-import android.app.PendingIntent
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import androidx.core.content.ContextCompat.getSystemService
 import com.example.sapiii.*
 import com.example.sapiii.feature.timbangan.FragmentTimbangan
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.databinding.FragmentHomeBinding
-import com.example.sapiii.feature.invest.InvestasiFragment
+import com.example.sapiii.feature.invest.ListSapiInvesFragment
 import com.example.sapiii.feature.perkawinan.PerkawinanReproduksiFragment
 import com.example.sapiii.feature.ternakku.TernakkuFragment
 import com.example.sapiii.feature.ternakku.sapi.view.ListSapiFragment

@@ -7,12 +7,12 @@ import android.widget.ArrayAdapter
 import androidx.activity.viewModels
 import com.example.sapiii.R
 import com.example.sapiii.base.BaseActivity
+import com.example.sapiii.constanst.Constant.statusList
 import com.example.sapiii.databinding.ActivityTambahDataSapiBinding
 import com.example.sapiii.domain.DataHewan
 import com.example.sapiii.domain.Kedatangan
 import com.example.sapiii.domain.Pemilik
 import com.example.sapiii.domain.Sapi
-import com.example.sapiii.feature.ternakku.kambing.view.TambahDataKambingActivity
 import com.example.sapiii.feature.ternakku.sapi.viewmodel.TambahDataSapiViewModel
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.StorageReference
@@ -47,7 +47,7 @@ class TambahDataSapiActivity : BaseActivity() {
 
     private fun setStatusDropdown() {
         val adapter =
-            ArrayAdapter(this@TambahDataSapiActivity, R.layout.list_item, viewModel.statusList)
+            ArrayAdapter(this@TambahDataSapiActivity, R.layout.list_item, statusList)
         binding.etStatus.setAdapter(adapter)
     }
 

@@ -22,4 +22,6 @@ object Constant {
     const val NAMA_KAMBING_QUERY_PARAM = "namaKambing"
 
     // END REGION =====================
+
+    val statusList = listOf("Siap Jual", "Belum Siap Jual")
 }

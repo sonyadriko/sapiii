@@ -1,11 +1,11 @@
 package com.example.sapiii.feature.ternakku.sapi.viewmodel
 
 import androidx.lifecycle.ViewModel
+import com.example.sapiii.constanst.Constant.statusList
 import com.example.sapiii.domain.Sapi
 import com.example.sapiii.repository.SapiRepository
 
 class TambahDataSapiViewModel: ViewModel() {
-    val statusList = listOf("Siap Jual", "Belum Siap Jual")
     val kelaminList = listOf("Jantan", "Betina")
 
     var status: String = ""
