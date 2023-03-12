@@ -4,9 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.sapiii.constanst.Constant
 import com.example.sapiii.domain.Kambing
-import com.example.sapiii.domain.Sapi
 import com.example.sapiii.util.toKambingDomain
-import com.example.sapiii.util.toSapiDomain
 import com.google.firebase.database.*
 
 class KambingRepository {
@@ -61,7 +59,7 @@ class KambingRepository {
             }
     }
 
-    fun getSapiDetail(
+    fun getKambingDetail(
         namaKambing: String,
         onComplete: (data: Kambing) -> Unit,
         onError: (error: Exception) -> Unit

@@ -1,15 +1,12 @@
 package com.example.sapiii.feature.detail.viewmodel
 
 import android.net.Uri
-import androidx.core.net.toUri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.sapiii.base.BaseViewModel
 import com.example.sapiii.constanst.Constant.DEEP_LINK_ROOT
 import com.example.sapiii.constanst.Constant.NAMA_KAMBING_QUERY_PARAM
 import com.example.sapiii.constanst.Constant.NAMA_SAPI_QUERY_PARAM
-import java.net.URLEncoder
-import kotlin.text.Charsets.UTF_8
 
 class DetailViewModel : BaseViewModel() {
     companion object {
@@ -119,7 +116,7 @@ class DetailViewModel : BaseViewModel() {
 
     private fun getKambing(namaKambing: String) {
         setViewState(ViewState.LOADING)
-        kambingRepository.getSapiDetail(
+        kambingRepository.getKambingDetail(
             namaKambing,
             onComplete = { kambing ->
                 setViewEffect(ViewEffect.OnDataGetResult(kambing))

@@ -24,4 +24,5 @@ object Constant {
     // END REGION =====================
 
     val statusList = listOf("Siap Jual", "Belum Siap Jual")
+    val kelaminList = listOf("Jantan", "Betina")
 }

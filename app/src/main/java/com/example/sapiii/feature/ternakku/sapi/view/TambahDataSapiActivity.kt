@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter
 import androidx.activity.viewModels
 import com.example.sapiii.R
 import com.example.sapiii.base.BaseActivity
+import com.example.sapiii.constanst.Constant.kelaminList
 import com.example.sapiii.constanst.Constant.statusList
 import com.example.sapiii.databinding.ActivityTambahDataSapiBinding
 import com.example.sapiii.domain.DataHewan
@@ -53,7 +54,7 @@ class TambahDataSapiActivity : BaseActivity() {
 
     private fun setKelaminDropdown() {
         val adapter =
-            ArrayAdapter(this@TambahDataSapiActivity, R.layout.list_item, viewModel.kelaminList)
+            ArrayAdapter(this@TambahDataSapiActivity, R.layout.list_item, kelaminList)
         binding.etJenisKelamin.setAdapter(adapter)
     }
 

@@ -7,6 +7,8 @@ import android.widget.ArrayAdapter
 import androidx.activity.viewModels
 import com.example.sapiii.R
 import com.example.sapiii.base.BaseActivity
+import com.example.sapiii.constanst.Constant.kelaminList
+import com.example.sapiii.constanst.Constant.statusList
 import com.example.sapiii.databinding.ActivityTambahDataKambingBinding
 import com.example.sapiii.domain.*
 import com.example.sapiii.feature.ternakku.kambing.viewmodel.TambahDataKambingViewModel
@@ -117,13 +119,13 @@ class TambahDataKambingActivity : BaseActivity() {
 
     private fun setStatusDropdown() {
         val adapter =
-            ArrayAdapter(this@TambahDataKambingActivity, R.layout.list_item, viewModel.statusList)
+            ArrayAdapter(this@TambahDataKambingActivity, R.layout.list_item, statusList)
         binding.etStatus.setAdapter(adapter)
     }
 
     private fun setKelaminDropdown() {
         val adapter =
-            ArrayAdapter(this@TambahDataKambingActivity, R.layout.list_item, viewModel.kelaminList)
+            ArrayAdapter(this@TambahDataKambingActivity, R.layout.list_item, kelaminList)
         binding.etJenisKelaminKambing.setAdapter(adapter)
     }
 

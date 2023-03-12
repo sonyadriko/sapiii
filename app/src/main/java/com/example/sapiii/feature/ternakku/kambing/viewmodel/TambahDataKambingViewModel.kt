@@ -1,15 +1,12 @@
 package com.example.sapiii.feature.ternakku.kambing.viewmodel
 
 import androidx.lifecycle.ViewModel
+import com.example.sapiii.constanst.Constant.kelaminList
+import com.example.sapiii.constanst.Constant.statusList
 import com.example.sapiii.domain.Kambing
-import com.example.sapiii.domain.Sapi
 import com.example.sapiii.repository.KambingRepository
-import com.example.sapiii.repository.SapiRepository
 
 class TambahDataKambingViewModel: ViewModel() {
-    val statusList = listOf("Siap Jual", "Belum Siap Jual")
-    val kelaminList = listOf("Jantan", "Betina")
-
     var status: String = ""
         private set
     var kelamin: String = ""
