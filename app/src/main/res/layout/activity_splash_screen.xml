@@ -10,37 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:ignore="MissingConstraints">
-        <!--        <TextView-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginTop="60dp"-->
-        <!--            android:fontFamily="monospace"-->
-        <!--            android:text="BANTU"-->
-        <!--            android:textColor="#0F0F0F"-->
-        <!--            android:textSize="30sp"-->
-        <!--            android:layout_gravity="center"-->
-        <!--            android:gravity="center"-->
-        <!--            android:textStyle="bold"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            tools:ignore="MissingConstraints" />-->
-
-        <!--        <TextView-->
-        <!--            android:id="@+id/textkedua"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:gravity="center"-->
-        <!--            android:textAlignment="center"-->
-        <!--            android:fontFamily="monospace"-->
-        <!--            android:text="TERNAK"-->
-        <!--            android:textColor="#0F0F0F"-->
-        <!--            android:textSize="30sp"-->
-        <!--            android:textStyle="bold"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            tools:ignore="MissingConstraints" />-->
-
 
         <ImageView
             android:id="@+id/imglogo"
@@ -52,41 +21,9 @@
         <ImageView
             android:layout_width="150dp"
             android:layout_height="100dp"
-android:layout_centerInParent="true"
             android:layout_below="@+id/imglogo"
+            android:layout_centerInParent="true"
             android:background="@drawable/text_logo" />
-
-
-        <!--    <TextView-->
-        <!--        android:id="@+id/text3"-->
-        <!--        android:layout_width="220dp"-->
-        <!--        android:layout_height="wrap_content"-->
-        <!--        android:layout_marginTop="20dp"-->
-        <!--        android:gravity="center"-->
-        <!--        android:text="order food and get delivery in the fastest time in the town"-->
-        <!--        android:textColor="#8D8D8D"-->
-
-        <!--        android:textSize="12dp"-->
-        <!--        app:layout_constraintEnd_toEndOf="parent"-->
-
-        <!--        app:layout_constraintStart_toStartOf="parent"-->
-        <!--        app:layout_constraintTop_toBottomOf="@+id/textkedua"-->
-        <!--        tools:ignore="MissingConstraints" />-->
-
-        <!--        <androidx.appcompat.widget.AppCompatButton-->
-        <!--            android:id="@+id/buttonstarted"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="50dp"-->
-        <!--            android:layout_marginRight="100dp"-->
-        <!--            android:layout_marginLeft="100dp"-->
-        <!--            android:background="#EAEBEE"-->
-        <!--            android:text="Get Started "-->
-        <!--            android:textAllCaps="false"-->
-        <!--            android:textColor="#0B0B0B"-->
-        <!--            android:textSize="12dp"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toBottomOf="@+id/linearlayoutcompact" />-->
 
     </RelativeLayout>
 
