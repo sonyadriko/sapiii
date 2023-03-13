@@ -19,6 +19,8 @@ data class Sapi(
     val kelamin: String = "",
     @SerializedName("asal")
     val asal: String = "",
+    @SerializedName("harga")
+    val harga: Int = 0,
     @SerializedName("kedatangan")
     val kedatangan: Kedatangan = Kedatangan(),
     @SerializedName("data")

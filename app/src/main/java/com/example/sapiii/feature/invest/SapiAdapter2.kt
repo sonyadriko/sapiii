@@ -1,19 +1,27 @@
-package com.example.sapiii
+package com.example.sapiii.feature.invest
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.sapiii.R
 import com.example.sapiii.domain.Sapi
+import com.example.sapiii.util.OnItemClick
 import kotlinx.android.synthetic.main.list_view_sapi.view.*
 
-class SapiAdapter2(private val sapiList: List<Sapi>) :
-    RecyclerView.Adapter<SapiAdapter2.SapiViewHolder>() {
+class SapiAdapter2(
+    private val onItemClick: OnItemClick
+    ) : RecyclerView.Adapter<SapiAdapter2.SapiViewHolder>() {
+    private val sapiList = ArrayList<Sapi>()
+
     inner class SapiViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(sapi: Sapi) {
+
+
             itemView.text_cow_name.text = sapi.tag
 //            itemView.beratTextView.text = sapi.berat.toString()
             itemView.text_cow_gender.text = sapi.data.status
+
         }
     }
 
@@ -30,6 +38,10 @@ class SapiAdapter2(private val sapiList: List<Sapi>) :
         } else {
             holder.itemView.visibility = View.GONE
             holder.itemView.layoutParams = RecyclerView.LayoutParams(0, 0)
+        }
+        holder.itemView.setOnClickListener {
+            onItemClick.onClick(sapi, position)
+
         }
     }
 
