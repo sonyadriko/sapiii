@@ -6,59 +6,55 @@
     android:layout_height="match_parent"
     tools:context=".feature.splash.SplashScreenActivity">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         tools:ignore="MissingConstraints">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:fontFamily="monospace"
-            android:text="BANTU"
-            android:textColor="#0F0F0F"
-            android:textSize="30sp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints" />
+        <!--        <TextView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="60dp"-->
+        <!--            android:fontFamily="monospace"-->
+        <!--            android:text="BANTU"-->
+        <!--            android:textColor="#0F0F0F"-->
+        <!--            android:textSize="30sp"-->
+        <!--            android:layout_gravity="center"-->
+        <!--            android:gravity="center"-->
+        <!--            android:textStyle="bold"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            tools:ignore="MissingConstraints" />-->
 
-        <TextView
-            android:id="@+id/textkedua"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textAlignment="center"
-            android:fontFamily="monospace"
-            android:text="TERNAK"
-            android:textColor="#0F0F0F"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
+        <!--        <TextView-->
+        <!--            android:id="@+id/textkedua"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:gravity="center"-->
+        <!--            android:textAlignment="center"-->
+        <!--            android:fontFamily="monospace"-->
+        <!--            android:text="TERNAK"-->
+        <!--            android:textColor="#0F0F0F"-->
+        <!--            android:textSize="30sp"-->
+        <!--            android:textStyle="bold"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
 
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints" />
-
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/linearlayoutcompact"
-            android:layout_width="match_parent"
-            android:layout_height="450dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            tools:ignore="MissingConstraints">
-
-            <ImageView
-                android:background="@drawable/logo"
-                android:layout_width="280dp"
-                android:layout_height="280dp"/>
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            tools:ignore="MissingConstraints" />-->
 
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
+        <ImageView
+            android:id="@+id/imglogo"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/logo" />
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+android:layout_centerInParent="true"
+            android:layout_below="@+id/imglogo"
+            android:background="@drawable/text_logo" />
 
 
         <!--    <TextView-->
@@ -77,21 +73,21 @@
         <!--        app:layout_constraintTop_toBottomOf="@+id/textkedua"-->
         <!--        tools:ignore="MissingConstraints" />-->
 
-<!--        <androidx.appcompat.widget.AppCompatButton-->
-<!--            android:id="@+id/buttonstarted"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:layout_marginRight="100dp"-->
-<!--            android:layout_marginLeft="100dp"-->
-<!--            android:background="#EAEBEE"-->
-<!--            android:text="Get Started "-->
-<!--            android:textAllCaps="false"-->
-<!--            android:textColor="#0B0B0B"-->
-<!--            android:textSize="12dp"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/linearlayoutcompact" />-->
+        <!--        <androidx.appcompat.widget.AppCompatButton-->
+        <!--            android:id="@+id/buttonstarted"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="50dp"-->
+        <!--            android:layout_marginRight="100dp"-->
+        <!--            android:layout_marginLeft="100dp"-->
+        <!--            android:background="#EAEBEE"-->
+        <!--            android:text="Get Started "-->
+        <!--            android:textAllCaps="false"-->
+        <!--            android:textColor="#0B0B0B"-->
+        <!--            android:textSize="12dp"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/linearlayoutcompact" />-->
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
