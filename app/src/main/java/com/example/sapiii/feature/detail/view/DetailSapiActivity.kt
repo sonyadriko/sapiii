@@ -97,6 +97,8 @@ class DetailSapiActivity : BaseActivity() {
                 .placeholder(R.drawable.ic_outline_image_24)
                 .into(ivSapi)
             namaSapiDetail.text = sapi.tag
+            pmkSapiDetail.text = sapi.idpmk
+            kandangSapiDetail.text = sapi.kodekandang
             jkSapiDetail.text = sapi.kelamin
             jenisSapiDetail.text = sapi.jenis
             kdtgSapiDetail.text = sapi.kedatangan.bulan

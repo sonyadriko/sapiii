@@ -34,6 +34,7 @@
     <string name="nama_kambing">Nama Kambing</string>
     <string name="kesehatan">KESEHATAN</string>
     <string name="usia_kambing">Usia Kambing</string>
+    <string name="id_pmk">ID PMK</string>
 
     <string-array name="option_kesehatan">
         <item>Sehat</item>

@@ -74,6 +74,8 @@ class TambahDataKambingActivity : BaseActivity() {
                             jenis = etJenisKambing.text.toString(),
                             kelamin = viewModel.kelamin,
                             asal = etAsalKambing.text.toString(),
+                            kodekandang = etKodeKandangKambing.text.toString(),
+                            idpmk = etPmkKambing.text.toString(),
                             kedatangan = Kedatangan(
                                 bulan = etKdtgKambing.text.toString(),
                                 usia = etUsiadtgKambing.text.toString(),

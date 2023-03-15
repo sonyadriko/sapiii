@@ -55,6 +55,8 @@ class DetailKambingActivity : BaseActivity() {
                                 .placeholder(R.drawable.ic_outline_image_24)
                                 .into(ivKmbg)
                             namaKmbgDetail.text = kambing.tag
+                            pmkKambingDetail.text = kambing.idpmk
+                            kandangKambingDetail.text = kambing.kodekandang
                             jkKmbgDetail.text = kambing.kelamin
                             jenisKmbgDetail.text = kambing.jenis
                             kdtgKmbgDetail.text = kambing.kedatangan.bulan
