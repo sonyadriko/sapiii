@@ -46,7 +46,9 @@ data class Kesehatan(
     @SerializedName("sehat")
     val sehat: Boolean = false,
     @SerializedName("vaksinDosis")
-    val vaksinDosis: Int = -1 // -1 berarti belum vaksin sama sekali
+    val vaksinDosis: Int = -1, // -1 berarti belum vaksin sama sekali
+    @SerializedName("keterangan")
+    val keterangan: String = "",
 ) : Serializable, Parcelable
 
 @Parcelize

@@ -4,27 +4,41 @@ import android.os.Bundle
 import com.bumptech.glide.Glide
 import com.example.sapiii.base.BaseActivity
 import com.example.sapiii.constanst.Constant
-import com.example.sapiii.databinding.ActivityDetailMutasiBinding
+import com.example.sapiii.databinding.ActivityDetailInvesmentBinding
 import com.example.sapiii.util.toSapiDomain
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 
 class DetailInvesmentActivity : BaseActivity() {
 
-    private lateinit var binding: ActivityDetailMutasiBinding
+    private lateinit var binding: ActivityDetailInvesmentBinding
     private lateinit var sapiRef: DatabaseReference
     private lateinit var namaSapi: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityDetailMutasiBinding.inflate(layoutInflater)
+        binding = ActivityDetailInvesmentBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        sapiRef = database.getReference(Constant.REFERENCE_KAMBING)
+        sapiRef = database.getReference(Constant.REFERENCE_SAPI )
         namaSapi = intent.getStringExtra("namasapi") ?: ""
 //        initListener()
         getDetailSapi()
+        buttonSubmit()
+    }
+
+    private fun buttonSubmit() = with(binding) {
+
+        val database = FirebaseDatabase.getInstance()
+        val ref = database.getReference("sapi")
+
+        binding.btnSubmitHarga.setOnClickListener{
+            val hargaSapi = binding.inputHarga.text.toString().toInt()
+
+            val hashMap = HashMap<String, Any>()
+            hashMap["harga"] = hargaSapi
+
+            ref.child("id_sapi").updateChildren(hashMap)
+        }
+
     }
 
     private fun getDetailSapi() = with(binding) {
