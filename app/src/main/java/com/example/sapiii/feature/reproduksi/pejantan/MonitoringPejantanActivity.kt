@@ -20,12 +20,12 @@ class MonitoringPejantanActivity : BaseActivity() {
         binding = ActivityMonitoringPejantanBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.datepickerMp.setOnDateChangedListener { _, year, month, dayOfMonth ->
-            val day = binding.datepickerMp.dayOfMonth
-            val month = binding.datepickerMp.month + 1
-            val year = binding.datepickerMp.year
-
-        }
+//        binding.datepickerMp.setOnDateChangedListener { _, year, month, dayOfMonth ->
+//            val day = binding.datepickerMp.dayOfMonth
+//            val month = binding.datepickerMp.month + 1
+//            val year = binding.datepickerMp.year
+//
+//        }
 
         fetchNamaKodeData()
     }
