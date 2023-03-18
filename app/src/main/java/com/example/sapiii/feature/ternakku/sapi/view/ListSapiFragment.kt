@@ -15,8 +15,8 @@ import com.example.sapiii.R
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.databinding.FragmentListSapiBinding
 import com.example.sapiii.domain.Sapi
-import com.example.sapiii.feature.detail.view.DetailSapiActivity
-import com.example.sapiii.feature.detail.view.DetailSapiActivity.Companion.RESULT_DELETE
+import com.example.sapiii.feature.detail.view.DetailHewanActivity
+import com.example.sapiii.feature.detail.view.DetailHewanActivity.Companion.RESULT_DELETE
 import com.example.sapiii.feature.kesehatan.sapi.view.KesehatanFragment
 import com.example.sapiii.feature.ternakku.sapi.view.adapter.SapiAdapter
 import com.example.sapiii.feature.ternakku.sapi.viewmodel.SapiViewModel
@@ -104,7 +104,7 @@ class ListSapiFragment : BaseFragment(), OnItemClick {
         val currentItem = data as Sapi
         when (from) {
             ARG_FROM_TERNAK -> {
-                val detailIntent = Intent(context, DetailSapiActivity::class.java).apply {
+                val detailIntent = Intent(context, DetailHewanActivity::class.java).apply {
                     putExtra("namasapi", currentItem.tag)
                     putExtra("jeniskelamin", currentItem.kelamin)
                 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".feature.reproduksi.pejantan.MonitoringPejantanActivity">
+    tools:context=".feature.reproduksi.view.MonitoringPejantanActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="130dp"
             android:background="@drawable/rounded_blue_background"
             android:gravity="center_vertical"
             android:orientation="vertical">

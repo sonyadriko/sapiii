@@ -14,7 +14,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="130dp"
             android:background="@drawable/rounded_blue_background"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -24,12 +24,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-<!--                <ImageView-->
-<!--                    android:id="@+id/iv_camera_qr"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_weight="1"-->
-<!--                    android:src="@drawable/ic_qrcode" />-->
+                <ImageView
+                    android:id="@+id/iv_camera_qr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_qrcode" />
 
                 <TextView
                     android:id="@+id/tv_welcome"
@@ -42,6 +42,10 @@
                     android:textColor="@color/white"
                     android:textSize="20dp"/>
 
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
 
 <!--                <ImageView-->
 <!--                    android:id="@+id/iv_notification"-->

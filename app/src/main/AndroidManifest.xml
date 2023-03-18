@@ -87,7 +87,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".feature.reproduksi.kehamilan.MonitoringKehamilanActivity"
+            android:name=".feature.reproduksi.view.MonitoringKehamilanActivity"
             android:exported="false"
             android:screenOrientation="portrait">
             <meta-data
@@ -95,7 +95,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".feature.reproduksi.pejantan.MonitoringPejantanActivity"
+            android:name=".feature.reproduksi.view.MonitoringPejantanActivity"
             android:exported="false"
             android:screenOrientation="portrait">
             <meta-data
@@ -119,7 +119,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".feature.detail.view.DetailSapiActivity"
+            android:name=".feature.detail.view.DetailHewanActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <meta-data

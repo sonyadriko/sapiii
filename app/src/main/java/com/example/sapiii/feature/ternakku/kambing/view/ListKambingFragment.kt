@@ -16,7 +16,7 @@ import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.databinding.FragmentListKambingBinding
 import com.example.sapiii.domain.Kambing
 import com.example.sapiii.feature.detail.view.DetailKambingActivity
-import com.example.sapiii.feature.detail.view.DetailSapiActivity.Companion.RESULT_DELETE
+import com.example.sapiii.feature.detail.view.DetailHewanActivity.Companion.RESULT_DELETE
 import com.example.sapiii.feature.kesehatan.kambing.view.KesehatanKambingFragment
 import com.example.sapiii.feature.ternakku.kambing.view.adapter.KambingAdapter
 import com.example.sapiii.feature.ternakku.kambing.viewmodel.KambingViewModel

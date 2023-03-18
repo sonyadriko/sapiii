@@ -30,13 +30,10 @@ class HomeFragment : BaseFragment() {
 
         binding.tvWelcome.text = "Selamat Datang " + userRepository.nama
 
-//        binding.ivCameraQr.setOnClickListener {
-////            val intent = Intent(this, ScanActivity::class.java)
-////            startActivity(intent)
-//
-//            startActivity(Intent(context, ScanActivity::class.java))
-//
-//        }
+        binding.ivCameraQr.setOnClickListener {
+            startActivity(Intent(context, ScanActivity::class.java))
+
+        }
 
         binding.menuMutasi.setOnClickListener {
             val mutasiFragment = MutasiFragment()
