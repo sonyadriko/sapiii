@@ -9,7 +9,7 @@ import com.google.firebase.database.*
 
 class PejantanRepository {
     private val databaseReference: DatabaseReference =
-        FirebaseDatabase.getInstance().getReference(Constant.REFERENCE_MUTASI_SAPI)
+        FirebaseDatabase.getInstance().getReference(Constant.REFERENCE_PEJANTAN)
 
     @Volatile
     private var INSTANCE: PejantanRepository? = null

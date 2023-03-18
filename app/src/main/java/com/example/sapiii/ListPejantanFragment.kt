@@ -7,16 +7,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.RecyclerView
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.databinding.FragmentListPejantanBinding
 import com.example.sapiii.databinding.FragmentMutasiKambingBinding
 import com.example.sapiii.feature.reproduksi.pejantan.MonitoringPejantanActivity
+import com.example.sapiii.feature.ternakku.kambing.view.adapter.KambingAdapter
+import com.example.sapiii.feature.tips.view.adapter.ArtikelAdapter
 
 class ListPejantanFragment : BaseFragment() {
 
     private lateinit var binding: FragmentListPejantanBinding
     private lateinit var monitoringPejantanAdapter: MonitoringPejantanAdapter
+    private lateinit var recyclerView: RecyclerView
     private val viewModel: MonitoringPejantanViewModel by viewModels()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,8 +59,14 @@ class ListPejantanFragment : BaseFragment() {
     }
 
     private fun setupRecyclerView() {
-        val monitoringPejantanList = binding.pejantanList
-        monitoringPejantanList.adapter = monitoringPejantanAdapter
+//        val monitoringPejantanList = binding.pejantanList
+//        monitoringPejantanList.adapter = monitoringPejantanAdapter
+
+        recyclerView = binding.pejantanList
+//        userRecyclerView.addItemDecoration(dividerItemDecoration)
+        recyclerView.setHasFixedSize(true)
+        monitoringPejantanAdapter = MonitoringPejantanAdapter()
+        recyclerView.adapter = monitoringPejantanAdapter
     }
 
 }

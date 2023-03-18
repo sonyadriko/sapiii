@@ -7,11 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.RecyclerView
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.databinding.FragmentMutasiKambingBinding
 
 class MutasiKambingFragment : BaseFragment() {
 
+    private lateinit var recyclerView: RecyclerView
     private lateinit var binding: FragmentMutasiKambingBinding
     private lateinit var mutasiKambbingAdapter: MutasiKambingAdapter
     private val viewModel: MutasiKambingViewModel by viewModels()
@@ -55,8 +57,14 @@ class MutasiKambingFragment : BaseFragment() {
     }
 
     private fun setupRecyclerView() {
-        val mutasiKambingList = binding.mutasiKambingList
-        mutasiKambingList.adapter = mutasiKambbingAdapter
+//        val mutasiKambingList = binding.mutasiKambingList
+//        mutasiKambingList.adapter = mutasiKambbingAdapter
+
+        recyclerView = binding.mutasiKambingList
+//        userRecyclerView.addItemDecoration(dividerItemDecoration)
+        recyclerView.setHasFixedSize(true)
+        mutasiKambbingAdapter = MutasiKambingAdapter()
+        recyclerView.adapter = mutasiKambbingAdapter
     }
 
 
