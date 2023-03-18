@@ -3,16 +3,23 @@ package com.example.sapiii.feature.detail.viewmodel
 import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.example.sapiii.base.BaseViewModel
 import com.example.sapiii.constanst.Constant.DEEP_LINK_ROOT
 import com.example.sapiii.constanst.Constant.NAMA_KAMBING_QUERY_PARAM
 import com.example.sapiii.constanst.Constant.NAMA_SAPI_QUERY_PARAM
+import com.example.sapiii.domain.Kambing
+import com.example.sapiii.domain.Sapi
+import com.example.sapiii.feature.detail.viewmodel.DetailViewModel.Companion.DetailFeature.*
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class DetailViewModel : BaseViewModel() {
     companion object {
         enum class DetailFeature(val queryName: String) {
             SAPI(NAMA_SAPI_QUERY_PARAM),
-            KAMBING(NAMA_KAMBING_QUERY_PARAM)
+            KAMBING(NAMA_KAMBING_QUERY_PARAM),
+            UNKNOWN("")
         }
     }
 
@@ -22,19 +29,13 @@ class DetailViewModel : BaseViewModel() {
     private val _viewEffect = MutableLiveData<ViewEffect>()
     val viewEffect: LiveData<ViewEffect> get() = _viewEffect
 
-    private lateinit var feature: DetailFeature
+    private var feature: DetailFeature = UNKNOWN
     private var namaHewan: String? = null
 
+    private var dataKambing: Kambing? = null
+    private var dataSapi: Sapi? = null
+
     fun initBundle(data: Uri?) {
-        parseLink(data)
-    }
-
-    fun initBundle(newFeature: DetailFeature, newNamaHewan: String) {
-        feature = newFeature
-        namaHewan = newNamaHewan
-    }
-
-    private fun parseLink(data: Uri?) {
         if (data == null) {
             setViewEffect(ViewEffect.ShowToast("Broken Link"))
             setViewState(ViewState.FAIL)
@@ -42,27 +43,51 @@ class DetailViewModel : BaseViewModel() {
         }
 
         try {
-            feature = DetailFeature.valueOf(data.lastPathSegment ?: "")
+            feature = valueOf(data.lastPathSegment?.uppercase() ?: "")
             namaHewan = data.getQueryParameter(feature.queryName)
-            if (namaHewan == null) throw IllegalArgumentException("Name not specified")
+            if (namaHewan.isNullOrEmpty()) throw IllegalArgumentException("Name not specified")
         } catch (e: Exception) {
             setViewEffect(ViewEffect.ShowToast("Broken Link"))
             setViewState(ViewState.FAIL)
         }
     }
 
-    fun getDataHewan() {
-        try {
-            generateQrCode()
-            when (feature) {
-                DetailFeature.SAPI -> getSapi(namaHewan!!)
-                DetailFeature.KAMBING -> getKambing(namaHewan!!)
-            }
+    fun initBundle(newFeature: DetailFeature, newNamaHewan: String) {
+        feature = newFeature
+        namaHewan = newNamaHewan
+    }
 
-            setViewState(ViewState.INITIAL)
-        } catch (e: Exception) {
-            setViewEffect(ViewEffect.ShowToast(e.message))
-            setViewState(ViewState.FAIL)
+    fun getDataHewan() {
+        if (dataKambing == null && dataSapi == null) {
+            setViewState(ViewState.LOADING)
+            viewModelScope.launch {
+                delay(500L)
+                try {
+                    if (namaHewan.isNullOrEmpty()) {
+                        throw IllegalArgumentException("Name not specified")
+                    }
+
+                    generateQrCode()
+                    when (feature) {
+                        SAPI -> getSapi(namaHewan!!)
+                        KAMBING -> getKambing(namaHewan!!)
+                        else -> {
+                            // do nothing
+                        }
+                    }
+
+                    setViewState(ViewState.INITIAL)
+                } catch (e: Exception) {
+                    setViewEffect(ViewEffect.ShowToast(e.message))
+                    setViewState(ViewState.FAIL)
+                }
+            }
+        } else {
+            when (feature) {
+                SAPI -> setViewEffect(ViewEffect.OnDataGetResult(dataSapi))
+                KAMBING -> setViewEffect(ViewEffect.OnDataGetResult(dataKambing))
+                UNKNOWN -> {}
+            }
         }
     }
 
@@ -76,7 +101,7 @@ class DetailViewModel : BaseViewModel() {
         try {
             setViewState(ViewState.LOADING)
             when (feature) {
-                DetailFeature.SAPI -> {
+                SAPI -> {
                     sapiRepository.removeSapi(
                         namaHewan!!,
                         onComplete = { isSuccess ->
@@ -84,13 +109,16 @@ class DetailViewModel : BaseViewModel() {
                         }
                     )
                 }
-                DetailFeature.KAMBING -> {
+                KAMBING -> {
                     kambingRepository.removeKambing(
                         namaHewan!!,
                         onComplete = { isSuccess ->
                             setViewEffect(ViewEffect.OnDataDeleted(isSuccess))
                         }
                     )
+                }
+                else -> {
+                    // do nothing
                 }
             }
             setViewState(ViewState.INITIAL)
@@ -101,27 +129,27 @@ class DetailViewModel : BaseViewModel() {
     }
 
     private fun getSapi(namaSapi: String) {
-        setViewState(ViewState.LOADING)
         sapiRepository.getSapiDetail(
             namaSapi,
             onComplete = { sapi ->
+                dataSapi = sapi
                 setViewEffect(ViewEffect.OnDataGetResult(sapi))
             },
-            onError = { error ->
-                setViewEffect(ViewEffect.ShowToast(error.message))
+            onError = {
+                setViewEffect(ViewEffect.ShowToast("Data sapi tidak ditemukan"))
             }
         )
     }
 
     private fun getKambing(namaKambing: String) {
-        setViewState(ViewState.LOADING)
         kambingRepository.getKambingDetail(
             namaKambing,
             onComplete = { kambing ->
+                dataKambing = kambing
                 setViewEffect(ViewEffect.OnDataGetResult(kambing))
             },
-            onError = { error ->
-                setViewEffect(ViewEffect.ShowToast(error.message))
+            onError = {
+                setViewEffect(ViewEffect.ShowToast("Data kambing tidak ditemukan"))
             }
         )
     }
