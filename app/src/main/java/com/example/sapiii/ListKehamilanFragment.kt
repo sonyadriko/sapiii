@@ -10,8 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.databinding.FragmentListKehamilanBinding
-import com.example.sapiii.databinding.FragmentListPejantanBinding
-import com.example.sapiii.feature.reproduksi.pejantan.MonitoringPejantanActivity
+import com.example.sapiii.feature.reproduksi.view.MonitoringPejantanActivity
 
 class ListKehamilanFragment : BaseFragment() {
 

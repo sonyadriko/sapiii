@@ -11,6 +11,7 @@ import com.example.sapiii.feature.detail.viewmodel.DetailViewModel
 class DetailHewanActivity : BaseActivity() {
     private lateinit var binding: ActivityDetailHewanBinding
     private lateinit var namaSapi: String
+    private lateinit var namaKambing: String
 
     private val viewModel: DetailViewModel by viewModels()
 
@@ -74,13 +75,19 @@ class DetailHewanActivity : BaseActivity() {
 
     private fun initBundle() {
         namaSapi = intent.getStringExtra("namasapi") ?: ""
-        if (namaSapi.isEmpty()) {
-            viewModel.initBundle(DetailViewModel.Companion.DetailFeature.SAPI, intent?.data)
-        } else viewModel.initBundle(DetailViewModel.Companion.DetailFeature.SAPI, namaSapi)
+        namaKambing = intent.getStringExtra("namakambing") ?: ""
+
+        if (namaKambing.isNotEmpty()) {
+            viewModel.initBundle(DetailViewModel.Companion.DetailFeature.KAMBING, namaKambing)
+        } else if (namaSapi.isNotEmpty()) {
+            viewModel.initBundle(DetailViewModel.Companion.DetailFeature.SAPI, namaSapi)
+        } else {
+            viewModel.initBundle(intent?.data)
+        }
     }
 
     override fun onBackPressed() {
-        if (namaSapi.isEmpty()) {
+        if (namaSapi.isEmpty() && namaKambing.isEmpty()) {
             goToHomepage()
         } else super.onBackPressed()
     }

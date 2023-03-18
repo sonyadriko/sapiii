@@ -152,6 +152,7 @@
                 <data android:scheme="http" />
                 <data android:host="sapiii.app" />
                 <data android:pathPrefix="/detail/sapi" />
+                <data android:pathPrefix="/detail/kambing" />
             </intent-filter>
         </activity>
         <activity

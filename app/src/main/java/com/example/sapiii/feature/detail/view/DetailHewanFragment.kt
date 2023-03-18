@@ -26,6 +26,7 @@ class DetailHewanFragment : BaseFragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentDetailHewanBinding.inflate(layoutInflater, container, false)
+        binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
     }
 

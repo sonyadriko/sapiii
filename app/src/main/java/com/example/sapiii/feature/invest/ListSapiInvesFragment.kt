@@ -90,7 +90,6 @@ class ListSapiInvesFragment : BaseFragment(), OnItemClick {
         val currentItem = data as Sapi
         val detailIntent = Intent(context, DetailInvesmentActivity::class.java).apply {
             putExtra("namasapi", currentItem.tag)
-            putExtra("jeniskelamin", currentItem.kelamin)
         }
         startForResult.launch(detailIntent)
     }

@@ -106,7 +106,6 @@ class ListSapiFragment : BaseFragment(), OnItemClick {
             ARG_FROM_TERNAK -> {
                 val detailIntent = Intent(context, DetailHewanActivity::class.java).apply {
                     putExtra("namasapi", currentItem.tag)
-                    putExtra("jeniskelamin", currentItem.kelamin)
                 }
                 startForResult.launch(detailIntent)
             }

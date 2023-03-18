@@ -15,7 +15,7 @@ import com.example.sapiii.R
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.databinding.FragmentListKambingBinding
 import com.example.sapiii.domain.Kambing
-import com.example.sapiii.feature.detail.view.DetailKambingActivity
+import com.example.sapiii.feature.detail.view.DetailHewanActivity
 import com.example.sapiii.feature.detail.view.DetailHewanActivity.Companion.RESULT_DELETE
 import com.example.sapiii.feature.kesehatan.kambing.view.KesehatanKambingFragment
 import com.example.sapiii.feature.ternakku.kambing.view.adapter.KambingAdapter
@@ -77,7 +77,7 @@ class ListKambingFragment : BaseFragment(), OnItemClick {
 //
 //            } else btnTambahDataKambing.gone()
 //        }
-        if (from == ListKambingFragment.ARG_FROM_KESEHATAN) {
+        if (from == ARG_FROM_KESEHATAN) {
             binding.btnTambahDataKambing.gone()
         } else if (from == ListKambingFragment.ARG_FROM_PAKAN) {
             binding.btnTambahDataKambing.gone()
@@ -169,14 +169,13 @@ class ListKambingFragment : BaseFragment(), OnItemClick {
     override fun onClick(data: Any, position: Int) {
         val currentItem = data as Kambing
         when (from) {
-            ListKambingFragment.ARG_FROM_TERNAK -> {
-                val detailIntent = Intent(context, DetailKambingActivity::class.java).apply {
+            ARG_FROM_TERNAK -> {
+                val detailIntent = Intent(context, DetailHewanActivity::class.java).apply {
                     putExtra("namakambing", currentItem.tag)
-                    putExtra("jeniskelamin", currentItem.kelamin)
                 }
                 startForResult.launch(detailIntent)
             }
-            ListKambingFragment.ARG_FROM_KESEHATAN -> {
+            ARG_FROM_KESEHATAN -> {
                 val kesehatanKambingFragment = KesehatanKambingFragment.newInstance(currentItem)
                 activity?.supportFragmentManager?.beginTransaction()
                     ?.replace(R.id.frame_layout, kesehatanKambingFragment)

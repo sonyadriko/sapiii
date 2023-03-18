@@ -25,8 +25,7 @@ class DetailViewModel : BaseViewModel() {
     private lateinit var feature: DetailFeature
     private var namaHewan: String? = null
 
-    fun initBundle(newFeature: DetailFeature, data: Uri?) {
-        feature = newFeature
+    fun initBundle(data: Uri?) {
         parseLink(data)
     }
 
@@ -42,11 +41,13 @@ class DetailViewModel : BaseViewModel() {
             return
         }
 
-        namaHewan = data.getQueryParameter(feature.queryName)
-        if (namaHewan == null) {
+        try {
+            feature = DetailFeature.valueOf(data.lastPathSegment ?: "")
+            namaHewan = data.getQueryParameter(feature.queryName)
+            if (namaHewan == null) throw IllegalArgumentException("Name not specified")
+        } catch (e: Exception) {
             setViewEffect(ViewEffect.ShowToast("Broken Link"))
             setViewState(ViewState.FAIL)
-            return
         }
     }
 
@@ -66,7 +67,8 @@ class DetailViewModel : BaseViewModel() {
     }
 
     private fun generateQrCode() {
-        val content = DEEP_LINK_ROOT + "/detail/${feature.name.lowercase()}?${feature.queryName}=$namaHewan"
+        val content =
+            DEEP_LINK_ROOT + "/detail/${feature.name.lowercase()}?${feature.queryName}=$namaHewan"
         setViewEffect(ViewEffect.ShowQrCode(content.replace(" ", "%20")))
     }
 
