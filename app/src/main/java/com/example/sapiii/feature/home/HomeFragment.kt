@@ -36,7 +36,7 @@ class HomeFragment : BaseFragment() {
         }
 
         binding.menuMutasi.setOnClickListener {
-            val mutasiFragment = MutasiFragment()
+            val mutasiFragment = MutasiFragment2()
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(R.id.frame_layout, mutasiFragment)?.addToBackStack(null)?.commit()
         }

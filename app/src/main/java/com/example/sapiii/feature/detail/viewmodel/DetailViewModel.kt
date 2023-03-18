@@ -33,7 +33,6 @@ class DetailViewModel : BaseViewModel() {
     fun initBundle(newFeature: DetailFeature, newNamaHewan: String) {
         feature = newFeature
         namaHewan = newNamaHewan
-        getDataHewan()
     }
 
     private fun parseLink(data: Uri?) {
@@ -49,11 +48,9 @@ class DetailViewModel : BaseViewModel() {
             setViewState(ViewState.FAIL)
             return
         }
-
-        getDataHewan()
     }
 
-    private fun getDataHewan() {
+    fun getDataHewan() {
         try {
             generateQrCode()
             when (feature) {
@@ -69,7 +66,7 @@ class DetailViewModel : BaseViewModel() {
     }
 
     private fun generateQrCode() {
-        val content = DEEP_LINK_ROOT + "/detail/sapi?${feature.queryName}=$namaHewan"
+        val content = DEEP_LINK_ROOT + "/detail/${feature.name.lowercase()}?${feature.queryName}=$namaHewan"
         setViewEffect(ViewEffect.ShowQrCode(content.replace(" ", "%20")))
     }
 

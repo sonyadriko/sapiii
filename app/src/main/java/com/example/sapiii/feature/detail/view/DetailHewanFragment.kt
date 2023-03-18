@@ -23,7 +23,7 @@ class DetailHewanFragment : BaseFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentDetailHewanBinding.inflate(layoutInflater, container, false)
         return binding.root
@@ -33,6 +33,7 @@ class DetailHewanFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         observe()
         initListener()
+        viewModel.getDataHewan()
     }
 
     private fun observe() {
@@ -62,7 +63,12 @@ class DetailHewanFragment : BaseFragment() {
 
     private fun initListener() = with(binding) {
         buttonDelete.setOnClickListener {
-            viewModel.deleteHewan()
+            alertDialog
+                .setMessage("Apakah anda yakin ingin menghapus data?")
+                .setPositiveButton("Ya") { _, _ -> viewModel.deleteHewan() }
+                .setNegativeButton("Tidak") { p0, _ -> p0.dismiss() }
+                .show()
+
         }
     }
 
@@ -79,6 +85,8 @@ class DetailHewanFragment : BaseFragment() {
             namaSapiDetail.text = kambing.tag
             jkSapiDetail.text = kambing.kelamin
             jenisSapiDetail.text = kambing.jenis
+            pmkSapiDetail.text = kambing.idpmk
+            kandangSapiDetail.text = kambing.kodekandang
             kdtgSapiDetail.text = kambing.kedatangan.bulan
             bbawalSapiDetail.text = kambing.kedatangan.beratBadanAwal
             usiadtgSapiDetail.text = kambing.kedatangan.usia
@@ -102,6 +110,8 @@ class DetailHewanFragment : BaseFragment() {
             namaSapiDetail.text = sapi.tag
             jkSapiDetail.text = sapi.kelamin
             jenisSapiDetail.text = sapi.jenis
+            pmkSapiDetail.text = sapi.idpmk
+            kandangSapiDetail.text = sapi.kodekandang
             kdtgSapiDetail.text = sapi.kedatangan.bulan
             bbawalSapiDetail.text = sapi.kedatangan.beratBadanAwal
             usiadtgSapiDetail.text = sapi.kedatangan.usia

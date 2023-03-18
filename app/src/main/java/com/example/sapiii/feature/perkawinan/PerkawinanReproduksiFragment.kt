@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
+import com.example.sapiii.ListPejantanFragment
+import com.example.sapiii.MutasiKambingFragment
 import com.example.sapiii.R
 import com.example.sapiii.feature.reproduksi.view.MonitoringKehamilanActivity
 import com.example.sapiii.feature.reproduksi.view.MonitoringPejantanActivity
@@ -27,7 +29,12 @@ class PerkawinanReproduksiFragment : Fragment() {
         }
 
         pejantan.setOnClickListener {
-            startActivity(Intent(activity, MonitoringPejantanActivity::class.java))
+//            startActivity(Intent(activity, MonitoringPejantanActivity::class.java))
+            val listMonitoring = ListPejantanFragment()
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(R.id.frame_layout, listMonitoring)
+                ?.addToBackStack(null)
+                ?.commit()
         }
 
         // Inflate the layout for this fragment

@@ -83,6 +83,8 @@ class TambahDataSapiActivity : BaseActivity() {
                             jenis = etJenisSapi.text.toString(),
                             kelamin = viewModel.kelamin,
                             asal = etAsalSapi.text.toString(),
+                            kodekandang = etKodeKandang.text.toString(),
+                            idpmk = etPmk.text.toString(),
                             kedatangan = Kedatangan(
                                 bulan = etKdtgSapi.text.toString(),
                                 usia = etUsiadtgSapi.text.toString(),

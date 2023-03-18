@@ -75,69 +75,70 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:weightSum="2">
+                        android:orientation="vertical"
+                        android:padding="20dp">
 
                         <TextView
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
 
-                            android:layout_weight="1"
                             android:text="Nama/Kode Pejantan"
                             android:textColor="@color/black"
                             android:textSize="18sp" />
 
                         <Spinner
                             android:id="@+id/spinnerkp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1" />
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:weightSum="2">
+                        android:orientation="vertical"
+                        android:padding="20dp">
 
                         <TextView
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-
-                            android:layout_weight="1"
                             android:text="Kode Kandang"
                             android:textColor="@color/black"
                             android:textSize="18sp" />
 
-                        <Spinner
-                            android:id="@+id/spinnerkk"
-                            android:layout_width="0dp"
+                        <EditText
+                            android:id="@+id/et_kode_kandang"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1" />
+                            android:hint="AB" />
+
+                        <!--                        <Spinner-->
+                        <!--                            android:id="@+id/spinnerkk"-->
+                        <!--                            android:layout_width="0dp"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:layout_weight="1" />-->
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:weightSum="2">
+                        android:orientation="vertical"
+                        android:padding="20dp">
 
                         <TextView
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-
-                            android:layout_weight="1"
                             android:text="Masuk Kandang"
                             android:textColor="@color/black"
-                            android:textSize="18sp" />
+                            android:textSize="16dp" />
 
-                        <!--                    <DatePicker-->
-                        <!--                        android:id="@+id/datePicker"-->
-                        <!--                        android:layout_weight="1"-->
-                        <!--                        android:layout_width="0dp"-->
-                        <!--                        android:layout_height="wrap_content" />-->
+                        <EditText
+                            android:id="@+id/et_date_pejantan"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Tanggal (dd/MM/yyyy)"
+                            android:inputType="date" />
 
 
                     </LinearLayout>
@@ -158,21 +159,25 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button_save"
+            android:id="@+id/btn_save_mp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_toLeftOf="@id/button_edit"
-            android:drawableTop="@drawable/ic_ternak"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
             android:text="Simpan" />
 
-        <Button
-            android:id="@+id/button_edit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:drawableTop="@drawable/ic_ternak"
-            android:text="Edit" />
+<!--        <Button-->
+<!--            android:id="@+id/button_edit_mp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:drawableTop="@drawable/ic_ternak"-->
+<!--            android:text="Edit" />-->
 
     </RelativeLayout>
 

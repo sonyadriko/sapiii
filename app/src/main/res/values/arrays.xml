@@ -5,4 +5,8 @@
         <item>Investor</item>
         <item>Admin</item>
     </string-array>
+    <string-array name="mutasis">
+        <item>Masuk</item>
+        <item>Keluar</item>
+    </string-array>
 </resources>

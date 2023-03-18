@@ -3,15 +3,13 @@ package com.example.sapiii.feature.detail.view
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
-import com.example.sapiii.R
 import com.example.sapiii.base.BaseActivity
-import com.example.sapiii.databinding.ActivityDetailSapiBinding
-import com.example.sapiii.domain.Sapi
+import com.example.sapiii.base.BaseFragment
+import com.example.sapiii.databinding.ActivityDetailHewanBinding
 import com.example.sapiii.feature.detail.viewmodel.DetailViewModel
-import com.example.sapiii.feature.home.HomeFragment
 
 class DetailHewanActivity : BaseActivity() {
-    private lateinit var binding: ActivityDetailSapiBinding
+    private lateinit var binding: ActivityDetailHewanBinding
     private lateinit var namaSapi: String
 
     private val viewModel: DetailViewModel by viewModels()
@@ -22,7 +20,7 @@ class DetailHewanActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityDetailSapiBinding.inflate(layoutInflater)
+        binding = ActivityDetailHewanBinding.inflate(layoutInflater)
         binding.lifecycleOwner = this
         setContentView(binding.root)
 
@@ -59,10 +57,13 @@ class DetailHewanActivity : BaseActivity() {
             @Suppress("WHEN_ENUM_CAN_BE_NULL_IN_JAVA")
             when (it) {
                 DetailViewModel.ViewState.INITIAL -> {
-                    dismissProgressDialog()
+                    val f = supportFragmentManager.findFragmentById(binding.fragmentDetailContainer.id)
+                    if (f is BaseFragment) f.dismissProgressDialog()
                 }
                 DetailViewModel.ViewState.LOADING -> {
-                    showProgressDialog()
+                    val f = supportFragmentManager.findFragmentById(binding.fragmentDetailContainer.id)
+                    if (f is BaseFragment)
+                        f.showProgressDialog()
                 }
                 DetailViewModel.ViewState.FAIL -> {
                     finish()

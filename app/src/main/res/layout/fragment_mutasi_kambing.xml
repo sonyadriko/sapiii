@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MutasiFragment">
+    tools:context=".MutasiKambingFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,7 +50,7 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/sapi_list"
+            android:id="@+id/mutasi_kambing_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:overScrollMode="never"
