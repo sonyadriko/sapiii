@@ -12,6 +12,12 @@ object Constant {
     const val REFERENCE_KAMBING = "Kambing"
     const val REFERENCE_USER = "Users"
     const val REFERENCE_ARTIKEL = "Artikel"
+    const val REFERENCE_MUTASI_SAPI = "Mutasi_Sapi"
+    const val REFERENCE_MUTASI_KAMBING = "Mutasi_Kambing"
+    const val REFERENCE_PEJANTAN = "Monitoring_Pejantan"
+
+
+
     const val REFERENCE_INVES = "Inves"
 
     // DEEP LINK REGION ================
