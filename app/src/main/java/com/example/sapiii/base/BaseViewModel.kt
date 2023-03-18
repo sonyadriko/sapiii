@@ -12,6 +12,7 @@ abstract class BaseViewModel: ViewModel() {
     val mutasiSapiRepository : MutasiSapiRepository = MutasiSapiRepository().getInstance()
     val mutasiKambingRepository : MutasiKambingRepository = MutasiKambingRepository().getInstance()
     val monitoringPejantan : PejantanRepository = PejantanRepository().getInstance()
+    val monitoringKehamilan : KehamilanRepository = KehamilanRepository().getInstance()
 
 //    val mutasiSapiRepository : MutasiSapiRepository = MutasiSapiRepository().getInstance()
 }
