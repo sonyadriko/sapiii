@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ListPejantanFragment">
+    tools:context=".ListKehamilanFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -64,19 +64,19 @@
         <!--            android:layout_width="match_parent"-->
         <!--            android:layout_height="wrap_content" />-->
         <Button
-            android:id="@+id/btn_tambah_data_pejantan"
+            android:id="@+id/btn_tambah_data_kehamilan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Tambah Data Pejantan" />
+            android:text="Tambah Data Kehamilan" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/pejantan_list"
+            android:id="@+id/kehamilan_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/list_view_pejantan" />
+            tools:listitem="@layout/list_view_kehamilan" />
 
         <!--        <androidx.recyclerview.widget.RecyclerView-->
         <!--            android:layout_width="match_parent"-->

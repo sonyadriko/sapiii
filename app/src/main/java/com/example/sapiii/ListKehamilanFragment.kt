@@ -2,54 +2,55 @@ package com.example.sapiii
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sapiii.base.BaseFragment
+import com.example.sapiii.databinding.FragmentListKehamilanBinding
 import com.example.sapiii.databinding.FragmentListPejantanBinding
-import com.example.sapiii.feature.reproduksi.view.MonitoringPejantanActivity
+import com.example.sapiii.feature.reproduksi.pejantan.MonitoringPejantanActivity
 
-class ListPejantanFragment : BaseFragment() {
+class ListKehamilanFragment : BaseFragment() {
 
-    private lateinit var binding: FragmentListPejantanBinding
-    private lateinit var monitoringPejantanAdapter: MonitoringPejantanAdapter
+    private lateinit var binding: FragmentListKehamilanBinding
+    private lateinit var monitoringKehamilanAdapter: MonitoringKehamilanAdapter
     private lateinit var recyclerView: RecyclerView
-    private val viewModel: MonitoringPejantanViewModel by viewModels()
+    private val viewModel: MonitoringKehamilanViewModel by viewModels()
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        binding = FragmentListPejantanBinding.inflate(layoutInflater)
+        binding = FragmentListKehamilanBinding.inflate(layoutInflater)
 
 
         initListener()
         setupRecyclerView()
         observe()
-        onLoadMonitoringPejantan()
+        onLoadMonitoringKehamilan()
         // Inflate the layout for this fragment
         return binding.root
     }
 
-    private fun onLoadMonitoringPejantan() {
-        viewModel.loadMonitoringPejantan()
+    private fun onLoadMonitoringKehamilan() {
+        viewModel.loadMonitoringKehamilan()
         showProgressDialog()
     }
 
     private fun observe() {
-        viewModel.monitoringpejantan.observe(viewLifecycleOwner) {
+        viewModel.monitoringkehamilan.observe(viewLifecycleOwner) {
             dismissProgressDialog()
-            monitoringPejantanAdapter.updateMonitoringPejantanList(it)
+            monitoringKehamilanAdapter.updateMonitoringPejantanList(it)
         }
     }
 
     private fun initListener() {
 //        val btnAdd = binding.btnTambahDataMutasiSapi
-        binding.btnTambahDataPejantan.setOnClickListener {
+        binding.btnTambahDataKehamilan.setOnClickListener {
             startActivity(Intent(context, MonitoringPejantanActivity::class.java))
         }
     }
@@ -58,11 +59,11 @@ class ListPejantanFragment : BaseFragment() {
 //        val monitoringPejantanList = binding.pejantanList
 //        monitoringPejantanList.adapter = monitoringPejantanAdapter
 
-        recyclerView = binding.pejantanList
+        recyclerView = binding.kehamilanList
 //        userRecyclerView.addItemDecoration(dividerItemDecoration)
         recyclerView.setHasFixedSize(true)
-        monitoringPejantanAdapter = MonitoringPejantanAdapter()
-        recyclerView.adapter = monitoringPejantanAdapter
+        monitoringKehamilanAdapter = MonitoringKehamilanAdapter()
+        recyclerView.adapter = monitoringKehamilanAdapter
     }
 
 }
