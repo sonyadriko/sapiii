@@ -55,18 +55,19 @@ class DetailHewanActivity : BaseActivity() {
 
     private fun observe() {
         viewModel.viewState.observe(this) {
+            val f = supportFragmentManager.findFragmentById(binding.fragmentDetailContainer.id)
+
             @Suppress("WHEN_ENUM_CAN_BE_NULL_IN_JAVA")
             when (it) {
                 DetailViewModel.ViewState.INITIAL -> {
-                    val f = supportFragmentManager.findFragmentById(binding.fragmentDetailContainer.id)
                     if (f is BaseFragment) f.dismissProgressDialog()
                 }
                 DetailViewModel.ViewState.LOADING -> {
-                    val f = supportFragmentManager.findFragmentById(binding.fragmentDetailContainer.id)
                     if (f is BaseFragment)
                         f.showProgressDialog()
                 }
                 DetailViewModel.ViewState.FAIL -> {
+                    if (f is BaseFragment) f.dismissProgressDialog()
                     finish()
                 }
             }
