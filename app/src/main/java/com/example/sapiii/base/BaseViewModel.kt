@@ -1,6 +1,7 @@
 package com.example.sapiii.base
 
 import androidx.lifecycle.ViewModel
+import com.example.sapiii.domain.MonitoringPejantan
 import com.example.sapiii.domain.MutasiSapi
 import com.example.sapiii.repository.*
 
@@ -10,6 +11,7 @@ abstract class BaseViewModel: ViewModel() {
     val kambingRepository : KambingRepository = KambingRepository().getInstance()
     val mutasiSapiRepository : MutasiSapiRepository = MutasiSapiRepository().getInstance()
     val mutasiKambingRepository : MutasiKambingRepository = MutasiKambingRepository().getInstance()
+    val monitoringPejantan : PejantanRepository = PejantanRepository().getInstance()
 
 //    val mutasiSapiRepository : MutasiSapiRepository = MutasiSapiRepository().getInstance()
 }

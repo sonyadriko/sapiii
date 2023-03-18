@@ -3,33 +3,33 @@ package com.example.sapiii.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.sapiii.constanst.Constant
+import com.example.sapiii.domain.MonitoringPejantan
 import com.example.sapiii.domain.MutasiKambing
-import com.example.sapiii.domain.MutasiSapi
 import com.google.firebase.database.*
 
-class MutasiKambingRepository {
+class PejantanRepository {
     private val databaseReference: DatabaseReference =
-        FirebaseDatabase.getInstance().getReference(Constant.REFERENCE_MUTASI_KAMBING)
+        FirebaseDatabase.getInstance().getReference(Constant.REFERENCE_MUTASI_SAPI)
 
     @Volatile
-    private var INSTANCE: MutasiKambingRepository? = null
+    private var INSTANCE: PejantanRepository? = null
 
-    fun getInstance(): MutasiKambingRepository {
+    fun getInstance(): PejantanRepository {
         return INSTANCE ?: synchronized(this) {
 
-            val instance = MutasiKambingRepository()
+            val instance = PejantanRepository()
             INSTANCE = instance
             instance
         }
     }
 
-    fun loadMutasiKambing(): LiveData<List<MutasiKambing>> {
-        val data = MutableLiveData<List<MutasiKambing>>()
+    fun loadMonitoringPejantan(): LiveData<List<MonitoringPejantan>> {
+        val data = MutableLiveData<List<MonitoringPejantan>>()
         databaseReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 try {
                     data.value = snapshot.children.map { dataSnapshot ->
-                        dataSnapshot.getValue(MutasiKambing::class.java)!!
+                        dataSnapshot.getValue(MonitoringPejantan::class.java)!!
                     }
                 } catch (e: Exception) {
                     data.value = emptyList()
