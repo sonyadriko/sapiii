@@ -1,11 +1,13 @@
 package com.example.sapiii.feature.detail.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.bumptech.glide.Glide
+import com.example.sapiii.EditDataHewanActivity
 import com.example.sapiii.R
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.databinding.FragmentDetailHewanBinding
@@ -28,6 +30,15 @@ class DetailHewanFragment : BaseFragment() {
         binding = FragmentDetailHewanBinding.inflate(layoutInflater, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
+
+        binding.buttonEditHewan.setOnClickListener{
+            val editHewan = Intent(context, EditDataHewanActivity::class.java).apply {
+                putExtra("namasapi", "nama")
+            }
+            startActivity(editHewan)
+        }
+
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

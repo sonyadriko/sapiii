@@ -17,6 +17,8 @@
     <string name="nama">Nama</string>
     <string name="submit">Submit</string>
     <string name="input_data_hewan">Input Data Hewan</string>
+    <string name="edit_data_hewan">Edit Data Hewan</string>
+
     <string name="status">Status</string>
     <string name="asal">Asal</string>
     <string name="berat_badan">Berat Badan</string>
