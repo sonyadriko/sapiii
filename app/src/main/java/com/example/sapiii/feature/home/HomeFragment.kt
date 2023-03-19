@@ -63,9 +63,9 @@ class HomeFragment : BaseFragment() {
         }
 
         binding.menuPakan.setOnClickListener {
-            val listSapi = ListSapiFragment.fromPakan()
+            val pakanMenu = PakanFragment()
             activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.frame_layout, listSapi)?.addToBackStack(null)?.commit()
+                ?.replace(R.id.frame_layout, pakanMenu)?.addToBackStack(null)?.commit()
         }
 
         binding.menuKesehatan.setOnClickListener {
