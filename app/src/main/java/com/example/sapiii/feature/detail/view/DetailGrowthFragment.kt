@@ -57,7 +57,7 @@ class DetailGrowthFragment : BaseFragment() {
             axisLeft.mAxisMaximum = 200f
 
             // animate
-            animateX(1500)
+            animateX(500)
 
             setData(5, 200f)
 
@@ -134,7 +134,8 @@ class DetailGrowthFragment : BaseFragment() {
 
             // create a data object with the data sets
             val data = LineData(set1, set2)
-            data.setValueTextColor(Color.WHITE)
+            data.setValueTextColor(Color.BLACK)
+            data.setValueTextSize(24f)
             data.setValueTextSize(9f)
 
             // set data

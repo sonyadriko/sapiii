@@ -49,14 +49,13 @@ class DetailHewanFragment : BaseFragment() {
                     } else showToast("Gagal menghapus data")
                 }
                 is DetailViewModel.ViewEffect.OnDataGetResult -> {
+                    showQrCode(it.qrContent)
+
                     if (it.data is Sapi?) setDetailSapi(it.data)
                     else if (it.data is Kambing?) setDetailKambing(it.data)
                 }
                 is DetailViewModel.ViewEffect.ShowToast -> {
                     showToast(it.message)
-                }
-                is DetailViewModel.ViewEffect.ShowQrCode -> {
-                    showQrCode(it.content)
                 }
             }
         }
