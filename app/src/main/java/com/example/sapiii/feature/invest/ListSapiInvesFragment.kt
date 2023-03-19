@@ -12,7 +12,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.sapiii.DetailInvesmentActivity
 import com.example.sapiii.R
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.constanst.Constant.REFERENCE_SAPI

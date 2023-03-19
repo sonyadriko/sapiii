@@ -1,4 +1,4 @@
-package com.example.sapiii
+package com.example.sapiii.feature.reproduksi.view.kehamilan
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -9,12 +9,12 @@ import com.example.sapiii.domain.MonitoringKehamilan
 
 class MonitoringKehamilanAdapter: RecyclerView.Adapter<MonitoringKehamilanAdapter.MonitoringKehamilanViewHolder>() {
     private val monitoringKehamilanList = ArrayList<MonitoringKehamilan>()
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MonitoringKehamilanAdapter.MonitoringKehamilanViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MonitoringKehamilanViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ListViewKehamilanBinding.inflate(inflater, parent, false)
         return MonitoringKehamilanViewHolder(binding)
     }
-    override fun onBindViewHolder(holder: MonitoringKehamilanAdapter.MonitoringKehamilanViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MonitoringKehamilanViewHolder, position: Int) {
         val currentKehamilan = monitoringKehamilanList[position]
         holder.namaMK.text = currentKehamilan.nama
         holder.dateMK.text = currentKehamilan.tanggalAwal.toString()

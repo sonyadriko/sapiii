@@ -1,22 +1,20 @@
-package com.example.sapiii
+package com.example.sapiii.feature.reproduksi.view.pejantan
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.sapiii.databinding.ListViewMutasiBinding
 import com.example.sapiii.databinding.ListViewPejantanBinding
 import com.example.sapiii.domain.MonitoringPejantan
-import com.example.sapiii.domain.MutasiKambing
 
 class MonitoringPejantanAdapter: RecyclerView.Adapter<MonitoringPejantanAdapter.MonitoringPejantanViewHolder>() {
     private val monitoringPejantanList = ArrayList<MonitoringPejantan>()
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MonitoringPejantanAdapter.MonitoringPejantanViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MonitoringPejantanViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ListViewPejantanBinding.inflate(inflater, parent, false)
         return MonitoringPejantanViewHolder(binding)
     }
-    override fun onBindViewHolder(holder: MonitoringPejantanAdapter.MonitoringPejantanViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MonitoringPejantanViewHolder, position: Int) {
         val currentPejantan = monitoringPejantanList[position]
         holder.namaMS.text = currentPejantan.nama
         holder.dateMS.text = currentPejantan.tanggal.toString()

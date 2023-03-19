@@ -1,15 +1,12 @@
-package com.example.sapiii
+package com.example.sapiii.mutasi.sapi
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.EditText
+import com.example.sapiii.R
 import com.example.sapiii.base.BaseActivity
-import com.example.sapiii.databinding.ActivityTambahDataMutasiBinding
 import com.example.sapiii.databinding.ActivityTambahDataMutasiSapiBinding
-import com.example.sapiii.domain.Artikel
 import com.example.sapiii.domain.MutasiSapi
-import com.example.sapiii.repository.KambingRepository
 import com.example.sapiii.repository.SapiRepository
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase

@@ -15,6 +15,7 @@ import com.example.sapiii.feature.perkawinan.PerkawinanReproduksiFragment
 import com.example.sapiii.feature.ternakku.TernakkuFragment
 import com.example.sapiii.feature.ternakku.sapi.view.ListSapiFragment
 import com.example.sapiii.feature.tips.view.TipsInfoFragment
+import com.example.sapiii.mutasi.MutasiFragment2
 import java.util.*
 
 class HomeFragment : BaseFragment() {

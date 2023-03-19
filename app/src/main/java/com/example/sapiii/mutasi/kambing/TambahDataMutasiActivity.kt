@@ -1,8 +1,9 @@
-package com.example.sapiii
+package com.example.sapiii.mutasi.kambing
 
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.EditText
+import com.example.sapiii.R
 import com.example.sapiii.base.BaseActivity
 import com.example.sapiii.databinding.ActivityTambahDataMutasiBinding
 import com.example.sapiii.domain.MutasiKambing

@@ -7,11 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
-import com.example.sapiii.ListPejantanFragment
-import com.example.sapiii.MutasiKambingFragment
+import com.example.sapiii.feature.reproduksi.view.pejantan.ListPejantanFragment
 import com.example.sapiii.R
 import com.example.sapiii.feature.reproduksi.view.MonitoringKehamilanActivity
-import com.example.sapiii.feature.reproduksi.view.MonitoringPejantanActivity
 
 class PerkawinanReproduksiFragment : Fragment() {
 

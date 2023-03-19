@@ -1,4 +1,4 @@
-package com.example.sapiii
+package com.example.sapiii.mutasi.sapi
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,9 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.databinding.FragmentMutasiSapiBinding
-import com.example.sapiii.feature.tips.view.TambhDataArtikelActivity
-import com.example.sapiii.feature.tips.view.adapter.ArtikelAdapter
-import com.example.sapiii.feature.tips.viewmodel.ArtikelViewModel
 
 class MutasiSapiFragment : BaseFragment() {
 
