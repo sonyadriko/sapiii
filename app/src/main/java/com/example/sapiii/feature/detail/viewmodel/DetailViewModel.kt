@@ -13,6 +13,7 @@ import com.example.sapiii.domain.Sapi
 import com.example.sapiii.feature.detail.viewmodel.DetailViewModel.Companion.DetailFeature.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class DetailViewModel : BaseViewModel() {
     companion object {
@@ -67,7 +68,6 @@ class DetailViewModel : BaseViewModel() {
                         throw IllegalArgumentException("Name not specified")
                     }
 
-                    generateQrCode()
                     when (feature) {
                         SAPI -> getSapi(namaHewan!!)
                         KAMBING -> getKambing(namaHewan!!)
@@ -83,18 +83,19 @@ class DetailViewModel : BaseViewModel() {
                 }
             }
         } else {
+            val qrContent = generateQrCode()
             when (feature) {
-                SAPI -> setViewEffect(ViewEffect.OnDataGetResult(dataSapi))
-                KAMBING -> setViewEffect(ViewEffect.OnDataGetResult(dataKambing))
+                SAPI -> setViewEffect(ViewEffect.OnDataGetResult(dataSapi, qrContent))
+                KAMBING -> setViewEffect(ViewEffect.OnDataGetResult(dataKambing, qrContent))
                 UNKNOWN -> {}
             }
         }
     }
 
-    private fun generateQrCode() {
+    private fun generateQrCode(): String {
         val content =
             DEEP_LINK_ROOT + "/detail/${feature.name.lowercase()}?${feature.queryName}=$namaHewan"
-        setViewEffect(ViewEffect.ShowQrCode(content.replace(" ", "%20")))
+        return content.replace(" ", "%20")
     }
 
     fun deleteHewan() {
@@ -133,7 +134,7 @@ class DetailViewModel : BaseViewModel() {
             namaSapi,
             onComplete = { sapi ->
                 dataSapi = sapi
-                setViewEffect(ViewEffect.OnDataGetResult(sapi))
+                setViewEffect(ViewEffect.OnDataGetResult(sapi, generateQrCode()))
             },
             onError = {
                 setViewEffect(ViewEffect.ShowToast("Data sapi tidak ditemukan"))
@@ -146,7 +147,7 @@ class DetailViewModel : BaseViewModel() {
             namaKambing,
             onComplete = { kambing ->
                 dataKambing = kambing
-                setViewEffect(ViewEffect.OnDataGetResult(kambing))
+                setViewEffect(ViewEffect.OnDataGetResult(kambing, generateQrCode()))
             },
             onError = {
                 setViewEffect(ViewEffect.ShowToast("Data kambing tidak ditemukan"))
@@ -170,8 +171,7 @@ class DetailViewModel : BaseViewModel() {
 
     sealed interface ViewEffect {
         class ShowToast(val message: String? = null) : ViewEffect
-        class ShowQrCode(val content: String) : ViewEffect
-        class OnDataGetResult(val data: Any?) : ViewEffect
+        class OnDataGetResult(val data: Any?, val qrContent: String) : ViewEffect
         class OnDataDeleted(val isSuccess: Boolean) : ViewEffect
     }
 }
