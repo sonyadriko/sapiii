@@ -50,13 +50,5 @@ class ArtikelAdapter(
         RecyclerView.ViewHolder(binding.root) {
         val judulAr = binding.tvArtikel
         val imageAr = binding.ivArtikel
-//        val descAr = binding.
-
-//        fun bind(artikel: Artikel, position: Int) {
-//
-////            binding.root.setOnClickListener {
-////                onItemClick.onClick(artikel, position)
-////            }
-//        }
     }
 }

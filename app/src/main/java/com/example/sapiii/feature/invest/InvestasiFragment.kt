@@ -26,6 +26,12 @@ class InvestasiFragment : BaseFragment() {
                 ?.replace(R.id.frame_layout, listSapi)
                 ?.addToBackStack(null)
                 ?.commit()
+//            val listSapi = ListSapiInvesFragment()
+//            activity?.supportFragmentManager?.beginTransaction()
+//                ?.replace(R.id.frame_layout, listSapi)
+//                ?.addToBackStack(null)
+//                ?.commit()
+            //(BACKUP))
         }
         // Inflate the layout for this fragment
         return v

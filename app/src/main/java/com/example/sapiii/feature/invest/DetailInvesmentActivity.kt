@@ -15,31 +15,28 @@ class DetailInvesmentActivity : BaseActivity() {
     private lateinit var sapiRef: DatabaseReference
     private lateinit var namaSapi: String
 
+    companion object {
+        const val RESULT_DELETE = 10
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailInvesmentBinding.inflate(layoutInflater)
         setContentView(binding.root)
         sapiRef = database.getReference(Constant.REFERENCE_SAPI )
-        namaSapi = intent.getStringExtra("namasapi") ?: ""
+        namaSapi = intent.getStringExtra("namasapiinves") ?: ""
         getDetailSapi()
-        buttonSubmit()
-    }
-
-    private fun buttonSubmit() = with(binding) {
-
-        val database = FirebaseDatabase.getInstance()
-        val ref = database.getReference("sapi")
 
         binding.btnSubmitHarga.setOnClickListener{
-            val hargaSapi = binding.inputHarga.text.toString().toInt()
+            val hargaSapi = binding.inputHarga.text.toString()
 
-            val hashMap = HashMap<String, Any>()
-            hashMap["harga"] = hargaSapi
+            val updates = mapOf<String, Any>("harga" to binding.inputHarga.text.toString())
 
-            ref.child("id_sapi").updateChildren(hashMap)
+            sapiRef.child(namaSapi).updateChildren(updates)
+            finish()
         }
-
     }
+
 
     private fun getDetailSapi() = with(binding) {
         sapiRef.child(namaSapi)
@@ -57,7 +54,7 @@ class DetailInvesmentActivity : BaseActivity() {
                             inputHarga.setText(sapi.harga)
                         } else throw Exception("Kambing is not found")
                     } catch (e: Exception) {
-                        showToast("error")
+//                        showToast("error")
                     }
                 }
 

@@ -17,6 +17,7 @@ import com.example.sapiii.databinding.FragmentListSapiBinding
 import com.example.sapiii.domain.Sapi
 import com.example.sapiii.feature.detail.view.DetailHewanActivity
 import com.example.sapiii.feature.detail.view.DetailHewanActivity.Companion.RESULT_DELETE
+import com.example.sapiii.feature.invest.DetailInvesmentActivity
 import com.example.sapiii.feature.kesehatan.sapi.view.KesehatanFragment
 import com.example.sapiii.feature.ternakku.sapi.view.adapter.SapiAdapter
 import com.example.sapiii.feature.ternakku.sapi.viewmodel.SapiViewModel
@@ -117,8 +118,12 @@ class ListSapiFragment : BaseFragment(), OnItemClick {
                     ?.commit()
             }
             ARG_FROM_INVES -> {
-
+                val detailIntent = Intent(context, DetailInvesmentActivity::class.java).apply {
+                    putExtra("namasapiinves", currentItem.tag)
+                }
+                startForResult.launch(detailIntent)
             }
+
             else -> showToast()
         }
     }

@@ -122,12 +122,35 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Masuk Kandang"
+                            android:text="Hari Awal Kehamilan"
                             android:textColor="@color/black"
                             android:textSize="16dp" />
 
                         <EditText
                             android:id="@+id/et_date_kehamilan"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Tanggal (dd/MM/yyyy)"
+                            android:inputType="date" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Perkiraan Lahir"
+                            android:textColor="@color/black"
+                            android:textSize="16dp" />
+
+                        <EditText
+                            android:id="@+id/et_perkiraan_lahir"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Tanggal (dd/MM/yyyy)"

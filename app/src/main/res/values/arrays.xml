@@ -8,5 +8,6 @@
     <string-array name="mutasis">
         <item>Masuk</item>
         <item>Keluar</item>
+        <item>Kawin</item>
     </string-array>
 </resources>

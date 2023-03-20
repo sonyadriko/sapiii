@@ -9,19 +9,24 @@ import java.io.Serializable
 import java.util.*
 
 @Parcelize
-class MonitoringKehamilan (
+class MonitoringKehamilan(
     @SerializedName("nama")
     val nama: String = "",
     @SerializedName("kandang")
     val kandang: String = "",
+//    @SerializedName("tanggalAwal")
+//    val tanggalAwal: Date = Date(),
+//    @SerializedName("tanggalPerkiraan")
+//    val tanggalPerkiraan: Date = Date(),
     @SerializedName("tanggalAwal")
-    val tanggalAwal: Date = Date(),
+    val tanggalAwal: String = "",
     @SerializedName("tanggalPerkiraan")
-    val tanggalPerkiraan: Date = Date(),
+    val tanggalPerkiraan: String = "",
+
     ) : Serializable, Parcelable {
-        fun toMap(): Map<String, Any?> {
-            val gson = Gson()
-            val json = gson.toJson(this)
-            return gson.fromJson(json, object : TypeToken<Map<String, Any>>() {}.type)
-        }
+    fun toMap(): Map<String, Any?> {
+        val gson = Gson()
+        val json = gson.toJson(this)
+        return gson.fromJson(json, object : TypeToken<Map<String, Any>>() {}.type)
+    }
 }

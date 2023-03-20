@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sapiii.R
@@ -19,6 +20,7 @@ import com.example.sapiii.constanst.Constant.statusList
 import com.example.sapiii.databinding.FragmentListSapiInvesBinding
 import com.example.sapiii.domain.Sapi
 import com.example.sapiii.feature.detail.view.DetailHewanActivity
+import com.example.sapiii.feature.mutasi.kambing.MutasiKambingAdapter
 import com.example.sapiii.feature.ternakku.sapi.viewmodel.SapiViewModel
 import com.example.sapiii.util.OnItemClick
 import com.google.firebase.database.DataSnapshot
@@ -40,10 +42,14 @@ class ListSapiInvesFragment : BaseFragment(), OnItemClick {
 
     private val viewModel: SapiViewModel by viewModels()
 
+    companion object {
+        const val RESULT_DELETE = 10
+    }
+
     private val startForResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
-            if (result.resultCode == DetailHewanActivity.RESULT_DELETE) {
-                loadSapi()
+            if (result.resultCode == DetailInvesmentActivity.RESULT_DELETE) {
+                loadSapiInves()
             }
         }
 
@@ -51,22 +57,17 @@ class ListSapiInvesFragment : BaseFragment(), OnItemClick {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        val view = inflater.inflate(R.layout.fragment_list_sapi_inves, container, false)
-        sapiList = mutableListOf()
-        recyclerView = view.findViewById(R.id.sapi_list_inves)
-        adapter = SapiAdapter2(this)
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(context)
+        binding = FragmentListSapiInvesBinding.inflate(layoutInflater)
 
 
+        setupRecyclerView()
+        loadSapiInves()
 
-        loadSapi()
-
-        return view
+        return binding.root
     }
 
-    private fun loadSapi() {
+    private fun loadSapiInves() {
+
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 sapiList.clear()
@@ -85,10 +86,21 @@ class ListSapiInvesFragment : BaseFragment(), OnItemClick {
         })
     }
 
+    private fun setupRecyclerView() {
+//        val mutasiKambingList = binding.mutasiKambingList
+//        mutasiKambingList.adapter = mutasiKambbingAdapter
+
+        recyclerView = binding.sapiListInves
+//        userRecyclerView.addItemDecoration(dividerItemDecoration)
+        recyclerView.setHasFixedSize(true)
+        adapter = SapiAdapter2(this)
+        recyclerView.adapter = adapter
+    }
+
     override fun onClick(data: Any, position: Int) {
         val currentItem = data as Sapi
         val detailIntent = Intent(context, DetailInvesmentActivity::class.java).apply {
-            putExtra("namasapi", currentItem.tag)
+            putExtra("namasapiinves", currentItem.tag)
         }
         startForResult.launch(detailIntent)
     }

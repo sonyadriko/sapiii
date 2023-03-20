@@ -1,4 +1,4 @@
-package com.example.sapiii.mutasi.kambing
+package com.example.sapiii.feature.mutasi.kambing
 
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -37,9 +37,11 @@ class TambahDataMutasiActivity : BaseActivity()  {
 
         binding.btnSubmitMutasiKambing.setOnClickListener{
             val nama = binding.spinnermutasi.selectedItem.toString()
-            val dateString = binding.etDateKambing.text.toString()
-            val dateFormat = SimpleDateFormat("dd/MM/yyyy")
-            val tanggal: Date = dateFormat.parse(dateString)
+//            val dateString = binding.etDateKambing.text.toString()
+//            val dateFormat = SimpleDateFormat("dd/MM/yyyy")
+//            val tanggal: Date = dateFormat.parse(dateString)
+            val tanggal = binding.etDateKambing.text.toString()
+
             val tipe = binding.spinnerTipeMutasi.selectedItem.toString()
 
             val mutasiKambing = MutasiKambing(nama, tanggal, tipe)

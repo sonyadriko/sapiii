@@ -20,6 +20,20 @@
         tools:ignore="LockedOrientationActivity"
         tools:targetApi="31">
         <activity
+            android:name=".DetailMutasiKambingActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".DetailMutasiActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".EditDataHewanActivity"
             android:exported="false">
             <meta-data
@@ -27,14 +41,14 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".mutasi.sapi.TambahDataMutasiSapiActivity"
+            android:name=".feature.mutasi.sapi.TambahDataMutasiSapiActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".mutasi.kambing.TambahDataMutasiActivity"
+            android:name=".feature.mutasi.kambing.TambahDataMutasiActivity"
             android:exported="false"
             android:label="@string/title_activity_tambah_data_mutasi"
             android:theme="@style/Theme.Sapiii.NoActionBar">

@@ -1,4 +1,4 @@
-package com.example.sapiii.mutasi.sapi
+package com.example.sapiii.feature.mutasi.sapi
 
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -36,9 +36,10 @@ class TambahDataMutasiSapiActivity : BaseActivity() {
 
         binding.btnSubmitMutasiSapi.setOnClickListener{
             val nama = binding.spinnermutasisapi.selectedItem.toString()
-            val dateString = binding.etDateSapi.text.toString()
-            val dateFormat = SimpleDateFormat("dd/MM/yyyy")
-            val tanggal: Date = dateFormat.parse(dateString)
+//            val dateString = binding.etDateSapi.text.toString()
+//            val dateFormat = SimpleDateFormat("dd/MM/yyyy")
+//            val tanggal: Date = dateFormat.parse(dateString)
+            val tanggal = binding.etDateSapi.text.toString()
             val tipe = binding.spinnerTipeMutasiSapi.selectedItem.toString()
 
             val mutasiSapi = MutasiSapi(nama, tanggal, tipe)

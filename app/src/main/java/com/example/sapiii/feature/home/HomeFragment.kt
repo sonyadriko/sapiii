@@ -10,12 +10,11 @@ import com.example.sapiii.*
 import com.example.sapiii.feature.timbangan.FragmentTimbangan
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.databinding.FragmentHomeBinding
-import com.example.sapiii.feature.invest.ListSapiInvesFragment
+import com.example.sapiii.feature.invest.InvestasiFragment
 import com.example.sapiii.feature.perkawinan.PerkawinanReproduksiFragment
 import com.example.sapiii.feature.ternakku.TernakkuFragment
-import com.example.sapiii.feature.ternakku.sapi.view.ListSapiFragment
 import com.example.sapiii.feature.tips.view.TipsInfoFragment
-import com.example.sapiii.mutasi.MutasiFragment2
+import com.example.sapiii.feature.mutasi.MutasiFragment2
 import java.util.*
 
 class HomeFragment : BaseFragment() {
@@ -81,9 +80,10 @@ class HomeFragment : BaseFragment() {
         }
 
         binding.menuInvestasi.setOnClickListener {
-            val investasi = ListSapiInvesFragment()
+            val investasi = InvestasiFragment()
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(R.id.frame_layout, investasi)?.addToBackStack(null)?.commit()
+
         }
 
         binding.menuLogout.setOnClickListener {

@@ -1,21 +1,36 @@
-package com.example.sapiii.mutasi.kambing
+package com.example.sapiii.feature.mutasi.kambing
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
+import com.example.sapiii.DetailMutasiActivity
+import com.example.sapiii.DetailMutasiKambingActivity
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.databinding.FragmentMutasiKambingBinding
+import com.example.sapiii.domain.MutasiKambing
+import com.example.sapiii.domain.MutasiSapi
+import com.example.sapiii.util.OnItemClick
 
-class MutasiKambingFragment : BaseFragment() {
+class MutasiKambingFragment : BaseFragment(), OnItemClick {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var binding: FragmentMutasiKambingBinding
     private lateinit var mutasiKambbingAdapter: MutasiKambingAdapter
     private val viewModel: MutasiKambingViewModel by viewModels()
+
+    private val startForResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+            if (result.resultCode == DetailMutasiActivity.RESULT_DELETE) {
+                onLoadMutasiKambing()
+            }
+        }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -62,8 +77,15 @@ class MutasiKambingFragment : BaseFragment() {
         recyclerView = binding.mutasiKambingList
 //        userRecyclerView.addItemDecoration(dividerItemDecoration)
         recyclerView.setHasFixedSize(true)
-        mutasiKambbingAdapter = MutasiKambingAdapter()
+        mutasiKambbingAdapter = MutasiKambingAdapter(this)
         recyclerView.adapter = mutasiKambbingAdapter
+    }
+    override fun onClick(data: Any, position: Int) {
+        val currentItem = data as MutasiKambing
+        val detailIntent = Intent(context, DetailMutasiKambingActivity::class.java).apply {
+            putExtra("nama", currentItem.nama)
+        }
+        startForResult.launch(detailIntent)
     }
 
 

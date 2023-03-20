@@ -14,16 +14,6 @@ class SapiAdapter2(
     ) : RecyclerView.Adapter<SapiAdapter2.SapiViewHolder>() {
     private val sapiList = ArrayList<Sapi>()
 
-    inner class SapiViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(sapi: Sapi) {
-
-
-            itemView.text_cow_name.text = sapi.tag
-//            itemView.beratTextView.text = sapi.berat.toString()
-            itemView.text_cow_gender.text = sapi.data.status
-
-        }
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SapiViewHolder {
         val itemView = LayoutInflater.from(parent.context)
@@ -41,9 +31,21 @@ class SapiAdapter2(
         }
         holder.itemView.setOnClickListener {
             onItemClick.onClick(sapi, position)
-
         }
     }
 
     override fun getItemCount() = sapiList.size
+
+    inner class SapiViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind(sapi: Sapi) {
+
+
+            itemView.text_cow_name.text = sapi.tag
+//            itemView.beratTextView.text = sapi.berat.toString()
+            itemView.text_cow_gender.text = sapi.data.status
+
+
+        }
+    }
+
 }

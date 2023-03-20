@@ -33,7 +33,7 @@
                     android:fontFamily="sans-serif-black"
                     android:textColor="@color/white"
                     android:textSize="22sp"
-                    tools:text="@string/sapi" />
+                    tools:text="Invesment Sapi" />
 
                 <ImageView
                     android:layout_width="75dp"

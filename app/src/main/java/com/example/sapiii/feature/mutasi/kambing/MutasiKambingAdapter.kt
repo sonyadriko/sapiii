@@ -1,4 +1,4 @@
-package com.example.sapiii.mutasi.kambing
+package com.example.sapiii.feature.mutasi.kambing
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -6,8 +6,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sapiii.databinding.ListViewMutasiBinding
 import com.example.sapiii.domain.MutasiKambing
+import com.example.sapiii.util.OnItemClick
 
-class MutasiKambingAdapter : RecyclerView.Adapter<MutasiKambingAdapter.MutasiKambingViewHolder>() {
+class MutasiKambingAdapter(private val onItemClick: OnItemClick) : RecyclerView.Adapter<MutasiKambingAdapter.MutasiKambingViewHolder>() {
     private val mutasiKambingList = ArrayList<MutasiKambing>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MutasiKambingViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -19,6 +20,9 @@ class MutasiKambingAdapter : RecyclerView.Adapter<MutasiKambingAdapter.MutasiKam
         holder.namaMS.text = currentMutasiKambing.nama
         holder.dateMS.text = currentMutasiKambing.tanggal.toString()
         holder.tipeMS.text = currentMutasiKambing.tipe
+        holder.itemView.setOnClickListener {
+            onItemClick.onClick(currentMutasiKambing, position)
+        }
 
     }
 

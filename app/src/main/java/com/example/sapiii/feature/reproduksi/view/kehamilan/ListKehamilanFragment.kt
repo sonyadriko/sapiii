@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.databinding.FragmentListKehamilanBinding
+import com.example.sapiii.feature.reproduksi.view.MonitoringKehamilanActivity
 import com.example.sapiii.feature.reproduksi.view.MonitoringPejantanActivity
 
 class ListKehamilanFragment : BaseFragment() {
@@ -49,7 +50,7 @@ class ListKehamilanFragment : BaseFragment() {
     private fun initListener() {
 //        val btnAdd = binding.btnTambahDataMutasiSapi
         binding.btnTambahDataKehamilan.setOnClickListener {
-            startActivity(Intent(context, MonitoringPejantanActivity::class.java))
+            startActivity(Intent(context, MonitoringKehamilanActivity::class.java))
         }
     }
 

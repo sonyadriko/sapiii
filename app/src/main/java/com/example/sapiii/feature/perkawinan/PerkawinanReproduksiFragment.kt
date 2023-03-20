@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.example.sapiii.feature.reproduksi.view.pejantan.ListPejantanFragment
 import com.example.sapiii.R
 import com.example.sapiii.feature.reproduksi.view.MonitoringKehamilanActivity
+import com.example.sapiii.feature.reproduksi.view.kehamilan.ListKehamilanFragment
 
 class PerkawinanReproduksiFragment : Fragment() {
 
@@ -23,7 +24,12 @@ class PerkawinanReproduksiFragment : Fragment() {
         val pejantan = v.findViewById<LinearLayout>(R.id.monitoring_pejantan)
 
         kehamilan.setOnClickListener {
-            startActivity(Intent(activity, MonitoringKehamilanActivity::class.java))
+//            startActivity(Intent(activity, MonitoringKehamilanActivity::class.java))
+            val listKehamilan = ListKehamilanFragment()
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(R.id.frame_layout, listKehamilan)
+                ?.addToBackStack(null)
+                ?.commit()
         }
 
         pejantan.setOnClickListener {

@@ -12,8 +12,10 @@ import java.util.*
 class MutasiSapi(
     @SerializedName("nama")
     val nama: String = "",
+//    @SerializedName("tanggal")
+//    val tanggal: Date = Date(),
     @SerializedName("tanggal")
-    val tanggal: Date = Date(),
+    val tanggal: String = "",
     @SerializedName("tipe")
     val tipe: String = "",
     ) : Serializable, Parcelable {

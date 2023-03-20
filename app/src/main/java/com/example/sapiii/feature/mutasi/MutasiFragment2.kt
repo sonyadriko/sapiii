@@ -1,12 +1,12 @@
-package com.example.sapiii.mutasi
+package com.example.sapiii.feature.mutasi
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.sapiii.mutasi.kambing.MutasiKambingFragment
-import com.example.sapiii.mutasi.sapi.MutasiSapiFragment
+import com.example.sapiii.feature.mutasi.kambing.MutasiKambingFragment
+import com.example.sapiii.feature.mutasi.sapi.MutasiSapiFragment
 import com.example.sapiii.R
 import com.example.sapiii.databinding.FragmentMutasi2Binding
 

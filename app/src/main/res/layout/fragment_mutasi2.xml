@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mutasi.MutasiFragment2">
+    tools:context=".feature.mutasi.MutasiFragment2">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,14 +28,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-black"
-                    android:text="TERNAKKU"
+                    android:text="MUTASI"
                     android:textColor="@color/white"
                     android:textSize="22sp" />
 
                 <ImageView
                     android:layout_width="75dp"
                     android:layout_height="75dp"
-                    android:src="@drawable/icon_ternakku" />
+                    android:src="@drawable/icon_mutasi" />
 
 
             </LinearLayout>

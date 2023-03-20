@@ -29,16 +29,18 @@ class MonitoringKehamilanActivity : BaseActivity() {
 
         binding.btnSaveMk.setOnClickListener{
             val nama = binding.spinnerkp.selectedItem.toString()
-            val dateString = binding.etDateKehamilan.text.toString()
-            val dateFormat = SimpleDateFormat("dd/MM/yyyy")
-            val tanggal: Date = dateFormat.parse(dateString)
+            val tanggal = binding.etDateKehamilan.text.toString()
+            val tanggal2 = binding.etPerkiraanLahir.text.toString()
+//            val dateString = binding.etDateKehamilan.text.toString()
+//            val dateFormat = SimpleDateFormat("dd/MM/yyyy")
+//            val tanggal: Date = dateFormat.parse(dateString)
 //            val dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy")
 //            val tanggal: LocalDate = LocalDate.parse(dateString, dateFormat)
             val kodeKandang = binding.etKodeKandangMk.text.toString()
-            val calendar = Calendar.getInstance()
-            calendar.time = tanggal
-            calendar.add(Calendar.MONTH, 9)
-            val tanggal2 = calendar.time // Mengonversi ke objek Date
+//            val calendar = Calendar.getInstance()
+//            calendar.time = tanggal
+//            calendar.add(Calendar.MONTH, 9)
+//            val tanggal2 = calendar.time // Mengonversi ke objek Date
 
 
             val monitoringKehamilan = MonitoringKehamilan(nama, kodeKandang, tanggal, tanggal2)

@@ -1,22 +1,36 @@
-package com.example.sapiii.mutasi.sapi
+package com.example.sapiii.feature.mutasi.sapi
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
+import com.example.sapiii.DetailMutasiActivity
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.databinding.FragmentMutasiSapiBinding
+import com.example.sapiii.domain.Artikel
+import com.example.sapiii.domain.MutasiSapi
+import com.example.sapiii.feature.tips.view.DetailArtikelActivity
+import com.example.sapiii.util.OnItemClick
 
-class MutasiSapiFragment : BaseFragment() {
+class MutasiSapiFragment : BaseFragment(), OnItemClick {
 
     private lateinit var binding: FragmentMutasiSapiBinding
     private lateinit var mutasiSapiAdapter: MutasiSapiAdapter
     private lateinit var recyclerView: RecyclerView
 
     private val viewModel: MutasiSapiViewModel by viewModels()
+
+    private val startForResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+            if (result.resultCode == DetailMutasiActivity.RESULT_DELETE) {
+                onLoadMutasiSapi()
+            }
+        }
 
 
     override fun onCreateView(
@@ -60,8 +74,16 @@ class MutasiSapiFragment : BaseFragment() {
         recyclerView = binding.mutasiSapiList
 //        userRecyclerView.addItemDecoration(dividerItemDecoration)
         recyclerView.setHasFixedSize(true)
-        mutasiSapiAdapter = MutasiSapiAdapter()
+        mutasiSapiAdapter = MutasiSapiAdapter(this)
         recyclerView.adapter = mutasiSapiAdapter
+    }
+
+    override fun onClick(data: Any, position: Int) {
+        val currentItem = data as MutasiSapi
+        val detailIntent = Intent(context, DetailMutasiActivity::class.java).apply {
+            putExtra("nama", currentItem.nama)
+        }
+        startForResult.launch(detailIntent)
     }
 
 }

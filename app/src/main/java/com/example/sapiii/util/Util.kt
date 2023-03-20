@@ -7,9 +7,7 @@ import android.view.View
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.example.sapiii.constanst.Constant.Role
-import com.example.sapiii.domain.Artikel
-import com.example.sapiii.domain.Kambing
-import com.example.sapiii.domain.Sapi
+import com.example.sapiii.domain.*
 import com.google.firebase.database.DataSnapshot
 import com.google.zxing.BarcodeFormat
 import com.journeyapps.barcodescanner.BarcodeEncoder
@@ -35,6 +33,14 @@ fun DataSnapshot.toKambingDomain(): Kambing {
 
 fun DataSnapshot.toArtikelDomain(): Artikel {
     return getValue(Artikel::class.java)!!
+}
+
+fun DataSnapshot.toMutasiSapiDomain(): MutasiSapi {
+    return getValue(MutasiSapi::class.java)!!
+}
+
+fun DataSnapshot.toMutasiKambingDomain(): MutasiKambing {
+    return getValue(MutasiKambing::class.java)!!
 }
 
 fun View.gone() {
