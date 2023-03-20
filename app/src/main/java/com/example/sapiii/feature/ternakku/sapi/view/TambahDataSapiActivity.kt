@@ -85,6 +85,7 @@ class TambahDataSapiActivity : BaseActivity() {
                             asal = etAsalSapi.text.toString(),
                             kodekandang = etKodeKandang.text.toString(),
                             idpmk = etPmk.text.toString(),
+                            harga = 0,
                             kedatangan = Kedatangan(
                                 bulan = etKdtgSapi.text.toString(),
                                 usia = etUsiadtgSapi.text.toString(),

@@ -21,16 +21,16 @@ class InvestasiFragment : BaseFragment() {
         val invesKambing = v.findViewById<LinearLayout>(R.id.investasi_kambing)
 
         invesSapi.setOnClickListener {
-            val listSapi = ListSapiFragment.fromInves()
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.frame_layout, listSapi)
-                ?.addToBackStack(null)
-                ?.commit()
-//            val listSapi = ListSapiInvesFragment()
+//            val listSapi = ListSapiFragment.fromInves()
 //            activity?.supportFragmentManager?.beginTransaction()
 //                ?.replace(R.id.frame_layout, listSapi)
 //                ?.addToBackStack(null)
 //                ?.commit()
+            val listSapi = ListSapiInvesFragment()
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(R.id.frame_layout, listSapi)
+                ?.addToBackStack(null)
+                ?.commit()
             //(BACKUP))
         }
         // Inflate the layout for this fragment

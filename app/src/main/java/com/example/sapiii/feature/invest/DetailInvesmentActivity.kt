@@ -30,7 +30,7 @@ class DetailInvesmentActivity : BaseActivity() {
         binding.btnSubmitHarga.setOnClickListener{
             val hargaSapi = binding.inputHarga.text.toString()
 
-            val updates = mapOf<String, Any>("harga" to binding.inputHarga.text.toString())
+            val updates = mapOf<String, Any>("harga" to binding.inputHarga.text.toString().toInt())
 
             sapiRef.child(namaSapi).updateChildren(updates)
             finish()
@@ -51,7 +51,7 @@ class DetailInvesmentActivity : BaseActivity() {
                                 .placeholder(R.drawable.ic_outline_image_24)
                                 .into(ivSapi)
                             namaSapiMutasi.text = sapi.tag
-                            inputHarga.setText(sapi.harga)
+                            inputHarga.setText(sapi.harga.toString())
                         } else throw Exception("Kambing is not found")
                     } catch (e: Exception) {
 //                        showToast("error")

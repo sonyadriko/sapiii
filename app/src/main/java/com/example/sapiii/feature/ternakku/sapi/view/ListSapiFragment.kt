@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sapiii.R
 import com.example.sapiii.base.BaseFragment
+import com.example.sapiii.constanst.Constant
 import com.example.sapiii.databinding.FragmentListSapiBinding
 import com.example.sapiii.domain.Sapi
 import com.example.sapiii.feature.detail.view.DetailHewanActivity
@@ -24,12 +25,16 @@ import com.example.sapiii.feature.ternakku.sapi.viewmodel.SapiViewModel
 import com.example.sapiii.util.OnItemClick
 import com.example.sapiii.util.gone
 import com.example.sapiii.util.visible
+import com.google.firebase.database.*
 
 class ListSapiFragment : BaseFragment(), OnItemClick {
 
     private lateinit var binding: FragmentListSapiBinding
     private lateinit var userRecyclerView: RecyclerView
     private lateinit var adapter: SapiAdapter
+
+    private val databaseReference: DatabaseReference =
+        FirebaseDatabase.getInstance().getReference(Constant.REFERENCE_SAPI)
 
     private lateinit var from: String
 
@@ -70,6 +75,7 @@ class ListSapiFragment : BaseFragment(), OnItemClick {
             binding.btnTambahDataSapi.gone()
         } else if (from == ARG_FROM_INVES) {
             binding.btnTambahDataSapi.gone()
+
         } else
             binding.btnTambahDataSapi.visible()
     }

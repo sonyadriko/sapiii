@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sapiii.R
 import com.example.sapiii.base.BaseFragment
+import com.example.sapiii.constanst.Constant
 import com.example.sapiii.constanst.Constant.REFERENCE_SAPI
 import com.example.sapiii.constanst.Constant.statusList
 import com.example.sapiii.databinding.FragmentListSapiInvesBinding
@@ -32,7 +33,6 @@ class ListSapiInvesFragment : BaseFragment(), OnItemClick {
 
     private lateinit var adapter: SapiAdapter2
     private lateinit var recyclerView: RecyclerView
-    private lateinit var sapiList: MutableList<Sapi>
     private lateinit var binding: FragmentListSapiInvesBinding
 
     private lateinit var from: String
@@ -66,8 +66,9 @@ class ListSapiInvesFragment : BaseFragment(), OnItemClick {
         return binding.root
     }
 
-    private fun loadSapiInves() {
 
+    private fun loadSapiInves() {
+        val sapiList: MutableList<Sapi> by lazy { mutableListOf() }
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 sapiList.clear()

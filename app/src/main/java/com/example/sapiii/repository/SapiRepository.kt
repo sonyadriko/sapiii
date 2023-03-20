@@ -2,6 +2,7 @@ package com.example.sapiii.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.sapiii.constanst.Constant
 import com.example.sapiii.constanst.Constant.REFERENCE_SAPI
 import com.example.sapiii.domain.Sapi
 import com.example.sapiii.util.toSapiDomain
@@ -22,6 +23,8 @@ class SapiRepository {
             instance
         }
     }
+
+
 
     fun loadSapi(): LiveData<List<Sapi>> {
         val data = MutableLiveData<List<Sapi>>()
