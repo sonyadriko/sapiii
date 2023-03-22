@@ -8,12 +8,17 @@ import com.example.sapiii.databinding.ActivityMonitoringKehamilanBinding
 import com.example.sapiii.domain.MonitoringKehamilan
 import com.example.sapiii.domain.MonitoringPejantan
 import com.example.sapiii.repository.KambingRepository
+import com.example.sapiii.util.convertLongToTime
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import java.text.SimpleDateFormat
 import java.util.*
 
 class MonitoringKehamilanActivity : BaseActivity() {
+
+    private var isShow = false
+    private var datePicker: MaterialDatePicker<Long>? = null
 
     private val repository = KambingRepository().getInstance()
     private lateinit var binding: ActivityMonitoringKehamilanBinding
@@ -27,20 +32,51 @@ class MonitoringKehamilanActivity : BaseActivity() {
         val database = Firebase.database
         val myRef = database.getReference("Monitoring_Kehamilan")
 
+        datePicker = MaterialDatePicker.Builder.datePicker()
+            .setTitleText("Pilih Tanggal")
+            .build()
+
+        datePicker?.addOnPositiveButtonClickListener {
+            binding.etDateKehamilan.setText(convertLongToTime(it))
+        }
+
+        datePicker?.addOnDismissListener {
+            isShow = false
+        }
+
+        binding.etDateKehamilan.setOnClickListener {
+            if (isShow.not()) {
+                datePicker?.show(supportFragmentManager, "dialog") ?: kotlin.run {
+                    showToast("Tidak ada data")
+                }
+                isShow = true
+            }
+        }
+
+        datePicker?.addOnPositiveButtonClickListener {
+            binding.etPerkiraanLahir.setText(convertLongToTime(it))
+        }
+
+        datePicker?.addOnDismissListener {
+            isShow = false
+        }
+
+        binding.etPerkiraanLahir.setOnClickListener {
+            if (isShow.not()) {
+                datePicker?.show(supportFragmentManager, "dialog") ?: kotlin.run {
+                    showToast("Tidak ada data")
+                }
+                isShow = true
+            }
+        }
+
         binding.btnSaveMk.setOnClickListener{
             val nama = binding.spinnerkp.selectedItem.toString()
             val tanggal = binding.etDateKehamilan.text.toString()
             val tanggal2 = binding.etPerkiraanLahir.text.toString()
-//            val dateString = binding.etDateKehamilan.text.toString()
-//            val dateFormat = SimpleDateFormat("dd/MM/yyyy")
-//            val tanggal: Date = dateFormat.parse(dateString)
-//            val dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy")
-//            val tanggal: LocalDate = LocalDate.parse(dateString, dateFormat)
+
             val kodeKandang = binding.etKodeKandangMk.text.toString()
-//            val calendar = Calendar.getInstance()
-//            calendar.time = tanggal
-//            calendar.add(Calendar.MONTH, 9)
-//            val tanggal2 = calendar.time // Mengonversi ke objek Date
+//
 
 
             val monitoringKehamilan = MonitoringKehamilan(nama, kodeKandang, tanggal, tanggal2)

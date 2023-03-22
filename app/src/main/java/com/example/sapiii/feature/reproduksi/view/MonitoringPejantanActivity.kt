@@ -9,6 +9,8 @@ import com.example.sapiii.constanst.Constant.kelaminList
 import com.example.sapiii.databinding.ActivityMonitoringPejantanBinding
 import com.example.sapiii.domain.MonitoringPejantan
 import com.example.sapiii.repository.KambingRepository
+import com.example.sapiii.util.convertLongToTime
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import java.text.SimpleDateFormat
@@ -18,6 +20,8 @@ class MonitoringPejantanActivity : BaseActivity() {
 
     private val repository = KambingRepository().getInstance()
     private lateinit var binding: ActivityMonitoringPejantanBinding
+    private var isShow = false
+    private var datePicker: MaterialDatePicker<Long>? = null
 
     private val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
 
@@ -40,11 +44,30 @@ class MonitoringPejantanActivity : BaseActivity() {
 
         fetchNamaKodeData()
 
+        datePicker = MaterialDatePicker.Builder.datePicker()
+            .setTitleText("Pilih Tanggal")
+            .build()
+
+        datePicker?.addOnPositiveButtonClickListener {
+            binding.etDatePejantan.setText(convertLongToTime(it))
+        }
+
+        datePicker?.addOnDismissListener {
+            isShow = false
+        }
+
+        binding.etDatePejantan.setOnClickListener {
+            if (isShow.not()) {
+                datePicker?.show(supportFragmentManager, "dialog") ?: kotlin.run {
+                    showToast("Tidak ada data")
+                }
+                isShow = true
+            }
+        }
+
         binding.btnSaveMp.setOnClickListener{
             val nama = binding.spinnerkp.selectedItem.toString()
-            val dateString = binding.etDatePejantan.text.toString()
-            val dateFormat = SimpleDateFormat("dd/MM/yyyy")
-            val tanggal: Date = dateFormat.parse(dateString)
+            val tanggal = binding.etDatePejantan.text.toString()
             val kodeKandang = binding.etKodeKandang.text.toString()
 
             val monitoringPejantan = MonitoringPejantan(nama, kodeKandang, tanggal)
