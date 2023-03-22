@@ -58,9 +58,9 @@ data class Kesehatan(
 @Parcelize
 data class Kedatangan(
     @SerializedName("kedatanganHewan")
-    val bulan: String = "",
+    val kedatanganHewan: String = "",
     @SerializedName("usiaKedatangan")
-    val usia: String = "",
+    val usiaKedatangan: String = "",
     @SerializedName("beratBadanAwal")
     val beratBadanAwal: String = "",
 ) : Serializable, Parcelable
@@ -70,7 +70,7 @@ data class DataHewan(
     @SerializedName("usia")
     val usia: String = "",
     @SerializedName("beratBadan")
-    val berat: String = "",
+    val beratBadan: Int = 0,
     @SerializedName("status")
     val status: String = "",
 ) : Serializable, Parcelable

@@ -87,13 +87,13 @@ class TambahDataSapiActivity : BaseActivity() {
                             idpmk = etPmk.text.toString(),
                             harga = 0,
                             kedatangan = Kedatangan(
-                                bulan = etKdtgSapi.text.toString(),
-                                usia = etUsiadtgSapi.text.toString(),
+                                kedatanganHewan = etKdtgSapi.text.toString(),
+                                usiaKedatangan = etUsiadtgSapi.text.toString(),
                                 beratBadanAwal = etBrtbdnAwalSaapi.text.toString()
                             ),
                             data = DataHewan(
                                 usia = etUsiaskgSapi.text.toString(),
-                                berat = etBrtbdnSkgSapi.text.toString(),
+                                beratBadan = etBrtbdnSkgSapi.text.toString().toInt(),
                                 status = viewModel.status
                             ),
                             pemilik = Pemilik(
@@ -128,6 +128,6 @@ class TambahDataSapiActivity : BaseActivity() {
 
 
     companion object {
-        private const val REQUEST_SELECT_IMAGE = 100
+        const val REQUEST_SELECT_IMAGE = 100
     }
 }

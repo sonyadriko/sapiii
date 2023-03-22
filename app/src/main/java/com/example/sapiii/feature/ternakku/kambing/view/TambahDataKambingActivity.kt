@@ -12,7 +12,6 @@ import com.example.sapiii.constanst.Constant.statusList
 import com.example.sapiii.databinding.ActivityTambahDataKambingBinding
 import com.example.sapiii.domain.*
 import com.example.sapiii.feature.ternakku.kambing.viewmodel.TambahDataKambingViewModel
-import com.example.sapiii.feature.tips.view.TambhDataArtikelActivity
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
@@ -77,13 +76,13 @@ class TambahDataKambingActivity : BaseActivity() {
                             kodekandang = etKodeKandangKambing.text.toString(),
                             idpmk = etPmkKambing.text.toString(),
                             kedatangan = Kedatangan(
-                                bulan = etKdtgKambing.text.toString(),
-                                usia = etUsiadtgKambing.text.toString(),
+                                kedatanganHewan = etKdtgKambing.text.toString(),
+                                usiaKedatangan = etUsiadtgKambing.text.toString(),
                                 beratBadanAwal = etBrtbdnAwalKambing.text.toString()
                             ),
                             data = DataHewan(
                                 usia = etUsiaskgKambing.text.toString(),
-                                berat = etBrtbdnSkgKambing.text.toString(),
+                                beratBadan = etBrtbdnSkgKambing.text.toString().toInt(),
                                 status = viewModel.status
                             ),
                             pemilik = Pemilik(

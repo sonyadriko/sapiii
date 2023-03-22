@@ -29,7 +29,7 @@
             android:padding="20dp">
 
             <Button
-                android:id="@+id/button_tambah_gambar_sapi"
+                android:id="@+id/button_tambah_gambar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tambah Gambar" />
@@ -44,15 +44,13 @@
                 android:src="@drawable/ic_launcher_foreground" />
 
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tv_nama_hewan"
+            <TextView
+                style="@style/TextAppearance.AppCompat.Subhead"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:hint="Nama Sapi"
-                android:textStyle="bold"
-                android:padding="16dp"/>
-
+                android:layout_marginTop="16dp"
+                android:text="Jenis &amp; Kode Kandang"
+                android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -61,20 +59,11 @@
                 android:hint="@string/jenis">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_jenis_sapi"
+                    android:id="@+id/et_jenis"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
             </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tv_jenis_kelamin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:hint="Jenis Kelamin"
-                android:textStyle="bold"
-                android:padding="16dp"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -116,7 +105,7 @@
                 android:hint="@string/bulan_kedatangan">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_kdtg_sapi"
+                    android:id="@+id/et_kdtg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -129,7 +118,7 @@
                 android:hint="@string/usia_awal">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_usiadtg_sapi"
+                    android:id="@+id/et_usiadtg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:imeOptions="actionNext" />
@@ -143,7 +132,7 @@
                 android:hint="@string/berat_badan_awal">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_brtbdn_awal_saapi"
+                    android:id="@+id/et_brtbdn_awal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:imeOptions="actionNext"
@@ -156,17 +145,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/data_sapi_sekarang"
+                android:text="Data Hewan Sekarang"
                 android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/usia_sapi">
+                android:hint="Usia Hewan">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_usiaskg_sapi"
+                    android:id="@+id/et_usiaskg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:imeOptions="actionNext" />
@@ -180,7 +169,7 @@
                 android:hint="@string/berat_badan">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_brtbdn_skg_sapi"
+                    android:id="@+id/et_brtbdn_skg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:imeOptions="actionNext"
@@ -195,7 +184,7 @@
                 android:hint="@string/asal">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_asal_sapi"
+                    android:id="@+id/et_asal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:imeOptions="actionNext" />
@@ -206,8 +195,7 @@
                 android:id="@+id/input_status"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/status">
+                android:layout_height="wrap_content">
 
                 <AutoCompleteTextView
                     android:id="@+id/et_status"
@@ -220,7 +208,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/btn_sbmit_sapi"
+            android:id="@+id/btn_sbmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/submit" />

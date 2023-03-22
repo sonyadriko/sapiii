@@ -1,11 +1,15 @@
 package com.example.sapiii.feature.detail.view
 
+import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.sapiii.EditDataHewanActivity
 import com.example.sapiii.R
@@ -17,11 +21,23 @@ import com.example.sapiii.feature.detail.view.DetailHewanActivity.Companion.RESU
 import com.example.sapiii.feature.detail.viewmodel.DetailViewModel
 import com.example.sapiii.util.generateBarcode
 import com.example.sapiii.util.gone
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class DetailHewanFragment : BaseFragment() {
 
     private val viewModel: DetailViewModel by activityViewModels()
     private lateinit var binding: FragmentDetailHewanBinding
+
+    private val startForResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+            if (result.resultCode == RESULT_OK) {
+                lifecycleScope.launch {
+                    delay(500)
+                    viewModel.getDataHewan(true)
+                }
+            }
+        }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,10 +49,15 @@ class DetailHewanFragment : BaseFragment() {
 
         binding.buttonEditHewan.setOnClickListener{
             val editHewan = Intent(context, EditDataHewanActivity::class.java).apply {
-                putExtra("namasapi", "namas")
-                putExtra("namakambing", "namak")
+                when (viewModel.feature) {
+                    DetailViewModel.Companion.DetailFeature.SAPI -> putExtra("namasapi", viewModel.namaHewan)
+                    DetailViewModel.Companion.DetailFeature.KAMBING -> putExtra("namakambing", viewModel.namaHewan)
+                    DetailViewModel.Companion.DetailFeature.UNKNOWN -> {
+                        // no operation
+                    }
+                }
             }
-            startActivity(editHewan)
+            startForResult.launch(editHewan)
         }
 
         return binding.root
@@ -99,11 +120,11 @@ class DetailHewanFragment : BaseFragment() {
             jenisSapiDetail.text = kambing.jenis
             pmkSapiDetail.text = kambing.idpmk
             kandangSapiDetail.text = kambing.kodekandang
-            kdtgSapiDetail.text = kambing.kedatangan.bulan
+            kdtgSapiDetail.text = kambing.kedatangan.kedatanganHewan
             bbawalSapiDetail.text = kambing.kedatangan.beratBadanAwal
-            usiadtgSapiDetail.text = kambing.kedatangan.usia
+            usiadtgSapiDetail.text = kambing.kedatangan.usiaKedatangan
             usiaskgSapiDetail.text = kambing.data.usia
-            bbskgSapiDetail.text = kambing.data.berat
+            bbskgSapiDetail.text = kambing.data.beratBadan.toString()
             sttsSapiDetail.text = kambing.data.status
             asalSapiDetail.text = kambing.asal
 
@@ -126,11 +147,11 @@ class DetailHewanFragment : BaseFragment() {
             jenisSapiDetail.text = sapi.jenis
             pmkSapiDetail.text = sapi.idpmk
             kandangSapiDetail.text = sapi.kodekandang
-            kdtgSapiDetail.text = sapi.kedatangan.bulan
+            kdtgSapiDetail.text = sapi.kedatangan.kedatanganHewan
             bbawalSapiDetail.text = sapi.kedatangan.beratBadanAwal
-            usiadtgSapiDetail.text = sapi.kedatangan.usia
+            usiadtgSapiDetail.text = sapi.kedatangan.usiaKedatangan
             usiaskgSapiDetail.text = sapi.data.usia
-            bbskgSapiDetail.text = sapi.data.berat
+            bbskgSapiDetail.text = sapi.data.beratBadan.toString()
             sttsSapiDetail.text = sapi.data.status
 
             tvNamaPemilik.text = sapi.pemilik.nama
