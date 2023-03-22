@@ -16,6 +16,7 @@ import com.example.sapiii.domain.Sapi
 import com.example.sapiii.feature.detail.view.DetailHewanActivity.Companion.RESULT_DELETE
 import com.example.sapiii.feature.detail.viewmodel.DetailViewModel
 import com.example.sapiii.util.generateBarcode
+import com.example.sapiii.util.gone
 
 class DetailHewanFragment : BaseFragment() {
 
@@ -117,6 +118,8 @@ class DetailHewanFragment : BaseFragment() {
                 .load(sapi.image)
                 .placeholder(R.drawable.ic_outline_image_24)
                 .into(ivSapi)
+            asalSapiContainer.gone()
+
             namaSapiDetail.text = sapi.tag
             jkSapiDetail.text = sapi.kelamin
             jenisSapiDetail.text = sapi.jenis
@@ -128,7 +131,6 @@ class DetailHewanFragment : BaseFragment() {
             usiaskgSapiDetail.text = sapi.data.usia
             bbskgSapiDetail.text = sapi.data.berat
             sttsSapiDetail.text = sapi.data.status
-            asalSapiDetail.text = sapi.asal
 
             tvNamaPemilik.text = sapi.pemilik.nama
             tvNomorTelpon.text = sapi.pemilik.noTelepon

@@ -6,7 +6,7 @@ import android.widget.EditText
 import com.example.sapiii.R
 import com.example.sapiii.base.BaseActivity
 import com.example.sapiii.databinding.ActivityTambahDataMutasiBinding
-import com.example.sapiii.domain.MutasiKambing
+import com.example.sapiii.domain.MutasiHewan
 import com.example.sapiii.repository.KambingRepository
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
@@ -44,7 +44,7 @@ class TambahDataMutasiActivity : BaseActivity()  {
 
             val tipe = binding.spinnerTipeMutasi.selectedItem.toString()
 
-            val mutasiKambing = MutasiKambing(nama, tanggal, tipe)
+            val mutasiKambing = MutasiHewan(nama, tanggal, tipe)
             myRef.child(mutasiKambing.nama).setValue(mutasiKambing)
                 .addOnSuccessListener {
                     showToast("Mutasi Kambing berhasil disimpan")

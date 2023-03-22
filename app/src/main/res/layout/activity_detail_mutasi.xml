@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailMutasiActivity">
+    tools:context=".feature.mutasi.sapi.DetailMutasiActivity">
 
 
     <LinearLayout
@@ -33,12 +33,25 @@
                 android:layout_height="wrap_content"
                 android:text="Masuk Kandang"
                 android:textAppearance="@style/TextAppearance.Material3.BodyLarge" />
-            <EditText
-                android:id="@+id/et_date_sapi"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Tanggal"
-                android:inputType="date" />
+                android:layout_height="50dp">
+
+                <EditText
+                    android:id="@+id/et_date_sapi"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:enabled="true"
+                    android:hint="Tanggal"
+                    android:inputType="date" />
+
+                <View
+                    android:id="@+id/btn_date_sapi"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?selectableItemBackground" />
+            </FrameLayout>
 
 
 

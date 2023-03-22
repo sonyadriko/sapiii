@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.sapiii.constanst.Constant
 import com.example.sapiii.domain.MonitoringPejantan
-import com.example.sapiii.domain.MutasiKambing
+import com.example.sapiii.domain.MutasiHewan
 import com.google.firebase.database.*
 
 class PejantanRepository {

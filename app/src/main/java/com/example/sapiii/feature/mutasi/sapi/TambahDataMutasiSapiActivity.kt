@@ -6,7 +6,7 @@ import android.widget.EditText
 import com.example.sapiii.R
 import com.example.sapiii.base.BaseActivity
 import com.example.sapiii.databinding.ActivityTambahDataMutasiSapiBinding
-import com.example.sapiii.domain.MutasiSapi
+import com.example.sapiii.domain.MutasiHewan
 import com.example.sapiii.repository.SapiRepository
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
@@ -42,8 +42,8 @@ class TambahDataMutasiSapiActivity : BaseActivity() {
             val tanggal = binding.etDateSapi.text.toString()
             val tipe = binding.spinnerTipeMutasiSapi.selectedItem.toString()
 
-            val mutasiSapi = MutasiSapi(nama, tanggal, tipe)
-            myRef.child(mutasiSapi.nama).setValue(mutasiSapi)
+            val mutasiHewan = MutasiHewan(nama, tanggal, tipe)
+            myRef.child(mutasiHewan.nama).setValue(mutasiHewan)
                 .addOnSuccessListener {
                     showToast("Mutasi Sapi berhasil disimpan")
                     finish()

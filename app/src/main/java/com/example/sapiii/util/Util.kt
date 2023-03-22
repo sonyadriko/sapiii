@@ -57,14 +57,9 @@ fun DataSnapshot.toArtikelDomain(): Artikel {
     return getValue(Artikel::class.java)!!
 }
 
-fun DataSnapshot.toMutasiSapiDomain(): MutasiSapi {
-    return getValue(MutasiSapi::class.java)!!
+fun DataSnapshot.toMutasiHewanDomain(): MutasiHewan {
+    return getValue(MutasiHewan::class.java)!!
 }
-
-fun DataSnapshot.toMutasiKambingDomain(): MutasiKambing {
-    return getValue(MutasiKambing::class.java)!!
-}
-
 fun View.gone() {
     visibility = View.GONE
 }

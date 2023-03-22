@@ -8,7 +8,6 @@ import com.example.sapiii.base.BaseActivity
 import com.example.sapiii.constanst.Constant.kelaminList
 import com.example.sapiii.databinding.ActivityMonitoringPejantanBinding
 import com.example.sapiii.domain.MonitoringPejantan
-import com.example.sapiii.domain.MutasiKambing
 import com.example.sapiii.repository.KambingRepository
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase

@@ -3,10 +3,7 @@ package com.example.sapiii.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.sapiii.constanst.Constant
-import com.example.sapiii.domain.Artikel
-import com.example.sapiii.domain.Kambing
-import com.example.sapiii.domain.MutasiSapi
-import com.example.sapiii.util.toKambingDomain
+import com.example.sapiii.domain.MutasiHewan
 import com.google.firebase.database.*
 
 class MutasiSapiRepository {
@@ -29,13 +26,13 @@ class MutasiSapiRepository {
 
 
 
-    fun loadMutasiSapi(): LiveData<List<MutasiSapi>> {
-        val data = MutableLiveData<List<MutasiSapi>>()
+    fun loadMutasiSapi(): LiveData<List<MutasiHewan>> {
+        val data = MutableLiveData<List<MutasiHewan>>()
         databaseReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 try {
                     data.value = snapshot.children.map { dataSnapshot ->
-                        dataSnapshot.getValue(MutasiSapi::class.java)!!
+                        dataSnapshot.getValue(MutasiHewan::class.java)!!
                     }
                 } catch (e: Exception) {
                     data.value = emptyList()
@@ -50,16 +47,16 @@ class MutasiSapiRepository {
         return data
     }
 
-    fun addMutasiSapi(mutasiSapi: MutasiSapi, onComplete: (isSuccess: Boolean) -> Unit) {
-        databaseReference.child(mutasiSapi.nama).setValue(mutasiSapi)
+    fun addMutasiSapi(mutasiHewan: MutasiHewan, onComplete: (isSuccess: Boolean) -> Unit) {
+        databaseReference.child(mutasiHewan.nama).setValue(mutasiHewan)
             .addOnCompleteListener {
                 onComplete(it.isSuccessful)
             }
     }
 
-    fun updateMutsiSapi(mutasiSapi: MutasiSapi, onComplete: (isSuccess: Boolean) -> Unit) {
-        databaseReference.child(mutasiSapi.nama)
-            .updateChildren(mutasiSapi.toMap())
+    fun updateMutsiSapi(mutasiHewan: MutasiHewan, onComplete: (isSuccess: Boolean) -> Unit) {
+        databaseReference.child(mutasiHewan.nama)
+            .updateChildren(mutasiHewan.toMap())
             .addOnCompleteListener {
                 onComplete(it.isSuccessful)
             }

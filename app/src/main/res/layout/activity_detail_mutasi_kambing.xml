@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailMutasiKambingActivity">
+    tools:context=".feature.mutasi.kambing.DetailMutasiKambingActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,7 +38,7 @@
                 android:layout_height="50dp">
 
                 <EditText
-                    android:id="@+id/et_date_sapi"
+                    android:id="@+id/et_date_kambing"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:clickable="true"
@@ -47,7 +47,7 @@
                     android:inputType="date" />
 
                 <View
-                    android:id="@+id/btn_date_sapi"
+                    android:id="@+id/btn_date_kambing"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="?selectableItemBackground" />
