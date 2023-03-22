@@ -29,7 +29,6 @@ class DetailHewanFragment : BaseFragment() {
         // Inflate the layout for this fragment
         binding = FragmentDetailHewanBinding.inflate(layoutInflater, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
-        return binding.root
 
         binding.buttonEditHewan.setOnClickListener{
             val editHewan = Intent(context, EditDataHewanActivity::class.java).apply {
@@ -38,7 +37,7 @@ class DetailHewanFragment : BaseFragment() {
             startActivity(editHewan)
         }
 
-
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

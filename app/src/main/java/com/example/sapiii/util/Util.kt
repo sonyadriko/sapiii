@@ -1,7 +1,5 @@
 package com.example.sapiii.util
 
-import android.graphics.Bitmap
-import android.net.Uri
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
@@ -11,7 +9,31 @@ import com.example.sapiii.domain.*
 import com.google.firebase.database.DataSnapshot
 import com.google.zxing.BarcodeFormat
 import com.journeyapps.barcodescanner.BarcodeEncoder
+import java.text.SimpleDateFormat
+import java.util.*
 
+
+fun convertLongToTime(time: Long): String {
+    val date = Date(time)
+    val format = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+    format.timeZone = TimeZone.getTimeZone("UTC")
+    return format.format(date)
+}
+
+fun convertDateToLong(date: String): Long {
+    val df = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+    df.timeZone = TimeZone.getTimeZone("UTC")
+    return df.parse(date)?.time ?: 0
+}
+
+fun convertStringToCalendar(date: String): Calendar {
+    val fromDate = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+    fromDate.timeZone = TimeZone.getTimeZone("UTC")
+    val date = fromDate.parse(date)
+    val cal = Calendar.getInstance(Locale.getDefault())
+    cal.time = date
+    return cal
+}
 
 fun String.toRole(): Role? {
     return Role.values().find {
