@@ -32,7 +32,8 @@ class DetailHewanFragment : BaseFragment() {
 
         binding.buttonEditHewan.setOnClickListener{
             val editHewan = Intent(context, EditDataHewanActivity::class.java).apply {
-                putExtra("namasapi", "nama")
+                putExtra("namasapi", "namas")
+                putExtra("namakambing", "namak")
             }
             startActivity(editHewan)
         }
