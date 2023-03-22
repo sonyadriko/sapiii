@@ -30,8 +30,8 @@ class DetailViewModel : BaseViewModel() {
     private val _viewEffect = MutableLiveData<ViewEffect>()
     val viewEffect: LiveData<ViewEffect> get() = _viewEffect
 
-    private var feature: DetailFeature = UNKNOWN
-    private var namaHewan: String? = null
+    var feature: DetailFeature = UNKNOWN
+    var namaHewan: String? = null
 
     private var dataKambing: Kambing? = null
     private var dataSapi: Sapi? = null
@@ -58,8 +58,8 @@ class DetailViewModel : BaseViewModel() {
         namaHewan = newNamaHewan
     }
 
-    fun getDataHewan() {
-        if (dataKambing == null && dataSapi == null) {
+    fun getDataHewan(isRefresh: Boolean = false) {
+        if (dataKambing == null && dataSapi == null || isRefresh) {
             setViewState(ViewState.LOADING)
             viewModelScope.launch {
                 delay(500L)
