@@ -133,13 +133,25 @@
                             android:textColor="@color/black"
                             android:textSize="16dp" />
 
-                        <EditText
-                            android:id="@+id/et_date_pejantan"
+                        <FrameLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Tanggal (dd/MM/yyyy)"
-                            android:inputType="date" />
+                            android:layout_height="50dp">
 
+                            <EditText
+                                android:id="@+id/et_date_pejantan"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:clickable="true"
+                                android:enabled="true"
+                                android:hint="Tanggal (dd/MM/yyyy)"
+                                android:inputType="date" />
+
+                            <View
+                                android:id="@+id/btn_date_pejantan"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="?selectableItemBackground" />
+                        </FrameLayout>
 
                     </LinearLayout>
 

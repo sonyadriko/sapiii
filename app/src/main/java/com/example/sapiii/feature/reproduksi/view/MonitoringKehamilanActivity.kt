@@ -19,6 +19,8 @@ class MonitoringKehamilanActivity : BaseActivity() {
 
     private var isShow = false
     private var datePicker: MaterialDatePicker<Long>? = null
+    private var datePicker2: MaterialDatePicker<Long>? = null
+
 
     private val repository = KambingRepository().getInstance()
     private lateinit var binding: ActivityMonitoringKehamilanBinding
@@ -53,17 +55,21 @@ class MonitoringKehamilanActivity : BaseActivity() {
             }
         }
 
-        datePicker?.addOnPositiveButtonClickListener {
-            binding.etPerkiraanLahir.setText(convertLongToTime(it))
+        datePicker2 = MaterialDatePicker.Builder.datePicker()
+            .setTitleText("Pilih Tanggal")
+            .build()
+
+        datePicker2?.addOnPositiveButtonClickListener {
+            binding.etDatePerkiraan.setText(convertLongToTime(it))
         }
 
-        datePicker?.addOnDismissListener {
+        datePicker2?.addOnDismissListener {
             isShow = false
         }
 
-        binding.etPerkiraanLahir.setOnClickListener {
+        binding.etDatePerkiraan.setOnClickListener {
             if (isShow.not()) {
-                datePicker?.show(supportFragmentManager, "dialog") ?: kotlin.run {
+                datePicker2?.show(supportFragmentManager, "dialog") ?: kotlin.run {
                     showToast("Tidak ada data")
                 }
                 isShow = true
@@ -73,7 +79,7 @@ class MonitoringKehamilanActivity : BaseActivity() {
         binding.btnSaveMk.setOnClickListener{
             val nama = binding.spinnerkp.selectedItem.toString()
             val tanggal = binding.etDateKehamilan.text.toString()
-            val tanggal2 = binding.etPerkiraanLahir.text.toString()
+            val tanggal2 = binding.etDatePerkiraan.text.toString()
 
             val kodeKandang = binding.etKodeKandangMk.text.toString()
 //

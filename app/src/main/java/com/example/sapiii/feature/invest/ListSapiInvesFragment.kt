@@ -32,11 +32,11 @@ class ListSapiInvesFragment : BaseFragment(), OnItemClick {
     private lateinit var adapter: SapiAdapter2
     private lateinit var recyclerView: RecyclerView
     private lateinit var binding: FragmentListSapiInvesBinding
+    private lateinit var sapiList: MutableList<Sapi>
 
     private lateinit var from: String
 
-    val database = FirebaseDatabase.getInstance()
-    val ref = database.getReference(REFERENCE_SAPI)
+
 
     private val viewModel: SapiViewModel by viewModels()
 
@@ -57,16 +57,13 @@ class ListSapiInvesFragment : BaseFragment(), OnItemClick {
     ): View? {
         binding = FragmentListSapiInvesBinding.inflate(layoutInflater)
 
+        val database = FirebaseDatabase.getInstance()
+        val ref = database.getReference(REFERENCE_SAPI)
 
         setupRecyclerView()
         loadSapiInves()
 
-        return binding.root
-    }
-
-
-    private fun loadSapiInves() {
-        val sapiList: MutableList<Sapi> by lazy { mutableListOf() }
+        sapiList = mutableListOf()
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 sapiList.clear()
@@ -83,6 +80,13 @@ class ListSapiInvesFragment : BaseFragment(), OnItemClick {
                 Log.e(TAG, "Failed to read value.", error.toException())
             }
         })
+
+        return binding.root
+    }
+
+
+    private fun loadSapiInves() {
+
     }
 
     private fun setupRecyclerView() {

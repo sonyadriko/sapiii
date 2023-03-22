@@ -8,7 +8,6 @@ import com.example.sapiii.databinding.ActivityEditDataHewanBinding
 import com.example.sapiii.databinding.FragmentPakanBinding
 import com.example.sapiii.util.convertDateToLong
 import com.example.sapiii.util.convertLongToTime
-import com.example.sapiii.util.toMutasiKambingDomain
 import com.example.sapiii.util.toSapiDomain
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.firebase.database.DataSnapshot
@@ -58,14 +57,7 @@ class EditDataHewanActivity : BaseActivity() {
                             tvJenisKelamin.text = detSapi.kelamin
                             etKodeKandang.setText(detSapi.kodekandang)
 
-                            datePicker = MaterialDatePicker.Builder.datePicker()
-                                .setSelection(Date(convertDateToLong(mutasiSap.tanggal)).time)
-                                .setTitleText("Pilih Tanggal")
-                                .build()
 
-                            datePicker?.addOnPositiveButtonClickListener {
-                                binding.etDateSapi.setText(convertLongToTime(it))
-                            }
                         } else throw Exception("Mutasi Kambing is not found")
                     } catch (e: Exception) {
                         showToast("error")
