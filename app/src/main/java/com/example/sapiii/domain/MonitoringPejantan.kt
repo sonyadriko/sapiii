@@ -14,8 +14,10 @@ class MonitoringPejantan(
     val nama: String = "",
     @SerializedName("kandang")
     val kandang: String = "",
+//    @SerializedName("tanggal")
+//    val tanggal: Date = Date(),
     @SerializedName("tanggal")
-    val tanggal: Date = Date(),
+    val tanggal: String = "",
 ) : Serializable, Parcelable {
     fun toMap(): Map<String, Any?> {
         val gson = Gson()
