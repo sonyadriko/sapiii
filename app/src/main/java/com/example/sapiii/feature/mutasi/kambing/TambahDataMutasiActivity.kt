@@ -2,44 +2,55 @@ package com.example.sapiii.feature.mutasi.kambing
 
 import android.os.Bundle
 import android.widget.ArrayAdapter
-import android.widget.EditText
-import com.example.sapiii.R
 import com.example.sapiii.base.BaseActivity
 import com.example.sapiii.databinding.ActivityTambahDataMutasiBinding
 import com.example.sapiii.domain.MutasiHewan
 import com.example.sapiii.repository.KambingRepository
+import com.example.sapiii.util.convertLongToTime
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import java.text.SimpleDateFormat
-import java.util.*
 
 class TambahDataMutasiActivity : BaseActivity()  {
 
+    private var isShow = false
+    private var datePicker: MaterialDatePicker<Long>? = null
+
     private val repository = KambingRepository().getInstance()
-    private val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
 
     private lateinit var binding: ActivityTambahDataMutasiBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityTambahDataMutasiBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val database = Firebase.database
         val myRef = database.getReference("Mutasi_Kambing")
-        val dateEditText = findViewById<EditText>(R.id.et_date_kambing)
-        val timestamp = System.currentTimeMillis() // contoh timestamp
-
-// Set text pada EditText dengan format tanggal yang diinginkan
-//        dateEditText.setText(formatDate(timestamp))
 
         fetchNamaKodeData()
+        datePicker = MaterialDatePicker.Builder.datePicker()
+            .setTitleText("Pilih Tanggal")
+            .build()
+
+        datePicker?.addOnPositiveButtonClickListener {
+            binding.etDateKambing.setText(convertLongToTime(it))
+        }
+
+        datePicker?.addOnDismissListener {
+            isShow = false
+        }
+
+        binding.btnDateKambing.setOnClickListener {
+            if (isShow.not()) {
+                datePicker?.show(supportFragmentManager, "dialog") ?: kotlin.run {
+                    showToast("Tidak ada data")
+                }
+                isShow = true
+            }
+        }
 
         binding.btnSubmitMutasiKambing.setOnClickListener{
             val nama = binding.spinnermutasi.selectedItem.toString()
-//            val dateString = binding.etDateKambing.text.toString()
-//            val dateFormat = SimpleDateFormat("dd/MM/yyyy")
-//            val tanggal: Date = dateFormat.parse(dateString)
             val tanggal = binding.etDateKambing.text.toString()
 
             val tipe = binding.spinnerTipeMutasi.selectedItem.toString()
@@ -55,10 +66,6 @@ class TambahDataMutasiActivity : BaseActivity()  {
                 }
         }
 
-    }
-
-    private fun formatDate(timestamp: Long): String {
-        return dateFormat.format(Date(timestamp))
     }
 
     private fun fetchNamaKodeData() = with(binding) {
@@ -79,7 +86,4 @@ class TambahDataMutasiActivity : BaseActivity()  {
             }
         }
     }
-
-
-
 }
