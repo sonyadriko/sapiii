@@ -1,27 +1,33 @@
 package com.example.sapiii.feature
 
-import android.app.AlarmManager
-import android.app.PendingIntent
-import android.content.Context
-import android.content.Intent
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.os.Bundle
-import com.example.sapiii.NotificationReceiver
 import com.example.sapiii.databinding.ActivityHomeBinding
 import com.example.sapiii.R
 import com.example.sapiii.base.BaseActivity
 import com.example.sapiii.feature.home.HomeFragment
+import com.example.sapiii.feature.notification.AlarmItem
+import com.example.sapiii.feature.notification.AlarmScheduler
+import com.example.sapiii.feature.notification.AndroidAlarmScheduler
+import com.example.sapiii.feature.notification.NotificationReceiver.Companion.CHANNEL_ID
+import java.time.LocalDateTime
+import java.time.ZoneId
 import java.util.*
 
 class HomeActivity : BaseActivity() {
 
     private lateinit var binding: ActivityHomeBinding
+    private lateinit var scheduler: AlarmScheduler
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setNotification()
 
+        scheduler = AndroidAlarmScheduler(this)
+        setChannel()
+        setNotification()
         replaceFragment(HomeFragment())
 
         binding.bottomNavigationView.setOnItemSelectedListener {
@@ -36,20 +42,18 @@ class HomeActivity : BaseActivity() {
         }
     }
 
-    private fun replaceFragment(homeFragment: HomeFragment) {
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frame_layout, homeFragment)
-        fragmentTransaction.commit()
+    private fun setChannel() {
+        val name = "Notification Channel"
+        val desc = "Description of channel"
+        val importance = NotificationManager.IMPORTANCE_DEFAULT
+        val channel = NotificationChannel(CHANNEL_ID, name, importance)
+        channel.description = desc
+        val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.createNotificationChannel(channel)
     }
 
-    fun setNotification() {
-        val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
-
-// Membuat intent untuk memanggil kelas NotificationReceiver
-        val intent = Intent(this, NotificationReceiver::class.java)
-
-// Mengatur waktu untuk notifikasi pertama kali muncul pada pukul 09:00
+    private fun setNotification() {
+        // Mengatur waktu untuk notifikasi pertama kali muncul pada pukul 09:00
         val calendar1 = Calendar.getInstance().apply {
             timeInMillis = System.currentTimeMillis()
             set(Calendar.HOUR_OF_DAY, 9)
@@ -57,44 +61,46 @@ class HomeActivity : BaseActivity() {
             set(Calendar.SECOND, 0)
         }
 
-// Mengatur waktu untuk notifikasi kedua kali muncul pada pukul 13:00
+        // Mengatur waktu untuk notifikasi kedua kali muncul pada pukul 13:00
         val calendar2 = Calendar.getInstance().apply {
             timeInMillis = System.currentTimeMillis()
-            set(Calendar.HOUR_OF_DAY, 15)
-            set(Calendar.MINUTE, 11)
-            set(Calendar.SECOND, 0)
-        }
-
-// Mengatur waktu untuk notifikasi ketiga kali muncul pada pukul 17:00
-        val calendar3 = Calendar.getInstance().apply {
-            timeInMillis = System.currentTimeMillis()
-            set(Calendar.HOUR_OF_DAY, 17)
+            set(Calendar.HOUR_OF_DAY, 13)
             set(Calendar.MINUTE, 0)
             set(Calendar.SECOND, 0)
         }
 
-// Menentukan waktu berulang untuk notifikasi pada interval sehari
-        val interval = AlarmManager.INTERVAL_DAY
+        // Mengatur waktu untuk notifikasi ketiga kali muncul pada pukul 18:00
+        val calendar3 = Calendar.getInstance().apply {
+            timeInMillis = System.currentTimeMillis()
+            set(Calendar.HOUR_OF_DAY, 18)
+            set(Calendar.MINUTE, 0)
+            set(Calendar.SECOND, 0)
+        }
 
-// Mendaftarkan penerima notifikasi dengan AlarmManager
-        alarmManager.setRepeating(
-            AlarmManager.RTC_WAKEUP,
-            calendar1.timeInMillis,
-            interval,
-            PendingIntent.getBroadcast(this, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+        scheduler.schedule(
+            AlarmItem(
+                time = LocalDateTime.ofInstant(calendar1.toInstant(), ZoneId.systemDefault())
+            )
         )
-        alarmManager.setRepeating(
-            AlarmManager.RTC_WAKEUP,
-            calendar2.timeInMillis,
-            interval,
-            PendingIntent.getBroadcast(this, 2, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+        scheduler.schedule(
+            AlarmItem(
+                time = LocalDateTime.ofInstant(calendar2.toInstant(), ZoneId.systemDefault())
+            )
         )
-        alarmManager.setRepeating(
-            AlarmManager.RTC_WAKEUP,
-            calendar3.timeInMillis,
-            interval,
-            PendingIntent.getBroadcast(this, 3, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+        scheduler.schedule(
+            AlarmItem(
+                time = LocalDateTime.ofInstant(calendar3.toInstant(), ZoneId.systemDefault())
+            )
         )
+    }
+
+    private fun replaceFragment(homeFragment: HomeFragment) {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.frame_layout, homeFragment)
+        fragmentTransaction.commit()
     }
 
     override fun onBackPressed() {
