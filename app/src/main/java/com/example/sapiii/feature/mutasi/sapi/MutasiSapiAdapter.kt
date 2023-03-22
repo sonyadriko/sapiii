@@ -5,13 +5,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sapiii.databinding.ListViewMutasiBinding
-import com.example.sapiii.domain.MutasiSapi
-import com.example.sapiii.domain.Sapi
+import com.example.sapiii.domain.MutasiHewan
 import com.example.sapiii.util.OnItemClick
 
 class MutasiSapiAdapter(private val onItemClick: OnItemClick) :
     RecyclerView.Adapter<MutasiSapiAdapter.MutasiSapiViewHolder>() {
-    private val mutasiSapiList = ArrayList<MutasiSapi>()
+    private val mutasiHewanList = ArrayList<MutasiHewan>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MutasiSapiViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ListViewMutasiBinding.inflate(inflater, parent, false)
@@ -19,7 +18,7 @@ class MutasiSapiAdapter(private val onItemClick: OnItemClick) :
     }
 
     override fun onBindViewHolder(holder: MutasiSapiViewHolder, position: Int) {
-        val currentMutasiSapi = mutasiSapiList[position]
+        val currentMutasiSapi = mutasiHewanList[position]
         holder.namaMS.text = currentMutasiSapi.nama
         holder.dateMS.text = currentMutasiSapi.tanggal
         holder.tipeMS.text = currentMutasiSapi.tipe
@@ -29,19 +28,19 @@ class MutasiSapiAdapter(private val onItemClick: OnItemClick) :
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateMutasiSapiList(data: List<MutasiSapi>) {
+    fun updateMutasiSapiList(data: List<MutasiHewan>) {
 //        mutasiSapiList.apply {
 //            clear()
 //            addAll(data)
 //        }
 //        notifyDataSetChanged()
-        this.mutasiSapiList.clear()
-        this.mutasiSapiList.addAll(data)
+        this.mutasiHewanList.clear()
+        this.mutasiHewanList.addAll(data)
         notifyDataSetChanged()
     }
 
     override fun getItemCount(): Int {
-        return mutasiSapiList.size
+        return mutasiHewanList.size
 
     }
 

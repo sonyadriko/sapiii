@@ -9,7 +9,7 @@ import java.io.Serializable
 import java.util.*
 
 @Parcelize
-class MutasiKambing (
+class MutasiHewan(
     @SerializedName("nama")
     val nama: String = "",
 //    @SerializedName("tanggal")

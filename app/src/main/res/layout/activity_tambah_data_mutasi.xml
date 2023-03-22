@@ -94,12 +94,25 @@
                 <!--                    android:inputType="numberDecimal"-->
                 <!--                    android:padding="10dp" />-->
 
-                <EditText
-                    android:id="@+id/et_date_kambing"
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Tanggal"
-                    android:inputType="date" />
+                    android:layout_height="50dp">
+
+                    <EditText
+                        android:id="@+id/et_date_kambing"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:enabled="true"
+                        android:hint="Tanggal (dd/MM/yyyy)"
+                        android:inputType="date" />
+
+                    <View
+                        android:id="@+id/btn_date_kambing"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="?selectableItemBackground" />
+                </FrameLayout>
             </LinearLayout>
 
             <LinearLayout

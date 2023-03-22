@@ -1,24 +1,17 @@
 package com.example.sapiii.feature.kesehatan.kambing.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CompoundButton
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.example.sapiii.R
 import com.example.sapiii.base.BaseFragment
-import com.example.sapiii.databinding.FragmentKesehatanBinding
 import com.example.sapiii.databinding.FragmentKesehatanKambingBinding
 import com.example.sapiii.domain.Kambing
-import com.example.sapiii.domain.Sapi
 import com.example.sapiii.feature.kesehatan.kambing.viewmodel.KesehatanKambingViewModel
 import com.example.sapiii.feature.kesehatan.kambing.viewmodel.KesehatanKambingViewState
-import com.example.sapiii.feature.kesehatan.sapi.view.KesehatanFragment
-import com.example.sapiii.feature.kesehatan.sapi.viewmodel.KesehatanViewModel
-import com.example.sapiii.feature.kesehatan.sapi.viewmodel.KesehatanViewState
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -28,18 +21,14 @@ class KesehatanKambingFragment : BaseFragment() {
     private lateinit var binding: FragmentKesehatanKambingBinding
     private lateinit var dataKambing: Kambing
 
-    private lateinit var checkboxes: List<CompoundButton>
-
     private val viewModel: KesehatanKambingViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         binding = FragmentKesehatanKambingBinding.inflate(layoutInflater, container, false)
-        checkboxes =
-            listOf(binding.checkboxVaccine1, binding.checkboxVaccine2, binding.checkboxVaccine3)
         initBundle()
         initView()
         initListener()
@@ -60,7 +49,7 @@ class KesehatanKambingFragment : BaseFragment() {
         }
     }
     private fun initBundle() {
-        val arg = arguments?.getParcelable<Kambing>(KesehatanKambingFragment.ARG_KAMBING)
+        val arg = arguments?.getParcelable<Kambing>(ARG_KAMBING)
         if (arg != null) {
             dataKambing = arg
             viewModel.initDataKambing(arg)
@@ -70,17 +59,15 @@ class KesehatanKambingFragment : BaseFragment() {
         }
     }
 
-    private fun initView() {
-        binding.tagKambing.text = dataKambing.tag
+    private fun initView() = with(binding) {
+        tagKambing.text = dataKambing.tag
         val isSehat: Int = if (dataKambing.kesehatan.sehat) 0 else 1
-        binding.spinner.setSelection(isSehat)
-        // checkboxes iku sebuah list of checkBox
-        // list of checkbox iku index 0 sama dgn dosis 1
-        // jika dosis 1 maka checkbox index 0 harus centang
-        // maka vaksinDosis iku adalah index+1
-        checkboxes.forEachIndexed { index, compoundButton ->
-            if ((dataKambing.kesehatan.vaksinDosis - 1) == index) compoundButton.isChecked = true
-        }
+        spinner.setSelection(isSehat)
+
+        // checkbox vaksin
+        checkboxVaccine1.isChecked = dataKambing.kesehatan.vaksinDosis1
+        checkboxVaccine2.isChecked = dataKambing.kesehatan.vaksinDosis2
+        checkboxVaccine3.isChecked = dataKambing.kesehatan.vaksinDosis3
     }
 
     private fun initListener() = with(binding) {
@@ -102,13 +89,8 @@ class KesehatanKambingFragment : BaseFragment() {
     }
 
     private fun CompoundButton.onCheck(dosis: Int) {
-        setOnCheckedChangeListener { compoundButton, b ->
-            if (b) {
-                viewModel.updateDosis(dosis)
-                checkboxes.forEach {
-                    if (it != compoundButton) it.isChecked = false
-                }
-            }
+        setOnCheckedChangeListener { _, b ->
+            viewModel.updateDosis(dosis, b)
         }
     }
     companion object {
