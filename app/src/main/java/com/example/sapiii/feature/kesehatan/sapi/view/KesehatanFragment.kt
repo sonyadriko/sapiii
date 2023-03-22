@@ -10,7 +10,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.databinding.FragmentKesehatanBinding
-import com.example.sapiii.domain.Kambing
 import com.example.sapiii.domain.Sapi
 import com.example.sapiii.feature.kesehatan.sapi.viewmodel.KesehatanViewModel
 import com.example.sapiii.feature.kesehatan.sapi.viewmodel.KesehatanViewState
@@ -26,8 +25,6 @@ class KesehatanFragment : BaseFragment() {
     private lateinit var binding: FragmentKesehatanBinding
     private lateinit var dataSapi: Sapi
 
-    private lateinit var checkboxes: List<CompoundButton>
-
     private val viewModel: KesehatanViewModel by viewModels()
 
     override fun onCreateView(
@@ -36,8 +33,6 @@ class KesehatanFragment : BaseFragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentKesehatanBinding.inflate(layoutInflater, container, false)
-        checkboxes =
-            listOf(binding.checkboxVaccine1, binding.checkboxVaccine2, binding.checkboxVaccine3)
         initBundle()
         initView()
         initListener()
@@ -69,17 +64,15 @@ class KesehatanFragment : BaseFragment() {
         }
     }
 
-    private fun initView() {
-        binding.tagSapi.text = dataSapi.tag
+    private fun initView() = with(binding) {
+        tagSapi.text = dataSapi.tag
         val isSehat: Int = if (dataSapi.kesehatan.sehat) 0 else 1
-        binding.spinner.setSelection(isSehat)
-        // checkboxes iku sebuah list of checkBox
-        // list of checkbox iku index 0 sama dgn dosis 1
-        // jika dosis 1 maka checkbox index 0 harus centang
-        // maka vaksinDosis iku adalah index+1
-        checkboxes.forEachIndexed { index, compoundButton ->
-            if ((dataSapi.kesehatan.vaksinDosis - 1) == index) compoundButton.isChecked = true
-        }
+        spinner.setSelection(isSehat)
+
+        // checkbox vaksin
+        checkboxVaccine1.isChecked = dataSapi.kesehatan.vaksinDosis1
+        checkboxVaccine2.isChecked = dataSapi.kesehatan.vaksinDosis2
+        checkboxVaccine3.isChecked = dataSapi.kesehatan.vaksinDosis3
     }
 
     private fun initListener() = with(binding) {
@@ -101,13 +94,8 @@ class KesehatanFragment : BaseFragment() {
     }
 
     private fun CompoundButton.onCheck(dosis: Int) {
-        setOnCheckedChangeListener { compoundButton, b ->
-            if (b) {
-                viewModel.updateDosis(dosis)
-                checkboxes.forEach {
-                    if (it != compoundButton) it.isChecked = false
-                }
-            }
+        setOnCheckedChangeListener { _, b ->
+            viewModel.updateDosis(dosis, b)
         }
     }
 

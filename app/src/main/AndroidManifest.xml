@@ -22,14 +22,14 @@
         tools:ignore="LockedOrientationActivity"
         tools:targetApi="31">
         <activity
-            android:name=".DetailMutasiKambingActivity"
+            android:name=".feature.mutasi.kambing.DetailMutasiKambingActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".DetailMutasiActivity"
+            android:name=".feature.mutasi.sapi.DetailMutasiActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -144,14 +144,6 @@
         </activity>
         <activity
             android:name=".feature.ternakku.sapi.view.GrafikSapiActivity"
-            android:exported="false"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".feature.detail.view.DetailKambingActivity"
             android:exported="false"
             android:screenOrientation="portrait">
             <meta-data

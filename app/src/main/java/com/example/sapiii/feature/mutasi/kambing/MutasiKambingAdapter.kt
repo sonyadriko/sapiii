@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sapiii.databinding.ListViewMutasiBinding
-import com.example.sapiii.domain.MutasiKambing
+import com.example.sapiii.domain.MutasiHewan
 import com.example.sapiii.util.OnItemClick
 
 class MutasiKambingAdapter(private val onItemClick: OnItemClick) : RecyclerView.Adapter<MutasiKambingAdapter.MutasiKambingViewHolder>() {
-    private val mutasiKambingList = ArrayList<MutasiKambing>()
+    private val mutasiKambingList = ArrayList<MutasiHewan>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MutasiKambingViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ListViewMutasiBinding.inflate(inflater, parent, false)
@@ -27,7 +27,7 @@ class MutasiKambingAdapter(private val onItemClick: OnItemClick) : RecyclerView.
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateMutasiKambingList(data: List<MutasiKambing>) {
+    fun updateMutasiKambingList(data: List<MutasiHewan>) {
         mutasiKambingList.apply {
             clear()
             addAll(data)

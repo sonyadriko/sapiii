@@ -9,12 +9,10 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
-import com.example.sapiii.DetailMutasiActivity
-import com.example.sapiii.DetailMutasiKambingActivity
+import com.example.sapiii.feature.mutasi.sapi.DetailMutasiActivity
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.databinding.FragmentMutasiKambingBinding
-import com.example.sapiii.domain.MutasiKambing
-import com.example.sapiii.domain.MutasiSapi
+import com.example.sapiii.domain.MutasiHewan
 import com.example.sapiii.util.OnItemClick
 
 class MutasiKambingFragment : BaseFragment(), OnItemClick {
@@ -81,7 +79,7 @@ class MutasiKambingFragment : BaseFragment(), OnItemClick {
         recyclerView.adapter = mutasiKambbingAdapter
     }
     override fun onClick(data: Any, position: Int) {
-        val currentItem = data as MutasiKambing
+        val currentItem = data as MutasiHewan
         val detailIntent = Intent(context, DetailMutasiKambingActivity::class.java).apply {
             putExtra("nama", currentItem.nama)
         }

@@ -20,8 +20,6 @@ import com.example.sapiii.constanst.Constant.REFERENCE_SAPI
 import com.example.sapiii.constanst.Constant.statusList
 import com.example.sapiii.databinding.FragmentListSapiInvesBinding
 import com.example.sapiii.domain.Sapi
-import com.example.sapiii.feature.detail.view.DetailHewanActivity
-import com.example.sapiii.feature.mutasi.kambing.MutasiKambingAdapter
 import com.example.sapiii.feature.ternakku.sapi.viewmodel.SapiViewModel
 import com.example.sapiii.util.OnItemClick
 import com.google.firebase.database.DataSnapshot

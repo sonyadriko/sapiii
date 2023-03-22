@@ -3,8 +3,7 @@ package com.example.sapiii.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.sapiii.constanst.Constant
-import com.example.sapiii.domain.MutasiKambing
-import com.example.sapiii.domain.MutasiSapi
+import com.example.sapiii.domain.MutasiHewan
 import com.google.firebase.database.*
 
 class MutasiKambingRepository {
@@ -23,13 +22,13 @@ class MutasiKambingRepository {
         }
     }
 
-    fun loadMutasiKambing(): LiveData<List<MutasiKambing>> {
-        val data = MutableLiveData<List<MutasiKambing>>()
+    fun loadMutasiKambing(): LiveData<List<MutasiHewan>> {
+        val data = MutableLiveData<List<MutasiHewan>>()
         databaseReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 try {
                     data.value = snapshot.children.map { dataSnapshot ->
-                        dataSnapshot.getValue(MutasiKambing::class.java)!!
+                        dataSnapshot.getValue(MutasiHewan::class.java)!!
                     }
                 } catch (e: Exception) {
                     data.value = emptyList()

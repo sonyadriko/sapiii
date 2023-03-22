@@ -45,8 +45,12 @@ data class Sapi(
 data class Kesehatan(
     @SerializedName("sehat")
     val sehat: Boolean = false,
-    @SerializedName("vaksinDosis")
-    val vaksinDosis: Int = -1, // -1 berarti belum vaksin sama sekali
+    @SerializedName("vaksinDosis1")
+    val vaksinDosis1: Boolean = false,
+    @SerializedName("vaksinDosis2")
+    val vaksinDosis2: Boolean = false,
+    @SerializedName("vaksinDosis3")
+    val vaksinDosis3: Boolean = false,
     @SerializedName("keterangan")
     val keterangan: String = "",
 ) : Serializable, Parcelable
