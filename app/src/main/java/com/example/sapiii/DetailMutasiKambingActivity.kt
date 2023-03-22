@@ -47,9 +47,6 @@ class DetailMutasiKambingActivity : BaseActivity() {
 
         binding.btnUpdateDetailMutasi.setOnClickListener {
             val nama = binding.tvNamaDetailMutasiKambing.text.toString()
-//            val dateString = binding.etDateSapi.text.toString()
-//            val dateFormat = SimpleDateFormat("dd/MM/yyyy")
-//            val tanggal: Date = dateFormat.parse(dateString)
             val tanggal = binding.etDateSapi.text.toString()
             val keterangan = binding.spinnerTipeMutasi.selectedItem.toString()
 

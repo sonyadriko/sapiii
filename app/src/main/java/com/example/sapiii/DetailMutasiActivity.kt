@@ -12,7 +12,10 @@ import com.example.sapiii.databinding.ActivityDetailMutasiBinding
 import com.example.sapiii.domain.MutasiKambing
 import com.example.sapiii.feature.detail.viewmodel.DetailViewModel
 import com.example.sapiii.feature.mutasi.sapi.MutasiSapiViewModel
+import com.example.sapiii.util.convertDateToLong
+import com.example.sapiii.util.convertLongToTime
 import com.example.sapiii.util.toMutasiSapiDomain
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -31,6 +34,9 @@ class DetailMutasiActivity : BaseActivity() {
     private lateinit var MutasiRef: DatabaseReference
     private lateinit var namaH: String
 
+    private var datePicker: MaterialDatePicker<Long>? = null
+
+
 
     companion object {
         const val RESULT_DELETE = 10
@@ -45,12 +51,19 @@ class DetailMutasiActivity : BaseActivity() {
         MutasiRef = database.getReference(Constant.REFERENCE_MUTASI_SAPI)
         namaH = intent.getStringExtra("nama") ?: ""
         getDetailMutasi()
+        initListener()
 
+
+    }
+
+    private fun initListener() {
+        binding.btnDateSapi.setOnClickListener {
+            datePicker?.show(supportFragmentManager, "dialog") ?: kotlin.run {
+                showToast("Tidak ada data")
+            }
+        }
         binding.btnUpdateDetailMutasi.setOnClickListener {
             val nama = binding.tvNamaDetailMutasi.text.toString()
-//            val dateString = binding.etDateSapi.text.toString()
-//            val dateFormat = SimpleDateFormat("dd/MM/yyyy")
-//            val tanggal: Date = dateFormat.parse(dateString)
             val tanggal = binding.etDateSapi.text.toString()
             val keterangan = binding.spinnerTipeMutasi.selectedItem.toString()
 
@@ -71,6 +84,7 @@ class DetailMutasiActivity : BaseActivity() {
             finish()
 
         }
+
     }
 
     private fun getDetailMutasi() = with(binding) {
@@ -82,12 +96,17 @@ class DetailMutasiActivity : BaseActivity() {
                         if (snapshot.exists()) {
                             val mutasiSap = snapshot.toMutasiSapiDomain()
                             tvNamaDetailMutasi.text = mutasiSap.nama
-
-
                             etDateSapi.setText(mutasiSap.tanggal)
-
                             spinnerTipeMutasi.selectedItem
-//                            etDateSapi.setText(d.toString())
+
+                            datePicker = MaterialDatePicker.Builder.datePicker()
+                                .setSelection(Date(convertDateToLong(mutasiSap.tanggal)).time)
+                                .setTitleText("Pilih Tanggal")
+                                .build()
+
+                            datePicker?.addOnPositiveButtonClickListener {
+                                binding.etDateSapi.setText(convertLongToTime(it))
+                            }
 
 
                         } else throw Exception("Mutasi sapi is not found")

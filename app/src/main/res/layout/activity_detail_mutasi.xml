@@ -15,11 +15,11 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tv_nama_detail_mutasi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:id="@+id/tv_nama_detail_mutasi"
             android:hint="Nama Sapi"
+            android:padding="20dp"
             android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
 
         <LinearLayout
@@ -33,13 +33,26 @@
                 android:layout_height="wrap_content"
                 android:text="Masuk Kandang"
                 android:textAppearance="@style/TextAppearance.Material3.BodyLarge" />
-            <EditText
-                android:id="@+id/et_date_sapi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Tanggal"
-                android:inputType="date" />
 
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <EditText
+                    android:id="@+id/et_date_sapi"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:enabled="true"
+                    android:hint="Tanggal"
+                    android:inputType="date" />
+
+                <View
+                    android:id="@+id/btn_date_sapi"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?selectableItemBackground" />
+            </FrameLayout>
 
 
         </LinearLayout>
@@ -78,13 +91,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
-                android:text="Update"/>
+                android:text="Update" />
+
             <Button
                 android:id="@+id/btn_delete_detail_mutasi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:text="Hapus"/>
+                android:text="Hapus" />
 
         </LinearLayout>
 
