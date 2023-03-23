@@ -1,6 +1,5 @@
 package com.example.sapiii.domain
 
-import android.os.Parcel
 import android.os.Parcelable
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
@@ -33,6 +32,8 @@ data class Kambing(
     val kesehatan: Kesehatan = Kesehatan(),
     @SerializedName("pemilik")
     val pemilik: Pemilik = Pemilik(),
+    @SerializedName("bobot")
+    val bobot: Bobot = Bobot()
 ) : Serializable, Parcelable {
     fun toMap(): Map<String, Any?> {
         val gson = Gson()

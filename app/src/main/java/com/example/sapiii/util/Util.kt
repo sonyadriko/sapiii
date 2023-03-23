@@ -35,6 +35,10 @@ fun convertStringToCalendar(date: String): Calendar {
     return cal
 }
 
+fun List<Int>.toStringBobot(): String {
+    return toString().substring(1, toString().lastIndex).replace(" ", "")
+}
+
 fun String.toRole(): Role? {
     return Role.values().find {
         it.name.lowercase() == this

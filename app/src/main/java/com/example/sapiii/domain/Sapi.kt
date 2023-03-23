@@ -33,11 +33,35 @@ data class Sapi(
     val kesehatan: Kesehatan = Kesehatan(),
     @SerializedName("pemilik")
     val pemilik: Pemilik = Pemilik(),
+    @SerializedName("bobot")
+    val bobot: Bobot = Bobot()
 ) : Serializable, Parcelable {
     fun toMap(): Map<String, Any?> {
         val gson = Gson()
         val json = gson.toJson(this)
         return gson.fromJson(json, object : TypeToken<Map<String, Any>>() {}.type)
+    }
+}
+
+@Parcelize
+data class Bobot(
+    @SerializedName("bobotTarget")
+    val bobotTarget: String = "",
+    @SerializedName("bobotReal")
+    val bobotReal: String = ""
+): Serializable, Parcelable {
+    fun getBobotRealList(): List<Int> {
+        return if (bobotReal.isEmpty()) emptyList()
+        else bobotReal.split(",").map {
+            it.toInt()
+        }
+    }
+
+    fun getBobotTargetList(): List<Int> {
+        return if (bobotTarget.isEmpty()) emptyList()
+        else bobotTarget.split(",").map {
+            it.toInt()
+        }
     }
 }
 
