@@ -6,8 +6,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sapiii.databinding.ListViewPejantanBinding
 import com.example.sapiii.domain.MonitoringPejantan
+import com.example.sapiii.util.OnItemClick
 
-class MonitoringPejantanAdapter: RecyclerView.Adapter<MonitoringPejantanAdapter.MonitoringPejantanViewHolder>() {
+class MonitoringPejantanAdapter(private val onItemClick: OnItemClick): RecyclerView.Adapter<MonitoringPejantanAdapter.MonitoringPejantanViewHolder>() {
     private val monitoringPejantanList = ArrayList<MonitoringPejantan>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MonitoringPejantanViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -19,6 +20,9 @@ class MonitoringPejantanAdapter: RecyclerView.Adapter<MonitoringPejantanAdapter.
         holder.namaMS.text = currentPejantan.nama
         holder.dateMS.text = currentPejantan.tanggal.toString()
         holder.kodeKandang.text = currentPejantan.kandang
+        holder.itemView.setOnClickListener {
+            onItemClick.onClick(currentPejantan, position)
+        }
 
     }
 

@@ -6,8 +6,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sapiii.databinding.ListViewKehamilanBinding
 import com.example.sapiii.domain.MonitoringKehamilan
+import com.example.sapiii.util.OnItemClick
 
-class MonitoringKehamilanAdapter: RecyclerView.Adapter<MonitoringKehamilanAdapter.MonitoringKehamilanViewHolder>() {
+class MonitoringKehamilanAdapter(private val onItemClick: OnItemClick): RecyclerView.Adapter<MonitoringKehamilanAdapter.MonitoringKehamilanViewHolder>() {
     private val monitoringKehamilanList = ArrayList<MonitoringKehamilan>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MonitoringKehamilanViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -20,6 +21,9 @@ class MonitoringKehamilanAdapter: RecyclerView.Adapter<MonitoringKehamilanAdapte
         holder.dateMK.text = currentKehamilan.tanggalAwal.toString()
         holder.kodeKandang.text = currentKehamilan.kandang
         holder.perkiraanMK.text = currentKehamilan.tanggalPerkiraan.toString()
+        holder.itemView.setOnClickListener {
+            onItemClick.onClick(currentKehamilan, position)
+        }
 
     }
 

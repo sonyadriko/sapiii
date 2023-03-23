@@ -6,6 +6,7 @@ import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.example.sapiii.constanst.Constant.Role
 import com.example.sapiii.domain.*
+import com.example.sapiii.repository.KehamilanRepository
 import com.google.firebase.database.DataSnapshot
 import com.google.zxing.BarcodeFormat
 import com.journeyapps.barcodescanner.BarcodeEncoder
@@ -59,6 +60,14 @@ fun DataSnapshot.toArtikelDomain(): Artikel {
 
 fun DataSnapshot.toMutasiHewanDomain(): MutasiHewan {
     return getValue(MutasiHewan::class.java)!!
+}
+
+fun DataSnapshot.toKehamilanDomain(): MonitoringKehamilan {
+    return getValue(MonitoringKehamilan::class.java)!!
+}
+
+fun DataSnapshot.toPejantanDomain(): MonitoringPejantan {
+    return getValue(MonitoringPejantan::class.java)!!
 }
 fun View.gone() {
     visibility = View.GONE
