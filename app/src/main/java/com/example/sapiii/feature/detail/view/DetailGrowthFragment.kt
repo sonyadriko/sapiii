@@ -77,6 +77,10 @@ class DetailGrowthFragment : BaseFragment() {
             showDialogInput()
         }
 
+        binding.buttonDelete.setOnClickListener {
+            deleteData()
+        }
+
         binding.cartGraph.apply {
             setBackgroundColor(Color.WHITE)
             description.isEnabled = false
@@ -101,6 +105,38 @@ class DetailGrowthFragment : BaseFragment() {
             // draw legend
             legend.form = Legend.LegendForm.LINE
         }
+    }
+
+    private fun deleteData() {
+        val bobotTarget = viewModel.dataSapi.bobot.getBobotTargetList().toMutableList()
+        val bobotAsli = viewModel.dataSapi.bobot.getBobotRealList().toMutableList()
+
+        if (bobotTarget.isNotEmpty() && bobotAsli.isNotEmpty()) {
+            showProgressDialog()
+            bobotTarget.removeAt(bobotTarget.lastIndex)
+            bobotAsli.removeAt(bobotTarget.lastIndex)
+
+            val newBobot = Bobot(
+                bobotTarget = bobotTarget.toStringBobot(),
+                bobotReal = bobotAsli.toStringBobot()
+            )
+
+            viewModel.updateBobot(newBobot)
+            sapiRepository.updateSapi(
+                viewModel.dataSapi.copy(
+                    bobot = newBobot
+                )
+            ) {
+                dismissProgressDialog()
+                if (it) {
+                    setData(bobotTarget, bobotAsli)
+                    binding.cartGraph.invalidate()
+                    showToast("Data berhasil diubah")
+                } else {
+                    showToast()
+                }
+            }
+        } else showToast("data bobot kosong")
     }
 
     private fun showDialogInput() {
