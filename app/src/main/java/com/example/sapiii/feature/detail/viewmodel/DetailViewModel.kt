@@ -8,6 +8,7 @@ import com.example.sapiii.base.BaseViewModel
 import com.example.sapiii.constanst.Constant.DEEP_LINK_ROOT
 import com.example.sapiii.constanst.Constant.NAMA_KAMBING_QUERY_PARAM
 import com.example.sapiii.constanst.Constant.NAMA_SAPI_QUERY_PARAM
+import com.example.sapiii.domain.Bobot
 import com.example.sapiii.domain.Kambing
 import com.example.sapiii.domain.Sapi
 import com.example.sapiii.feature.detail.viewmodel.DetailViewModel.Companion.DetailFeature.*
@@ -33,8 +34,18 @@ class DetailViewModel : BaseViewModel() {
     var feature: DetailFeature = UNKNOWN
     var namaHewan: String? = null
 
-    private var dataKambing: Kambing? = null
-    private var dataSapi: Sapi? = null
+    var dataKambing: Kambing = Kambing()
+        private set
+    var dataSapi: Sapi = Sapi()
+        private set
+
+    fun updateBobot(bobot: Bobot) {
+        when (feature) {
+            SAPI -> dataSapi = dataSapi.copy(bobot = bobot)
+            KAMBING -> dataKambing = dataKambing.copy(bobot = bobot)
+            UNKNOWN -> {}
+        }
+    }
 
     fun initBundle(data: Uri?) {
         if (data == null) {
@@ -59,7 +70,7 @@ class DetailViewModel : BaseViewModel() {
     }
 
     fun getDataHewan(isRefresh: Boolean = false) {
-        if (dataKambing == null && dataSapi == null || isRefresh) {
+        if (dataKambing.tag.isEmpty() && dataSapi.tag.isEmpty() || isRefresh) {
             setViewState(ViewState.LOADING)
             viewModelScope.launch {
                 delay(500L)
