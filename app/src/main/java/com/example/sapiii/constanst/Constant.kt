@@ -31,6 +31,8 @@ object Constant {
 
     // END REGION =====================
 
-    val statusList = listOf("Siap Jual", "Belum Siap Jual")
+    const val STATUS_SIAP_JUAL = "Siap Jual"
+    const val STATUS_BELUM_SIAP_JUAL = "Belum Siap Jual"
+    val statusList = listOf(STATUS_SIAP_JUAL, STATUS_BELUM_SIAP_JUAL)
     val kelaminList = listOf("Jantan", "Betina")
 }

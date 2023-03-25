@@ -6,7 +6,8 @@ import com.example.sapiii.R
 import com.example.sapiii.base.BaseActivity
 import com.example.sapiii.constanst.Constant
 import com.example.sapiii.databinding.ActivityDetailInvesmentBinding
-import com.example.sapiii.util.toSapiDomain
+import com.example.sapiii.repository.SapiRepository
+import com.example.sapiii.util.gone
 import com.google.firebase.database.*
 
 class DetailInvesmentActivity : BaseActivity() {
@@ -14,6 +15,8 @@ class DetailInvesmentActivity : BaseActivity() {
     private lateinit var binding: ActivityDetailInvesmentBinding
     private lateinit var sapiRef: DatabaseReference
     private lateinit var namaSapi: String
+
+    private val sapiRepository = SapiRepository().getInstance()
 
     companion object {
         const val RESULT_DELETE = 10
@@ -23,45 +26,49 @@ class DetailInvesmentActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailInvesmentBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        sapiRef = database.getReference(Constant.REFERENCE_SAPI )
+
+        sapiRef = database.getReference(Constant.REFERENCE_SAPI)
         namaSapi = intent.getStringExtra("namasapiinves") ?: ""
+
+        initView()
         getDetailSapi()
+        initListener()
+    }
 
-        binding.btnSubmitHarga.setOnClickListener{
-            val hargaSapi = binding.inputHarga.text.toString()
+    private fun initView() {
+        if (userRepository.role != Constant.Role.PETERNAK) {
+            binding.btnSubmitHarga.gone()
+            binding.inputHarga.isEnabled = false
+        }
+    }
 
-            val updates = mapOf<String, Any>("harga" to binding.inputHarga.text.toString().toInt())
+    private fun initListener() {
+        binding.btnSubmitHarga.setOnClickListener {
+            val hargaSapi = binding.inputHarga.text.toString().toInt()
+            val updates = mapOf<String, Any>("harga" to hargaSapi)
 
             sapiRef.child(namaSapi).updateChildren(updates)
             finish()
         }
     }
 
-
     private fun getDetailSapi() = with(binding) {
-        sapiRef.child(namaSapi)
-            .addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    try {
-                        if (snapshot.exists()) {
-                            val sapi = snapshot.toSapiDomain()
-                            val imageSapi = sapi.image
-                            Glide.with(this@DetailInvesmentActivity)
-                                .load(imageSapi)
-                                .placeholder(R.drawable.ic_outline_image_24)
-                                .into(ivSapi)
-                            namaSapiMutasi.text = sapi.tag
-                            inputHarga.setText(sapi.harga.toString())
-                        } else throw Exception("Kambing is not found")
-                    } catch (e: Exception) {
-//                        showToast("error")
-                    }
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-                    showToast("cancelled, ${error.message}")
-                }
+        showProgressDialog()
+        sapiRepository.getSapiDetail(
+            namaSapi,
+            onComplete = { sapi ->
+                dismissProgressDialog()
+                val imageSapi = sapi.image
+                Glide.with(this@DetailInvesmentActivity)
+                    .load(imageSapi)
+                    .placeholder(R.drawable.ic_outline_image_24)
+                    .into(ivSapi)
+                namaSapiMutasi.text = sapi.tag
+                inputHarga.setText(sapi.harga.toString())
+            },
+            onError = {
+                dismissProgressDialog()
+                showToast("error: ${it.message}")
             })
     }
-
 }
