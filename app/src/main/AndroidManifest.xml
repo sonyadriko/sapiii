@@ -22,14 +22,14 @@
         tools:ignore="LockedOrientationActivity"
         tools:targetApi="31">
         <activity
-            android:name=".EditPejantanActivity"
+            android:name=".feature.reproduksi.view.pejantan.EditPejantanActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".EditKehamilanActivity"
+            android:name=".feature.reproduksi.view.kehamilan.EditKehamilanActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -50,7 +50,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".EditDataHewanActivity"
+            android:name=".feature.detail.view.EditDataHewanActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -80,7 +80,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ScanActivity"
+            android:name=".feature.scan.ScanActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
@@ -141,7 +141,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".feature.reproduksi.view.MonitoringKehamilanActivity"
+            android:name=".feature.reproduksi.view.kehamilan.MonitoringKehamilanActivity"
             android:exported="false"
             android:screenOrientation="portrait">
             <meta-data
@@ -149,7 +149,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".feature.reproduksi.view.MonitoringPejantanActivity"
+            android:name=".feature.reproduksi.view.pejantan.MonitoringPejantanActivity"
             android:exported="false"
             android:screenOrientation="portrait">
             <meta-data

@@ -1,4 +1,4 @@
-package com.example.sapiii
+package com.example.sapiii.feature.scan
 
 import android.Manifest
 import android.content.Intent
@@ -6,10 +6,10 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.webkit.*
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
+import com.example.sapiii.R
 import com.example.sapiii.base.BaseActivity
 import com.google.zxing.ResultPoint
 import com.journeyapps.barcodescanner.BarcodeCallback

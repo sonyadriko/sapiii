@@ -1,19 +1,16 @@
-package com.example.sapiii
+package com.example.sapiii.feature.detail.view
 
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import com.bumptech.glide.Glide
+import com.example.sapiii.R
 import com.example.sapiii.base.BaseActivity
 import com.example.sapiii.constanst.Constant
 import com.example.sapiii.constanst.Constant.statusList
 import com.example.sapiii.databinding.ActivityEditDataHewanBinding
-import com.example.sapiii.databinding.FragmentPakanBinding
-import com.example.sapiii.util.convertDateToLong
-import com.example.sapiii.util.convertLongToTime
 import com.example.sapiii.util.toSapiDomain
-import com.google.android.material.datepicker.MaterialDatePicker
 import com.example.sapiii.domain.*
 import com.example.sapiii.feature.detail.viewmodel.DetailViewModel
 import com.example.sapiii.feature.ternakku.sapi.view.TambahDataSapiActivity

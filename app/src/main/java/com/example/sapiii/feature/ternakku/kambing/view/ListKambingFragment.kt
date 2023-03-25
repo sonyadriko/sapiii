@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sapiii.R
 import com.example.sapiii.base.BaseFragment
+import com.example.sapiii.constanst.Constant
 import com.example.sapiii.databinding.FragmentListKambingBinding
 import com.example.sapiii.domain.Kambing
 import com.example.sapiii.feature.detail.view.DetailHewanActivity
@@ -21,6 +22,7 @@ import com.example.sapiii.feature.invest.DetailInvesmentActivity
 import com.example.sapiii.feature.kesehatan.kambing.view.KesehatanKambingFragment
 import com.example.sapiii.feature.ternakku.kambing.view.adapter.KambingAdapter
 import com.example.sapiii.feature.ternakku.kambing.viewmodel.KambingViewModel
+import com.example.sapiii.feature.ternakku.sapi.view.ListSapiFragment
 import com.example.sapiii.util.OnItemClick
 import com.example.sapiii.util.gone
 import com.example.sapiii.util.visible
@@ -70,26 +72,17 @@ class ListKambingFragment : BaseFragment(), OnItemClick {
     }
 
     private fun initView() {
-//        binding.apply {
-//            if (userRepository.role == Constant.Role.PETERNAK) {
-//                btnTambahDataKambing.visible()
-//            } else if (userRepository.role == Constant.Role.PETERNAK && from == ListKambingFragment.ARG_FROM_KESEHATAN) {
-//                btnTambahDataKambing.gone()
-//
-//            } else btnTambahDataKambing.gone()
-//        }
-        if (from == ARG_FROM_KESEHATAN) {
-            binding.btnTambahDataKambing.gone()
-        } else if (from == ListKambingFragment.ARG_FROM_PAKAN) {
-            binding.btnTambahDataKambing.gone()
-        } else if (from == ListKambingFragment.ARG_FROM_TIMBANGAN) {
-            binding.btnTambahDataKambing.gone()
-        } else if (from == ListKambingFragment.ARG_FROM_INVES) {
-            binding.btnTambahDataKambing.gone()
-        } else
-            binding.btnTambahDataKambing.visible()
+        when (from) {
+            ARG_FROM_KESEHATAN, ARG_FROM_PAKAN, ARG_FROM_TIMBANGAN, ARG_FROM_INVES -> {
+                binding.btnTambahDataKambing.gone()
+            }
+            else -> {
+                if (userRepository.role == Constant.Role.PETERNAK) {
+                    binding.btnTambahDataKambing.visible()
+                } else binding.btnTambahDataKambing.gone()
+            }
+        }
     }
-
 
     private fun setupRecycler() {
         val dividerItemDecoration = DividerItemDecoration(context, LinearLayout.VERTICAL)

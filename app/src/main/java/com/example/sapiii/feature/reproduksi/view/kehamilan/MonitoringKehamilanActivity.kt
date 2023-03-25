@@ -1,4 +1,4 @@
-package com.example.sapiii.feature.reproduksi.view
+package com.example.sapiii.feature.reproduksi.view.kehamilan
 
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -6,13 +6,11 @@ import com.example.sapiii.base.BaseActivity
 import com.example.sapiii.constanst.Constant
 import com.example.sapiii.databinding.ActivityMonitoringKehamilanBinding
 import com.example.sapiii.domain.MonitoringKehamilan
-import com.example.sapiii.domain.MonitoringPejantan
 import com.example.sapiii.repository.KambingRepository
 import com.example.sapiii.util.convertLongToTime
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import java.text.SimpleDateFormat
 import java.util.*
 
 class MonitoringKehamilanActivity : BaseActivity() {

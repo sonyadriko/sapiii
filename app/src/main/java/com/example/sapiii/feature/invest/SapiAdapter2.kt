@@ -1,5 +1,6 @@
 package com.example.sapiii.feature.invest
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,9 +12,15 @@ import kotlinx.android.synthetic.main.list_view_sapi.view.*
 
 class SapiAdapter2(
     private val onItemClick: OnItemClick
-    ) : RecyclerView.Adapter<SapiAdapter2.SapiViewHolder>() {
-    private val sapiList = ArrayList<Sapi>()
+) : RecyclerView.Adapter<SapiAdapter2.SapiViewHolder>() {
+    private val sapiList = mutableListOf<Sapi>()
 
+    @SuppressLint("NotifyDataSetChanged")
+    fun addAll(data: List<Sapi>) {
+        sapiList.clear()
+        sapiList.addAll(data)
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SapiViewHolder {
         val itemView = LayoutInflater.from(parent.context)
@@ -38,14 +45,9 @@ class SapiAdapter2(
 
     inner class SapiViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(sapi: Sapi) {
-
-
             itemView.text_cow_name.text = sapi.tag
 //            itemView.beratTextView.text = sapi.berat.toString()
             itemView.text_cow_gender.text = sapi.data.status
-
-
         }
     }
-
 }

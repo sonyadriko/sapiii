@@ -11,10 +11,12 @@ import com.example.sapiii.feature.timbangan.FragmentTimbangan
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.databinding.FragmentHomeBinding
 import com.example.sapiii.feature.invest.InvestasiFragment
-import com.example.sapiii.feature.perkawinan.PerkawinanReproduksiFragment
+import com.example.sapiii.feature.reproduksi.view.PerkawinanReproduksiFragment
 import com.example.sapiii.feature.ternakku.TernakkuFragment
 import com.example.sapiii.feature.tips.view.TipsInfoFragment
 import com.example.sapiii.feature.mutasi.MutasiFragment2
+import com.example.sapiii.feature.pakan.PakanFragment
+import com.example.sapiii.feature.scan.ScanActivity
 import java.util.*
 
 class HomeFragment : BaseFragment() {

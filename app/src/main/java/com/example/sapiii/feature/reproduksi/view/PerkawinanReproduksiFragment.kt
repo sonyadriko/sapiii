@@ -1,6 +1,5 @@
-package com.example.sapiii.feature.perkawinan
+package com.example.sapiii.feature.reproduksi.view
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +8,6 @@ import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import com.example.sapiii.feature.reproduksi.view.pejantan.ListPejantanFragment
 import com.example.sapiii.R
-import com.example.sapiii.feature.reproduksi.view.MonitoringKehamilanActivity
 import com.example.sapiii.feature.reproduksi.view.kehamilan.ListKehamilanFragment
 
 class PerkawinanReproduksiFragment : Fragment() {

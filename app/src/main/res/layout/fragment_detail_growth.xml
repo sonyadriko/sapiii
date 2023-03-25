@@ -18,10 +18,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:lineHeight="30dp"
                 android:padding="10dp"
                 android:textColor="#000000"
                 android:textSize="20sp"
-                android:lineHeight="30dp"
                 tools:text="Grafik pertumbuhan \nSapi 1017" />
 
             <com.github.mikephil.charting.charts.LineChart
@@ -45,14 +45,16 @@
                     tools:text="Data Hewan" />
 
 
-
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/button_action"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone"
+                tools:visibility="visible">
 
                 <Button
                     android:id="@+id/button_edit"
