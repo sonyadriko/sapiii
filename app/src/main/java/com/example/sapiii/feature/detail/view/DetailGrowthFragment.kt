@@ -16,12 +16,14 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.view.marginTop
 import androidx.fragment.app.activityViewModels
 import com.example.sapiii.base.BaseFragment
+import com.example.sapiii.constanst.Constant
 import com.example.sapiii.databinding.FragmentDetailGrowthBinding
 import com.example.sapiii.domain.Bobot
 import com.example.sapiii.feature.detail.viewmodel.DetailViewModel
 import com.example.sapiii.repository.KambingRepository
 import com.example.sapiii.repository.SapiRepository
 import com.example.sapiii.util.toStringBobot
+import com.example.sapiii.util.visible
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.components.YAxis
 import com.github.mikephil.charting.data.Entry
@@ -51,6 +53,7 @@ class DetailGrowthFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initView()
         initListener()
         showProgressDialog()
         when (viewModel.feature) {
@@ -69,6 +72,12 @@ class DetailGrowthFragment : BaseFragment() {
                 dismissProgressDialog()
             }
             DetailViewModel.Companion.DetailFeature.UNKNOWN -> {}
+        }
+    }
+
+    private fun initView() {
+        if (userRepository.role == Constant.Role.PETERNAK) {
+            binding.buttonAction.visible()
         }
     }
 

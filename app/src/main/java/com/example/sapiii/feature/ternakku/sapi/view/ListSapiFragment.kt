@@ -67,17 +67,16 @@ class ListSapiFragment : BaseFragment(), OnItemClick {
     }
 
     private fun initView() {
-        if (from == ARG_FROM_KESEHATAN) {
-            binding.btnTambahDataSapi.gone()
-        } else if (from == ARG_FROM_PAKAN) {
-            binding.btnTambahDataSapi.gone()
-        } else if (from == ARG_FROM_TIMBANGAN) {
-            binding.btnTambahDataSapi.gone()
-        } else if (from == ARG_FROM_INVES) {
-            binding.btnTambahDataSapi.gone()
-
-        } else
-            binding.btnTambahDataSapi.visible()
+        when (from) {
+            ARG_FROM_KESEHATAN, ARG_FROM_PAKAN, ARG_FROM_TIMBANGAN, ARG_FROM_INVES -> {
+                binding.btnTambahDataSapi.gone()
+            }
+            else -> {
+                if (userRepository.role == Constant.Role.PETERNAK) {
+                    binding.btnTambahDataSapi.visible()
+                } else binding.btnTambahDataSapi.gone()
+            }
+        }
     }
 
     private fun loadSapi() {

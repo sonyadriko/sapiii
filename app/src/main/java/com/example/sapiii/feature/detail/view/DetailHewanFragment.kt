@@ -13,6 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.sapiii.R
 import com.example.sapiii.base.BaseFragment
+import com.example.sapiii.constanst.Constant
 import com.example.sapiii.databinding.FragmentDetailHewanBinding
 import com.example.sapiii.domain.Kambing
 import com.example.sapiii.domain.Sapi
@@ -20,6 +21,7 @@ import com.example.sapiii.feature.detail.view.DetailHewanActivity.Companion.RESU
 import com.example.sapiii.feature.detail.viewmodel.DetailViewModel
 import com.example.sapiii.util.generateBarcode
 import com.example.sapiii.util.gone
+import com.example.sapiii.util.visible
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -46,27 +48,21 @@ class DetailHewanFragment : BaseFragment() {
         binding = FragmentDetailHewanBinding.inflate(layoutInflater, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
 
-        binding.buttonEditHewan.setOnClickListener{
-            val editHewan = Intent(context, EditDataHewanActivity::class.java).apply {
-                when (viewModel.feature) {
-                    DetailViewModel.Companion.DetailFeature.SAPI -> putExtra("namasapi", viewModel.namaHewan)
-                    DetailViewModel.Companion.DetailFeature.KAMBING -> putExtra("namakambing", viewModel.namaHewan)
-                    DetailViewModel.Companion.DetailFeature.UNKNOWN -> {
-                        // no operation
-                    }
-                }
-            }
-            startForResult.launch(editHewan)
-        }
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initView()
         observe()
         initListener()
         viewModel.getDataHewan()
+    }
+
+    private fun initView() {
+        if (userRepository.role == Constant.Role.PETERNAK) {
+            binding.buttonAction.visible()
+        }
     }
 
     private fun observe() {
@@ -94,6 +90,25 @@ class DetailHewanFragment : BaseFragment() {
     }
 
     private fun initListener() = with(binding) {
+        buttonEditHewan.setOnClickListener {
+            val editHewan = Intent(context, EditDataHewanActivity::class.java).apply {
+                when (viewModel.feature) {
+                    DetailViewModel.Companion.DetailFeature.SAPI -> putExtra(
+                        "namasapi",
+                        viewModel.namaHewan
+                    )
+                    DetailViewModel.Companion.DetailFeature.KAMBING -> putExtra(
+                        "namakambing",
+                        viewModel.namaHewan
+                    )
+                    DetailViewModel.Companion.DetailFeature.UNKNOWN -> {
+                        // no operation
+                    }
+                }
+            }
+            startForResult.launch(editHewan)
+        }
+
         buttonDelete.setOnClickListener {
             alertDialog
                 .setMessage("Apakah anda yakin ingin menghapus data?")
