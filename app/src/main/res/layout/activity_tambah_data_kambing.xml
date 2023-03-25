@@ -164,7 +164,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/data_sapi_sekarang"
+                android:text="@string/data_kambing_sekarang"
                 android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputLayout
