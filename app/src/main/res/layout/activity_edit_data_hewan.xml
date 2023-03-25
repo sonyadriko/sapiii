@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditDataHewanActivity">
+    tools:context=".feature.detail.view.EditDataHewanActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

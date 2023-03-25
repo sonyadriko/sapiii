@@ -9,14 +9,10 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
-import com.example.sapiii.EditKehamilanActivity
-import com.example.sapiii.EditPejantanActivity
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.databinding.FragmentListPejantanBinding
-import com.example.sapiii.domain.MonitoringKehamilan
 import com.example.sapiii.domain.MonitoringPejantan
 import com.example.sapiii.feature.mutasi.sapi.DetailMutasiActivity
-import com.example.sapiii.feature.reproduksi.view.MonitoringPejantanActivity
 import com.example.sapiii.util.OnItemClick
 
 class ListPejantanFragment : BaseFragment(), OnItemClick {

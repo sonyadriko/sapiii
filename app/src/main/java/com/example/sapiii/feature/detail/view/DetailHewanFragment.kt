@@ -11,7 +11,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
-import com.example.sapiii.EditDataHewanActivity
 import com.example.sapiii.R
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.databinding.FragmentDetailHewanBinding
