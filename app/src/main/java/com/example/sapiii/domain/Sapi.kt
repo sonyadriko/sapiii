@@ -94,7 +94,7 @@ data class DataHewan(
     @SerializedName("usia")
     val usia: String = "",
     @SerializedName("beratBadan")
-    val beratBadan: Int = 0,
+    val beratBadan: Double = 0.0,
     @SerializedName("status")
     val status: String = "",
 ) : Serializable, Parcelable
