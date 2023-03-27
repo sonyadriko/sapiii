@@ -1,6 +1,5 @@
 package com.example.sapiii.feature.invest
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -64,11 +63,11 @@ class ListSapiInvesFragment : BaseFragment(), OnItemClick {
         dismissProgressDialog()
     }
 
+
+
     override fun onClick(data: Any, position: Int) {
         val currentItem = data as Sapi
-        val detailIntent = Intent(context, DetailInvesmentActivity::class.java).apply {
-            putExtra("namasapiinves", currentItem.tag)
-        }
-        startForResult.launch(detailIntent)
+
+        openWhatsApp(currentItem.pemilik.noTelepon, "Hai, Saya tertarik dengan Sapi ${data.tag}")
     }
 }

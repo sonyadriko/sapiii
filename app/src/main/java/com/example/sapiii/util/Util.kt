@@ -10,6 +10,7 @@ import com.example.sapiii.repository.KehamilanRepository
 import com.google.firebase.database.DataSnapshot
 import com.google.zxing.BarcodeFormat
 import com.journeyapps.barcodescanner.BarcodeEncoder
+import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -91,4 +92,10 @@ fun ImageView.generateBarcode(content: String) {
     } catch (e: Exception) {
         Log.e("QR GENERATOR", e.message.toString())
     }
+}
+
+fun moneyFormatter(value: Long, withPrefix: Boolean = true): String {
+    val myFormatter = DecimalFormat("#,###.###")
+    val formatted = myFormatter.format(value.toDouble()).replace(",".toRegex(), ".")
+    return if (withPrefix) "Rp$formatted" else formatted
 }

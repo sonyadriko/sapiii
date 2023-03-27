@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".feature.invest.ListSapiInvesFragment">
 
     <LinearLayout
@@ -43,41 +43,21 @@
                         android:contentDescription="@string/gambar_sapi"
                         android:src="@drawable/icon_cow" />
 
-
                 </LinearLayout>
-
             </LinearLayout>
-
-<!--            <Button-->
-<!--                android:id="@+id/btn_tambah_data_sapi"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:text="Tambah Data Sapi" />-->
-
-
         </LinearLayout>
-
-        <!--        <ListView-->
-        <!--            android:id="@+id/list_view_cows"-->
-        <!--            tools:listitem="@layout/list_view_sapi"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content" />-->
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/sapi_list_inves"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:clipToPadding="false"
             android:overScrollMode="never"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/list_view_sapi" />
-
-        <!--        <androidx.recyclerview.widget.RecyclerView-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:id="@+id/recyclerView"-->
-        <!--            tools:listitem="@layout/list_view_sapi"-->
-        <!--            android:layout_height="match_parent"/>-->
-
+            android:paddingVertical="10dp"
+            android:scrollbars="none"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            tools:listitem="@layout/grid_view_sapi" />
     </LinearLayout>
 
 </FrameLayout>

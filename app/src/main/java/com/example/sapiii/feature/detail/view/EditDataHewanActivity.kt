@@ -151,7 +151,7 @@ class EditDataHewanActivity : BaseActivity() {
             ),
             data = dataKambing.data.copy(
                 usia = binding.etUsiaskg.text.toString(),
-                beratBadan = binding.etBrtbdnSkg.text.toString().toInt()
+                beratBadan = binding.etBrtbdnSkg.text.toString().toDouble()
             )
         )
 
@@ -181,7 +181,7 @@ class EditDataHewanActivity : BaseActivity() {
             ),
             data = dataSapi.data.copy(
                 usia = binding.etUsiaskg.text.toString(),
-                beratBadan = binding.etBrtbdnSkg.text.toString().toInt()
+                beratBadan = binding.etBrtbdnSkg.text.toString().toDouble()
             )
         )
 
