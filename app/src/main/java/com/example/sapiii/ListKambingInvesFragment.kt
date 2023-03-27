@@ -11,8 +11,10 @@ import androidx.fragment.app.viewModels
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.constanst.Constant
 import com.example.sapiii.databinding.FragmentListKambingInvesBinding
+import com.example.sapiii.databinding.FragmentListSapiInvesBinding
 import com.example.sapiii.domain.Kambing
 import com.example.sapiii.feature.invest.DetailInvesmentActivity
+import com.example.sapiii.feature.invest.SapiAdapter2
 import com.example.sapiii.feature.ternakku.kambing.viewmodel.KambingViewModel
 import com.example.sapiii.util.OnItemClick
 
@@ -38,8 +40,13 @@ class ListKambingInvesFragment : BaseFragment(), OnItemClick {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list_kambing_inves, container, false)
+        binding = FragmentListKambingInvesBinding.inflate(layoutInflater)
+
+        adapter = KambingAdapter2(this)
+        refreshListKambing()
+        observe()
+
+        return binding.root
     }
 
     private fun observe() {
