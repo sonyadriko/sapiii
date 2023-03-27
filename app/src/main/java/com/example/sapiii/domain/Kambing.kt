@@ -20,6 +20,8 @@ data class Kambing(
     val kelamin: String = "",
     @SerializedName("asal")
     val asal: String = "",
+    @SerializedName("harga")
+    val harga: Int = 0,
     @SerializedName("kodekandang")
     val kodekandang: String = "",
     @SerializedName("idpmk")

@@ -75,6 +75,7 @@ class TambahDataKambingActivity : BaseActivity() {
                             asal = etAsalKambing.text.toString(),
                             kodekandang = etKodeKandangKambing.text.toString(),
                             idpmk = etPmkKambing.text.toString(),
+                            harga = 0,
                             kedatangan = Kedatangan(
                                 kedatanganHewan = etKdtgKambing.text.toString(),
                                 usiaKedatangan = etUsiadtgKambing.text.toString(),
