@@ -27,9 +27,9 @@ class KesehatanViewModel : BaseViewModel() {
         }
     }
 
-    fun updateKesehatan(sehat: Boolean, onComplete: (isSuccess: Boolean) -> Unit) {
+    fun updateKesehatan(sehat: Boolean, keterangan: String, onComplete: (isSuccess: Boolean) -> Unit) {
         _viewState.value = KesehatanViewState.LOADING
-        val newSapi = dataSapi.copy(kesehatan = kesehatanState.copy(sehat = sehat))
+        val newSapi = dataSapi.copy(kesehatan = kesehatanState.copy(sehat = sehat, keterangan = keterangan))
         sapiRepository.updateSapi(newSapi) { isSuccess ->
             _viewState.value = KesehatanViewState.INITIAL
             onComplete(isSuccess)

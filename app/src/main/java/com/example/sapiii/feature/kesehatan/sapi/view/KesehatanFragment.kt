@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.sapiii.base.BaseFragment
+import com.example.sapiii.constanst.Constant
 import com.example.sapiii.databinding.FragmentKesehatanBinding
 import com.example.sapiii.domain.Sapi
 import com.example.sapiii.feature.kesehatan.sapi.viewmodel.KesehatanViewModel
@@ -65,7 +66,16 @@ class KesehatanFragment : BaseFragment() {
     }
 
     private fun initView() = with(binding) {
+        if (userRepository.role != Constant.Role.PETERNAK) {
+            btnSubmit.isEnabled = false
+            etKeterangnKesehatan.isEnabled = false
+            checkboxVaccine1.isEnabled = false
+            checkboxVaccine2.isEnabled = false
+            checkboxVaccine3.isEnabled = false
+        }
+
         tagSapi.text = dataSapi.tag
+        etKeterangnKesehatan.setText(dataSapi.kesehatan.keterangan)
         val isSehat: Int = if (dataSapi.kesehatan.sehat) 0 else 1
         spinner.setSelection(isSehat)
 
@@ -81,7 +91,10 @@ class KesehatanFragment : BaseFragment() {
         checkboxVaccine3.onCheck(3)
 
         btnSubmit.setOnClickListener {
-            viewModel.updateKesehatan(sehat = spinner.selectedItemPosition == 0) {
+            viewModel.updateKesehatan(
+                sehat = spinner.selectedItemPosition == 0,
+                keterangan = "${etKeterangnKesehatan.text ?: ""}"
+            ) {
                 if (it) {
                     showToast("Sukses")
                     lifecycleScope.launch {

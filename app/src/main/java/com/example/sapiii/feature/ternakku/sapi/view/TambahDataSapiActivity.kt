@@ -93,7 +93,7 @@ class TambahDataSapiActivity : BaseActivity() {
                             ),
                             data = DataHewan(
                                 usia = etUsiaskgSapi.text.toString(),
-                                beratBadan = etBrtbdnSkgSapi.text.toString().toInt(),
+                                beratBadan = etBrtbdnSkgSapi.text.toString().toDouble(),
                                 status = viewModel.status
                             ),
                             pemilik = Pemilik(

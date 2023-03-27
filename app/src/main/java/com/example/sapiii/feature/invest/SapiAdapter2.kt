@@ -5,10 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.sapiii.R
 import com.example.sapiii.domain.Sapi
 import com.example.sapiii.util.OnItemClick
-import kotlinx.android.synthetic.main.list_view_sapi.view.*
+import com.example.sapiii.util.moneyFormatter
+import kotlinx.android.synthetic.main.grid_view_sapi.view.*
 
 class SapiAdapter2(
     private val onItemClick: OnItemClick
@@ -24,7 +26,7 @@ class SapiAdapter2(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SapiViewHolder {
         val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.list_view_sapi, parent, false)
+            .inflate(R.layout.grid_view_sapi, parent, false)
         return SapiViewHolder(itemView)
     }
 
@@ -44,10 +46,15 @@ class SapiAdapter2(
     override fun getItemCount() = sapiList.size
 
     inner class SapiViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        @SuppressLint("SetTextI18n")
         fun bind(sapi: Sapi) {
-            itemView.text_cow_name.text = sapi.tag
-//            itemView.beratTextView.text = sapi.berat.toString()
-            itemView.text_cow_gender.text = sapi.data.status
+            Glide.with(itemView.image_hewan)
+                .load(sapi.image)
+                .placeholder(R.drawable.ic_outline_image_24)
+                .into(itemView.image_hewan)
+            itemView.text_cow_price.text = moneyFormatter(sapi.harga.toLong())
+            itemView.text_cow_weight.text = "${sapi.bobot.bobotReal}kg"
+            itemView.text_cow_gender.text = sapi.kelamin
         }
     }
 }

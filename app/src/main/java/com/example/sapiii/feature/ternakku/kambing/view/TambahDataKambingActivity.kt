@@ -82,7 +82,7 @@ class TambahDataKambingActivity : BaseActivity() {
                             ),
                             data = DataHewan(
                                 usia = etUsiaskgKambing.text.toString(),
-                                beratBadan = etBrtbdnSkgKambing.text.toString().toInt(),
+                                beratBadan = etBrtbdnSkgKambing.text.toString().toDouble(),
                                 status = viewModel.status
                             ),
                             pemilik = Pemilik(
