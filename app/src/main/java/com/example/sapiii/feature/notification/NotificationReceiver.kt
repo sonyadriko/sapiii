@@ -29,8 +29,8 @@ class NotificationReceiver : BroadcastReceiver() {
         // Menambahkan informasi ke dalam bundle notifikasi
         val notificationBuilder = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_notification)
-            .setContentTitle("Waktunya makan!")
-            .setContentText("Saatnya istirahat sejenak!")
+            .setContentTitle("Notifikasi Pakan")
+            .setContentText("saatnya istirahat sejenak, waktunya makan")
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
