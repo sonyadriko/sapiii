@@ -53,7 +53,8 @@ class KambingAdapter2(
                 .into(itemView.image_hewan)
             itemView.text_cow_price.text = moneyFormatter(kmbg.harga.toLong())
             itemView.text_cow_weight.text = "${kmbg.bobot.bobotReal}kg"
-            itemView.text_cow_gender.text = kmbg.kelamin
+            itemView.text_cow_gender.text = kmbg.tag
+
         }
     }
 }

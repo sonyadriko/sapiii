@@ -54,7 +54,7 @@ class SapiAdapter2(
                 .into(itemView.image_hewan)
             itemView.text_cow_price.text = moneyFormatter(sapi.harga.toLong())
             itemView.text_cow_weight.text = "${sapi.bobot.bobotReal}kg"
-            itemView.text_cow_gender.text = sapi.kelamin
+            itemView.text_cow_gender.text = sapi.tag
         }
     }
 }
