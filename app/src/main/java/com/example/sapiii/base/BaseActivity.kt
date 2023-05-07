@@ -2,7 +2,9 @@ package com.example.sapiii.base
 
 import android.app.ProgressDialog
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
+import java.net.URLEncoder
 
 abstract class BaseActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -83,5 +86,24 @@ abstract class BaseActivity : AppCompatActivity() {
         startActivity(
             Intent(this, LoginActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         )
+    }
+
+    fun openWhatsApp(nomor: String, pesan: String? = null) {
+        try {
+            val i = Intent(Intent.ACTION_VIEW)
+            var url = "https://api.whatsapp.com/send?phone=$nomor"
+            if (pesan != null) {
+                val holder = url
+                url = holder + "&text=" + URLEncoder.encode(pesan, "UTF-8")
+            }
+
+            i.setPackage("com.whatsapp")
+            i.data = Uri.parse(url)
+
+            startActivity(i)
+        } catch (e: Exception) {
+            Log.e("ERROR WHATSAPP", e.toString())
+            showToast("Tidak ada WhatApp")
+        }
     }
 }

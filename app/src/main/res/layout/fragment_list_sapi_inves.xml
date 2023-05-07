@@ -30,18 +30,18 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-black"
-                        android:text="@string/katalog_sapi"
                         android:textColor="@color/white"
                         android:textSize="22sp" />
 
                     <ImageView
+                        android:id="@+id/cover"
                         android:layout_width="75dp"
                         android:layout_height="75dp"
-                        android:contentDescription="@string/gambar_sapi"
-                        android:src="@drawable/icon_cow" />
+                        android:contentDescription="@string/gambar_sapi" />
 
                 </LinearLayout>
             </LinearLayout>

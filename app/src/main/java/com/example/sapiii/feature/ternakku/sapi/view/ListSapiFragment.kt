@@ -18,7 +18,6 @@ import com.example.sapiii.databinding.FragmentListSapiBinding
 import com.example.sapiii.domain.Sapi
 import com.example.sapiii.feature.detail.view.DetailHewanActivity
 import com.example.sapiii.feature.detail.view.DetailHewanActivity.Companion.RESULT_DELETE
-import com.example.sapiii.feature.invest.DetailInvesmentActivity
 import com.example.sapiii.feature.kesehatan.sapi.view.KesehatanFragment
 import com.example.sapiii.feature.ternakku.sapi.view.adapter.SapiAdapter
 import com.example.sapiii.feature.ternakku.sapi.viewmodel.SapiViewModel
@@ -68,7 +67,7 @@ class ListSapiFragment : BaseFragment(), OnItemClick {
 
     private fun initView() {
         when (from) {
-            ARG_FROM_KESEHATAN, ARG_FROM_PAKAN, ARG_FROM_TIMBANGAN, ARG_FROM_INVES -> {
+            ARG_FROM_KESEHATAN, ARG_FROM_PAKAN, ARG_FROM_TIMBANGAN -> {
                 binding.btnTambahDataSapi.gone()
             }
             else -> {
@@ -122,12 +121,6 @@ class ListSapiFragment : BaseFragment(), OnItemClick {
                     ?.addToBackStack(null)
                     ?.commit()
             }
-            ARG_FROM_INVES -> {
-                val detailIntent = Intent(context, DetailInvesmentActivity::class.java).apply {
-                    putExtra("namasapiinves", currentItem.tag)
-                }
-                startForResult.launch(detailIntent)
-            }
 
             else -> showToast()
         }
@@ -139,20 +132,10 @@ class ListSapiFragment : BaseFragment(), OnItemClick {
         private const val ARG_FROM_KESEHATAN = "from_kesehatan_arg"
         private const val ARG_FROM_PAKAN = "from_pakan_arg"
         private const val ARG_FROM_TIMBANGAN = "from_timbangan_arg"
-        private const val ARG_FROM_INVES = "from_inves_arg"
 
         fun fromTernakku(): ListSapiFragment {
             val bundle = Bundle().also {
                 it.putString(ARG_FROM, ARG_FROM_TERNAK)
-            }
-            return ListSapiFragment().apply {
-                arguments = bundle
-            }
-        }
-
-        fun fromInves(): ListSapiFragment {
-            val bundle = Bundle().also {
-                it.putString(ARG_FROM, ARG_FROM_INVES)
             }
             return ListSapiFragment().apply {
                 arguments = bundle
