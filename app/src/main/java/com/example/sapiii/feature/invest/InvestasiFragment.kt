@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import com.example.sapiii.ListKambingInvesFragment
 import com.example.sapiii.R
 import com.example.sapiii.base.BaseFragment
 import com.example.sapiii.feature.ternakku.sapi.view.ListSapiFragment
@@ -31,7 +32,6 @@ class InvestasiFragment : BaseFragment() {
                 ?.replace(R.id.frame_layout, listSapi)
                 ?.addToBackStack(null)
                 ?.commit()
-//            (BACKUP))
         }
 
         invesKambing.setOnClickListener {
