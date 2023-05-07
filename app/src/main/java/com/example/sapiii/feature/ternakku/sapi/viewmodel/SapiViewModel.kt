@@ -7,12 +7,20 @@ import com.example.sapiii.domain.Sapi
 
 class SapiViewModel : BaseViewModel() {
     private val onLoadSapi = MutableLiveData<Unit>()
+    private val onLoadKambing = MutableLiveData<Unit>()
     val sapi = Transformations.switchMap(onLoadSapi) {
         sapiRepository.loadSapi()
     }
 
+    val kambing = Transformations.switchMap(onLoadKambing) {
+        kambingRepository.loadKambing()
+    }
 
     fun loadSapi() {
         onLoadSapi.value = Unit
+    }
+
+    fun loadKambing() {
+        onLoadKambing.value = Unit
     }
 }

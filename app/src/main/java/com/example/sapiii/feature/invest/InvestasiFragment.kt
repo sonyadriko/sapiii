@@ -27,7 +27,7 @@ class InvestasiFragment : BaseFragment() {
 //                ?.replace(R.id.frame_layout, listSapi)
 //                ?.addToBackStack(null)
 //                ?.commit()
-            val listSapi = ListSapiInvesFragment()
+            val listSapi = ListSapiInvesFragment.newInstance("sapi")
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(R.id.frame_layout, listSapi)
                 ?.addToBackStack(null)
@@ -35,12 +35,13 @@ class InvestasiFragment : BaseFragment() {
         }
 
         invesKambing.setOnClickListener {
-            val listKmbg = ListKambingInvesFragment()
+            val listSapi = ListSapiInvesFragment.newInstance("kambing")
             activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.frame_layout, listKmbg)
+                ?.replace(R.id.frame_layout, listSapi)
                 ?.addToBackStack(null)
                 ?.commit()
         }
+        // Inflate the layout for this fragment
         return v
     }
 }
