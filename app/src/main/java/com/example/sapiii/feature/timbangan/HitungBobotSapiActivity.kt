@@ -1,22 +1,22 @@
 package com.example.sapiii.feature.timbangan
 
 import android.os.Bundle
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import com.example.sapiii.MqttHandler
+import com.example.sapiii.base.BaseActivity
+import com.example.sapiii.constanst.Constant
 import com.example.sapiii.databinding.ActivityHitungBobotSapiBinding
-import org.eclipse.paho.client.mqttv3.MqttClient
+import com.example.sapiii.repository.BeratRepository
 
 
-class HitungBobotSapiActivity : AppCompatActivity() {
+class HitungBobotSapiActivity : BaseActivity() {
 
+    private val bobotDatabase = BeratRepository.getInstance(Constant.REFERENCE_BERAT_KAMBING)
     private lateinit var binding: ActivityHitungBobotSapiBinding
 
-    val BROKER_URL = "broker.emqx.io"
-    val CLIENT_ID = "Meiratri01"
-
-    // Initialize the MQTT client
-    private var mqttHandler: MqttHandler? = null
+//    val BROKER_URL = "broker.emqx.io"
+//    val CLIENT_ID = "Meiratri01"
+//
+//    // Initialize the MQTT client
+//    private var mqttHandler: MqttHandler? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,9 +24,21 @@ class HitungBobotSapiActivity : AppCompatActivity() {
         binding = ActivityHitungBobotSapiBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        mqttHandler = MqttHandler()
-        mqttHandler!!.connect(BROKER_URL, CLIENT_ID)
+//        mqttHandler = MqttHandler()
+//        mqttHandler!!.connect(BROKER_URL, CLIENT_ID)
+        initView()
         hitung()
+    }
+
+    private fun initView() {
+        bobotDatabase.getBobotHewan(
+            onComplete = {
+                binding.hasilBbsapi.text = it.toString()
+            },
+            onError = {
+                showToast("Data is not found")
+            }
+        )
     }
 
     private fun hitung() {
@@ -45,20 +57,20 @@ class HitungBobotSapiActivity : AppCompatActivity() {
         return atas/10840
     }
 
-    override fun onDestroy() {
-        mqttHandler?.disconnect()
-        super.onDestroy()
-    }
-
-    private fun publishMessage(topic: String, message: String) {
-        Toast.makeText(this, "Publishing message: $message", Toast.LENGTH_SHORT).show()
-        mqttHandler?.publish(topic, message)
-    }
-
-    private fun subscribeToTopic(topic: String) {
-        Toast.makeText(this, "Subscribing to topic $topic", Toast.LENGTH_SHORT).show()
-        mqttHandler?.subscribe(topic)
-    }
+//    override fun onDestroy() {
+//        mqttHandler?.disconnect()
+//        super.onDestroy()
+//    }
+//
+//    private fun publishMessage(topic: String, message: String) {
+//        Toast.makeText(this, "Publishing message: $message", Toast.LENGTH_SHORT).show()
+//        mqttHandler?.publish(topic, message)
+//    }
+//
+//    private fun subscribeToTopic(topic: String) {
+//        Toast.makeText(this, "Subscribing to topic $topic", Toast.LENGTH_SHORT).show()
+//        mqttHandler?.subscribe(topic)
+//    }
 
 
 }
