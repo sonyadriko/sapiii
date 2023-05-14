@@ -9,7 +9,7 @@ import com.example.sapiii.repository.BeratRepository
 
 class HitungBobotSapiActivity : BaseActivity() {
 
-    private val bobotDatabase = BeratRepository.getInstance(Constant.REFERENCE_BERAT_KAMBING)
+    private val bobotDatabase = BeratRepository.getInstance(Constant.REFERENCE_BERAT_SAPI)
     private lateinit var binding: ActivityHitungBobotSapiBinding
 
 //    val BROKER_URL = "broker.emqx.io"

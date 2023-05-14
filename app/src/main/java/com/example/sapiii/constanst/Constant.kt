@@ -16,8 +16,8 @@ object Constant {
     const val REFERENCE_MUTASI_KAMBING = "Mutasi_Kambing"
     const val REFERENCE_PEJANTAN = "Monitoring_Pejantan"
     const val REFERENCE_KEHAMILAN = "Monitoring_Kehamilan"
-    const val REFERENCE_BERAT_SAPI = "BeratSapi"
-    const val REFERENCE_BERAT_KAMBING = "BeratKambing"
+    const val REFERENCE_BERAT_SAPI = "Berat_Sapi"
+    const val REFERENCE_BERAT_KAMBING = "Berat_Kambing"
 
 
 
