@@ -21,11 +21,14 @@ class HitungBobotKambingActivity : BaseActivity() {
     }
 
     private fun initView() {
+        showProgressDialog()
         bobotDatabase.getBobotHewan(
             onComplete = {
-                binding.hasilBbkambing.text = it.toString()
+                dismissProgressDialog()
+                binding.hasilBbkambing.text = it
             },
             onError = {
+                dismissProgressDialog()
                 showToast("Data is not found")
             }
         )

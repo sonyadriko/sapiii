@@ -31,11 +31,14 @@ class HitungBobotSapiActivity : BaseActivity() {
     }
 
     private fun initView() {
+        showProgressDialog()
         bobotDatabase.getBobotHewan(
             onComplete = {
-                binding.hasilBbsapi.text = it.toString()
+                dismissProgressDialog()
+                binding.hasilBbsapi.text = it
             },
             onError = {
+                dismissProgressDialog()
                 showToast("Data is not found")
             }
         )
