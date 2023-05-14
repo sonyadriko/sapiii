@@ -1,11 +1,9 @@
 package com.example.sapiii.repository
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.example.sapiii.constanst.Constant
 import com.google.firebase.database.*
 
-class BeratRepository constructor (
+class BeratRepository constructor(
     private val hewan: String
 ) {
     private val databaseReference: DatabaseReference =
@@ -26,10 +24,9 @@ class BeratRepository constructor (
     }
 
     fun getBobotHewan(
-        onComplete: (data: Int) -> Unit,
+        onComplete: (data: String) -> Unit,
         onError: (error: Exception) -> Unit
-    ): LiveData<Int> {
-        val data = MutableLiveData<Int>()
+    ) {
         val child: String = if (hewan.equals(Constant.REFERENCE_BERAT_KAMBING, true)) {
             Constant.REFERENCE_BERAT_KAMBING
         } else Constant.REFERENCE_BERAT_SAPI
@@ -38,7 +35,7 @@ class BeratRepository constructor (
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     try {
-                        onComplete(snapshot.value as Int)
+                        onComplete(snapshot.value.toString())
                     } catch (e: Exception) {
                         onError(e)
                     }
@@ -48,7 +45,5 @@ class BeratRepository constructor (
                     onError(error.toException())
                 }
             })
-
-        return data
     }
 }
