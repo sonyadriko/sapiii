@@ -1,12 +1,14 @@
 package com.example.sapiii.feature.timbangan
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.example.sapiii.R
+import com.example.sapiii.base.BaseActivity
+import com.example.sapiii.constanst.Constant
 import com.example.sapiii.databinding.ActivityHitungBobotKambingBinding
+import com.example.sapiii.repository.BeratRepository
 
-class HitungBobotKambingActivity : AppCompatActivity() {
+class HitungBobotKambingActivity : BaseActivity() {
 
+    private val bobotDatabase = BeratRepository.getInstance(Constant.REFERENCE_BERAT_KAMBING)
     private lateinit var binding: ActivityHitungBobotKambingBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +16,19 @@ class HitungBobotKambingActivity : AppCompatActivity() {
         binding = ActivityHitungBobotKambingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initView()
         hitung()
+    }
+
+    private fun initView() {
+        bobotDatabase.getBobotHewan(
+            onComplete = {
+                binding.hasilBbkambing.text = it.toString()
+            },
+            onError = {
+                showToast("Data is not found")
+            }
+        )
     }
 
     private fun hitung() {
