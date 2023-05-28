@@ -106,6 +106,8 @@ class DetailGrowthFragment : BaseFragment() {
             // axis setting
             xAxis.enableGridDashedLine(10f, 10f, 0f)
             axisLeft.enableGridDashedLine(10f, 10f, 0f)
+
+            xAxis.axisMinimum = 1f
             axisLeft.axisMinimum = 0f
             axisLeft.mAxisMaximum = 200f
 
@@ -259,17 +261,21 @@ class DetailGrowthFragment : BaseFragment() {
     }
 
     private fun setData(target: List<Int>, real: List<Int>) = with(binding) {
+        binding.cartGraph.apply {
+            xAxis.setLabelCount(target.size, true)
+        }
+
         val values1: ArrayList<Entry> = ArrayList()
         val values2: ArrayList<Entry> = ArrayList()
 
         for (i in real.indices) {
             val newFloat: Float = real[i].toFloat()
-            values2.add(Entry(i.toFloat(), newFloat))
+            values2.add(Entry((i+1).toFloat(), newFloat))
         }
 
         for (i in target.indices) {
             val newFloat: Float = target[i].toFloat()
-            values1.add(Entry(i.toFloat(), newFloat))
+            values1.add(Entry((i+1).toFloat(), newFloat))
         }
 
         val set1: LineDataSet
