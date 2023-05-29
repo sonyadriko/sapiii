@@ -12,20 +12,11 @@ class HitungBobotSapiActivity : BaseActivity() {
     private val bobotDatabase = BeratRepository.getInstance(Constant.REFERENCE_BERAT_SAPI)
     private lateinit var binding: ActivityHitungBobotSapiBinding
 
-//    val BROKER_URL = "broker.emqx.io"
-//    val CLIENT_ID = "Meiratri01"
-//
-//    // Initialize the MQTT client
-//    private var mqttHandler: MqttHandler? = null
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHitungBobotSapiBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        mqttHandler = MqttHandler()
-//        mqttHandler!!.connect(BROKER_URL, CLIENT_ID)
         initView()
         hitung()
     }
@@ -59,21 +50,5 @@ class HitungBobotSapiActivity : BaseActivity() {
         val atas = ld2 * pb
         return atas/10840
     }
-
-//    override fun onDestroy() {
-//        mqttHandler?.disconnect()
-//        super.onDestroy()
-//    }
-//
-//    private fun publishMessage(topic: String, message: String) {
-//        Toast.makeText(this, "Publishing message: $message", Toast.LENGTH_SHORT).show()
-//        mqttHandler?.publish(topic, message)
-//    }
-//
-//    private fun subscribeToTopic(topic: String) {
-//        Toast.makeText(this, "Subscribing to topic $topic", Toast.LENGTH_SHORT).show()
-//        mqttHandler?.subscribe(topic)
-//    }
-
 
 }
